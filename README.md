@@ -1,4 +1,4 @@
-# 10月13日|V2ray/SSR/Shadowrocket/Clash每天更新22.5M/S免费节点订阅链接  更新时间 2024-10-13 09:17:09
+# 10月14日|Clash/Shadowrocket/SSR/V2ray每天更新22.8M/S免费节点订阅链接，Clash便宜机场订阅  更新时间 2024-10-14 10:47:40
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clash-nodes.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://clash-nodes.github.io/uploads/2024/10/0-20241013.yaml
-- https://clash-nodes.github.io/uploads/2024/10/1-20241013.yaml
-- https://clash-nodes.github.io/uploads/2024/10/2-20241013.yaml
-- https://clash-nodes.github.io/uploads/2024/10/3-20241013.yaml
-- https://clash-nodes.github.io/uploads/2024/10/4-20241013.yml
+- https://clash-nodes.github.io/uploads/2024/10/0-20241014.yaml
+- https://clash-nodes.github.io/uploads/2024/10/1-20241014.yaml
+- https://clash-nodes.github.io/uploads/2024/10/2-20241014.yaml
+- https://clash-nodes.github.io/uploads/2024/10/3-20241014.yaml
+- https://clash-nodes.github.io/uploads/2024/10/4-20241014.yml
 
 ### V2ray订阅链接
 
-- https://clash-nodes.github.io/uploads/2024/10/0-20241013.txt
-- https://clash-nodes.github.io/uploads/2024/10/1-20241013.txt
-- https://clash-nodes.github.io/uploads/2024/10/2-20241013.txt
-- https://clash-nodes.github.io/uploads/2024/10/3-20241013.txt
-- https://clash-nodes.github.io/uploads/2024/10/4-20241013.txt
+- https://clash-nodes.github.io/uploads/2024/10/0-20241014.txt
+- https://clash-nodes.github.io/uploads/2024/10/1-20241014.txt
+- https://clash-nodes.github.io/uploads/2024/10/2-20241014.txt
+- https://clash-nodes.github.io/uploads/2024/10/3-20241014.txt
+- https://clash-nodes.github.io/uploads/2024/10/4-20241014.txt
 
 ## 更多clash节点订阅 ：
 
