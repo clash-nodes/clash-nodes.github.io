@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-22830.htm" />
+    <title>kafka生产者发送消息可靠性</title>
+        <meta name="description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
+        <meta charset="utf-8">
+    <link rel="icon" href="__ADDON__/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">kafka生产者发送消息可靠性</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别</p> <p><strong>kafka提供了3种ACK的应答机制</strong></p> <ul> <li>acks=0，生产者发送过来数据就不管了，可靠性较差，效率高；</li> <li>acks=1，生产者发送过来数据Leader应答，可靠性中等，效率中等；</li> <li>acks=-1，生产者发送过来数据Leader和ISR队列里面所有Follwer应答，可靠性高，效率低；</li> </ul> <p>在生产环境中，acks=0很少使用；acks=1，一般用于传输普通日志，允许丢个别数据；acks=-1,一般用于传输和钱相关的数据,对可靠性要求比较高的场景。</p> <p>下面用代码演示下消息的生产段的ACK配置代码</p> <pre><code class="language-java">import org.apache.kafka.clients.producer.KafkaProducer; import org.apache.kafka.clients.producer.ProducerConfig; import org.apache.kafka.clients.producer.ProducerRecord;  import java.util.Properties;  public class ProducerAck {      public static void main(String[] args) throws Exception {          // 1. 创建 kafka 生产者的配置对象         Properties properties = new Properties();         // 2. 给 kafka 配置对象添加配置信息：bootstrap.servers         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "IP:9092");          properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");          // 设置 acks ACKS_CONFIG 可选择的值有： 0 1 all ，分别对应ACK的3种级别         properties.put(ProducerConfig.ACKS_CONFIG, "all");         // 重试次数 retries，默认是 int 最大值，2147483647         properties.put(ProducerConfig.RETRIES_CONFIG, 3);          // 3. 创建 kafka 生产者对象         KafkaProducer&lt;String, String&gt; kafkaProducer = new KafkaProducer&lt;String, String&gt;(properties);         System.out.println("开始发送数据");         // 4. 调用 send 方法,发送消息         for (int i = 0; i &lt; 5; i++) {             kafkaProducer.send(new ProducerRecord&lt;&gt;("zcy222","congge " + i));         }         // 5. 关闭资源         kafkaProducer.close();     }   }</code></pre> <p>核心代码部分和之前正常发送消息没有太大区别，只需要在属性配置里面添加下面这句代码即可</p> <blockquote> <pre>properties.put(ProducerConfig.ACKS_CONFIG, "all");</pre> </blockquote> <p>同时，建议配合消息发送重试的配置一起使用，这个也是实际场景中常用的一种处理方式</p> <p>运行上面的程序，消息可以正常发送到 ”zcy222“这个topic中</p> <p><img fetchpriority="high" decoding="async" alt="" height="234" src="http://img.555519.xyz/uploads3/20220902/648ecb15083fca203722597a0e4b7b49.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22375.htm">宠物领养活动宣传语（宠物领养活动方案）</a></p>
+                                        <p>下一个：<a href="/news/article-22831.htm">安安宠物医院官网（安安宠物医院简介）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-ssr-subscribe.htm" title="12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅">12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-free-shadowrocket-node.htm" title="8月19日|SSR/Clash/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接">8月19日|SSR/Clash/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-18-free-ssr-subscribe.htm" title="4月18日|SSR/Clash/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接">4月18日|SSR/Clash/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-free-v2ray-subscribe.htm" title="8月18日|Clash/V2ray/Shadowrocket/SSR每天更新19M/S免费节点订阅链接">8月18日|Clash/V2ray/Shadowrocket/SSR每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-15-free-clash.htm" title="7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接">7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-free-node-subscribe.htm" title="9月16日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接">9月16日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-shadowrocket-node.htm" title="8月15日|Shadowrocket/V2ray/SSR/Clash每天更新18.7M/S免费节点订阅链接">8月15日|Shadowrocket/V2ray/SSR/Clash每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-ssr-subscribe.htm" title="12月2日|SSR/Shadowrocket/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅">12月2日|SSR/Shadowrocket/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-18974.htm" title="附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-ssr-node.htm" title="9月4日|Shadowrocket/Clash/V2ray/SSR每天更新22M/S免费节点订阅链接">9月4日|Shadowrocket/Clash/V2ray/SSR每天更新22M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
