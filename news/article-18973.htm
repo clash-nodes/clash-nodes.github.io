@@ -6,7 +6,7 @@
     <title>深入理解 Go 中的字符串_Golang</title>
         <meta name="description" content="目录  字符串的本质 字符串的底层原理    字符串的本质 在编程语言中，字符串发挥着重要的角色。字符串背后的数据结构一般有两种类型：  一种在编译时指定长度，不能修改 一种具有动态的长度，可以修改。" />
         <meta charset="utf-8">
-    <link rel="icon" href="__ADDON__/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="AerobicsFit template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,7 +106,8 @@
                     <div class="col-md-9">
                         <div class="row row-eq-height">
                             <div class="col-md-12">
-                                                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">字符串的本质</a></li> <li><a href="#_label1" rel="nofollow">字符串的底层原理</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>字符串的本质</h2> <p>在编程语言中，字符串发挥着重要的角色。<strong>字符串背后的数据结构一般有两种类型：</strong></p> <ul> <li>一种在编译时指定长度，不能修改</li> <li>一种具有动态的长度，可以修改。</li> </ul> <p><strong>比如：</strong>与Python 中的字符串一样，Go 语言中的字符串不能被修改，只能被访问。<br />在 Python 中，<strong>如果改变一个字符串的值会得到如下结果：</strong></p> <div class="ay1code"> <pre class="brush:go;">&gt;&gt;&gt; hi = "Hello"  &gt;&gt;&gt; hi  'Hello'  &gt;&gt;&gt; hi[0] = 'h'  Traceback (most recent call last):  File "&lt;stdin&gt;", line 1, in &lt;module&gt;  TypeError: 'str' object does not support item assignment  &gt;&gt;&gt;</pre> </div> <p><strong>同理，在 Go 中也一样：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  hello[1] = 'h'  fmt.Println(hello)  }  // # command-line-arguments  // string_in_go/main.go:8:11: cannot assign to hello[1] (strings are immutable)</pre> </div> <p><strong>字符串的终止方式有两种：</strong></p> <ul> <li>一种是 C 语言的隐式声明，以字符 “\0” 作为终止符</li> <li>一种是 Go 语言的显式声明</li> </ul> <p><strong>Go 语言的 string 的表示结构如下：</strong></p> <div class="ay1code"> <pre class="brush:go;">type StringHeader struct {  Data uintptr // Data 指向底层的字符数组  Len int // Len 用来表示字符串的长度  }</pre> </div> <p>字符串的<strong>本质</strong>上是一串字符数组，每个字符都在存储时对应了一个或多个整数。用这些整数来表示字符，比如打印 <code>hello</code> 的字节数组如下：</p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  for i := 0; i &lt; len(hello); i++ {  fmt.Printf("%x ", hello[i])  }  }  // Output: 48 65 6c 6c 6f</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>字符串的底层原理</h2> <p><strong>字符串有特殊标识，有两种声明方式：</strong></p> <blockquote> <p>var s1 string = `hello world`<br />var s2 string = "hello world"</p> </blockquote> <p>字符串常量在词法解析阶段最终会被标记为 StringLit 类型的 Token 并被传递到编译的下一个阶段。<br />在语法分析阶段，采取递归下降的方式读取 UTF-8 字符，单撇号或双引号是字符串的标识。</p> <p><strong>分析的逻辑位于  syntax/scanner.go 文件中:</strong></p> <div class="ay1code"> <pre class="brush:go;">func (s *scanner) stdString() {  ok := true  s.nextch()  for {  if s.ch == '"' {  s.nextch()  break  }  if s.ch == '\\' {  s.nextch()  if !s.escape('"') {  ok = false  }  continue  }  if s.ch == '\n' {  s.errorf("newline in string")  ok = false  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  s.setLit(StringLit, ok)  }  func (s *scanner) rawString() {  ok := true  s.nextch()  for {  if s.ch == '`' {  s.nextch()  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  // We leave CRs in the string since they are part of the  // literal (even though they are not part of the literal  // value).  s.setLit(StringLit, ok)  }</pre> </div> <p>从上面的代码可以看到，Go 中有两种字符串的检查：一种是标准字符串以双引号定义 <code>""</code>，如 <code>"Hello,World"</code>, 还有一种是原始字符串，用 \<code>\</code> 定义的， 因此针对两种字符串有两种语法分析函数：</p> <ul> <li>如果是单撇号，则调用 <code>rawString </code>函数</li> <li>如果是双引号，则调用 <code>stdString</code> 函数</li> </ul> 			                <div class="clearfix"></div>
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">字符串的本质</a></li> <li><a href="#_label1" rel="nofollow">字符串的底层原理</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>字符串的本质</h2> <p>在编程语言中，字符串发挥着重要的角色。<strong>字符串背后的数据结构一般有两种类型：</strong></p> <ul> <li>一种在编译时指定长度，不能修改</li> <li>一种具有动态的长度，可以修改。</li> </ul> <p><strong>比如：</strong>与Python 中的字符串一样，Go 语言中的字符串不能被修改，只能被访问。<br />在 Python 中，<strong>如果改变一个字符串的值会得到如下结果：</strong></p> <div class="ay1code"> <pre class="brush:go;">&gt;&gt;&gt; hi = "Hello"  &gt;&gt;&gt; hi  'Hello'  &gt;&gt;&gt; hi[0] = 'h'  Traceback (most recent call last):  File "&lt;stdin&gt;", line 1, in &lt;module&gt;  TypeError: 'str' object does not support item assignment  &gt;&gt;&gt;</pre> </div> <p><strong>同理，在 Go 中也一样：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  hello[1] = 'h'  fmt.Println(hello)  }  // # command-line-arguments  // string_in_go/main.go:8:11: cannot assign to hello[1] (strings are immutable)</pre> </div> <p><strong>字符串的终止方式有两种：</strong></p> <ul> <li>一种是 C 语言的隐式声明，以字符 “\0” 作为终止符</li> <li>一种是 Go 语言的显式声明</li> </ul> <p><strong>Go 语言的 string 的表示结构如下：</strong></p> <div class="ay1code"> <pre class="brush:go;">type StringHeader struct {  Data uintptr // Data 指向底层的字符数组  Len int // Len 用来表示字符串的长度  }</pre> </div> <p>字符串的<strong>本质</strong>上是一串字符数组，每个字符都在存储时对应了一个或多个整数。用这些整数来表示字符，比如打印 <code>hello</code> 的字节数组如下：</p> <div class="ay1code"> <pre class="brush:go;">package main  import "fmt"  func main() {  var hello = "Hello"  for i := 0; i &lt; len(hello); i++ {  fmt.Printf("%x ", hello[i])  }  }  // Output: 48 65 6c 6c 6f</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>字符串的底层原理</h2> <p><strong>字符串有特殊标识，有两种声明方式：</strong></p> <blockquote> <p>var s1 string = `hello world`<br />var s2 string = "hello world"</p> </blockquote> <p>字符串常量在词法解析阶段最终会被标记为 StringLit 类型的 Token 并被传递到编译的下一个阶段。<br />在语法分析阶段，采取递归下降的方式读取 UTF-8 字符，单撇号或双引号是字符串的标识。</p> <p><strong>分析的逻辑位于  syntax/scanner.go 文件中:</strong></p> <div class="ay1code"> <pre class="brush:go;">func (s *scanner) stdString() {  ok := true  s.nextch()  for {  if s.ch == '"' {  s.nextch()  break  }  if s.ch == '\\' {  s.nextch()  if !s.escape('"') {  ok = false  }  continue  }  if s.ch == '\n' {  s.errorf("newline in string")  ok = false  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  s.setLit(StringLit, ok)  }  func (s *scanner) rawString() {  ok := true  s.nextch()  for {  if s.ch == '`' {  s.nextch()  break  }  if s.ch &lt; 0 {  s.errorAtf(0, "string not terminated")  ok = false  break  }  s.nextch()  }  // We leave CRs in the string since they are part of the  // literal (even though they are not part of the literal  // value).  s.setLit(StringLit, ok)  }</pre> </div> <p>从上面的代码可以看到，Go 中有两种字符串的检查：一种是标准字符串以双引号定义 <code>""</code>，如 <code>"Hello,World"</code>, 还有一种是原始字符串，用 \<code>\</code> 定义的， 因此针对两种字符串有两种语法分析函数：</p> <ul> <li>如果是单撇号，则调用 <code>rawString </code>函数</li> <li>如果是双引号，则调用 <code>stdString</code> 函数</li> </ul> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>下一个：<a href="/news/article-18974.htm">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></p>
                                     </div>
@@ -120,16 +121,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-6-17-free-clash-subscribe.htm" title="6月17日|SSR/Shadowrocket/Clash/V2ray每天更新21.7M/S免费节点订阅链接">6月17日|SSR/Shadowrocket/Clash/V2ray每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-node-subscribe.htm" title="8月14日|V2ray/Clash/Shadowrocket/SSR每天更新19.6M/S免费节点订阅链接">8月14日|V2ray/Clash/Shadowrocket/SSR每天更新19.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-ssr-subscribe.htm" title="10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接">10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-clash-windows.htm" title="9月9日|Clash/V2ray/Shadowrocket/SSR每天更新18.3M/S免费节点订阅链接">9月9日|Clash/V2ray/Shadowrocket/SSR每天更新18.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-27-clash-node-daily-updates.htm" title="7月27日|Clash/V2ray/SSR/Shadowrocket每天更新20.8M/S免费节点订阅链接">7月27日|Clash/V2ray/SSR/Shadowrocket每天更新20.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-18-clash-v2ray-ss-ssr.htm" title="7月18日|Clash/SSR/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接">7月18日|Clash/SSR/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-subscribe-node.htm" title="11月27日|Clash/V2ray/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅">11月27日|Clash/V2ray/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-1-free-clash.htm" title="8月1日|SSR/V2ray/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接">8月1日|SSR/V2ray/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-19-free-node-subscribe.htm" title="9月19日|V2ray/SSR/Shadowrocket/Clash每天更新19M/S免费节点订阅链接">9月19日|V2ray/SSR/Shadowrocket/Clash每天更新19M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-5-free-clash.htm" title="5月5日|Clash/Shadowrocket/SSR/V2ray每天更新21.4M/S免费节点订阅链接">5月5日|Clash/Shadowrocket/SSR/V2ray每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-shadowrocket-node.htm" title="8月17日|V2ray/Clash/SSR/Shadowrocket每天更新19.8M/S免费节点订阅链接">8月17日|V2ray/Clash/SSR/Shadowrocket每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-clash.htm" title="12月11日|Shadowrocket/Clash/V2ray/SSR每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅">12月11日|Shadowrocket/Clash/V2ray/SSR每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-clash.htm" title="12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅">12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-15-free-ssr-subscribe.htm" title="6月15日|Shadowrocket/Clash/V2ray/SSR每天更新21.3M/S免费节点订阅链接">6月15日|Shadowrocket/Clash/V2ray/SSR每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-23-free-subscribe-node.htm" title="4月23日|Clash/V2ray/Shadowrocket/SSR每天更新22M/S免费节点订阅链接">4月23日|Clash/V2ray/Shadowrocket/SSR每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-free-subscribe-node.htm" title="7月31日|Shadowrocket/SSR/V2ray/Clash每天更新21.5M/S免费节点订阅链接">7月31日|Shadowrocket/SSR/V2ray/Clash每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-clash-v2ray-ss-ssr.htm" title="9月11日|SSR/Shadowrocket/V2ray/Clash每天更新18.4M/S免费节点订阅链接">9月11日|SSR/Shadowrocket/V2ray/Clash每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-17-free-subscribe-node.htm" title="7月17日|Shadowrocket/SSR/V2ray/Clash每天更新22.8M/S免费节点订阅链接">7月17日|Shadowrocket/SSR/V2ray/Clash每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-8-free-shadowrocket-node.htm" title="9月8日|SSR/Shadowrocket/V2ray/Clash每天更新18.7M/S免费节点订阅链接">9月8日|SSR/Shadowrocket/V2ray/Clash每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-clash-subscribe.htm" title="10月31日|Clash/V2ray/SSR/Shadowrocket每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅">10月31日|Clash/V2ray/SSR/Shadowrocket每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
                     </ul>
     </div>
 </div>
@@ -141,7 +142,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -183,6 +184,15 @@
                 <div class="row">
                     <div class="col">
                         <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <p>
                                 ClashNodes分享订阅站 版权所有
                                 <br />

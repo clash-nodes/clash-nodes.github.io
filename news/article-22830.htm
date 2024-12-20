@@ -6,7 +6,7 @@
     <title>kafka生产者发送消息可靠性</title>
         <meta name="description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
         <meta charset="utf-8">
-    <link rel="icon" href="__ADDON__/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="AerobicsFit template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,7 +106,8 @@
                     <div class="col-md-9">
                         <div class="row row-eq-height">
                             <div class="col-md-12">
-                                                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别</p> <p><strong>kafka提供了3种ACK的应答机制</strong></p> <ul> <li>acks=0，生产者发送过来数据就不管了，可靠性较差，效率高；</li> <li>acks=1，生产者发送过来数据Leader应答，可靠性中等，效率中等；</li> <li>acks=-1，生产者发送过来数据Leader和ISR队列里面所有Follwer应答，可靠性高，效率低；</li> </ul> <p>在生产环境中，acks=0很少使用；acks=1，一般用于传输普通日志，允许丢个别数据；acks=-1,一般用于传输和钱相关的数据,对可靠性要求比较高的场景。</p> <p>下面用代码演示下消息的生产段的ACK配置代码</p> <pre><code class="language-java">import org.apache.kafka.clients.producer.KafkaProducer; import org.apache.kafka.clients.producer.ProducerConfig; import org.apache.kafka.clients.producer.ProducerRecord;  import java.util.Properties;  public class ProducerAck {      public static void main(String[] args) throws Exception {          // 1. 创建 kafka 生产者的配置对象         Properties properties = new Properties();         // 2. 给 kafka 配置对象添加配置信息：bootstrap.servers         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "IP:9092");          properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");          // 设置 acks ACKS_CONFIG 可选择的值有： 0 1 all ，分别对应ACK的3种级别         properties.put(ProducerConfig.ACKS_CONFIG, "all");         // 重试次数 retries，默认是 int 最大值，2147483647         properties.put(ProducerConfig.RETRIES_CONFIG, 3);          // 3. 创建 kafka 生产者对象         KafkaProducer&lt;String, String&gt; kafkaProducer = new KafkaProducer&lt;String, String&gt;(properties);         System.out.println("开始发送数据");         // 4. 调用 send 方法,发送消息         for (int i = 0; i &lt; 5; i++) {             kafkaProducer.send(new ProducerRecord&lt;&gt;("zcy222","congge " + i));         }         // 5. 关闭资源         kafkaProducer.close();     }   }</code></pre> <p>核心代码部分和之前正常发送消息没有太大区别，只需要在属性配置里面添加下面这句代码即可</p> <blockquote> <pre>properties.put(ProducerConfig.ACKS_CONFIG, "all");</pre> </blockquote> <p>同时，建议配合消息发送重试的配置一起使用，这个也是实际场景中常用的一种处理方式</p> <p>运行上面的程序，消息可以正常发送到 ”zcy222“这个topic中</p> <p><img fetchpriority="high" decoding="async" alt="" height="234" src="http://img.555519.xyz/uploads3/20220902/648ecb15083fca203722597a0e4b7b49.jpg"></p> </div> 			                <div class="clearfix"></div>
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别</p> <p><strong>kafka提供了3种ACK的应答机制</strong></p> <ul> <li>acks=0，生产者发送过来数据就不管了，可靠性较差，效率高；</li> <li>acks=1，生产者发送过来数据Leader应答，可靠性中等，效率中等；</li> <li>acks=-1，生产者发送过来数据Leader和ISR队列里面所有Follwer应答，可靠性高，效率低；</li> </ul> <p>在生产环境中，acks=0很少使用；acks=1，一般用于传输普通日志，允许丢个别数据；acks=-1,一般用于传输和钱相关的数据,对可靠性要求比较高的场景。</p> <p>下面用代码演示下消息的生产段的ACK配置代码</p> <pre><code class="language-java">import org.apache.kafka.clients.producer.KafkaProducer; import org.apache.kafka.clients.producer.ProducerConfig; import org.apache.kafka.clients.producer.ProducerRecord;  import java.util.Properties;  public class ProducerAck {      public static void main(String[] args) throws Exception {          // 1. 创建 kafka 生产者的配置对象         Properties properties = new Properties();         // 2. 给 kafka 配置对象添加配置信息：bootstrap.servers         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "IP:9092");          properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");          // 设置 acks ACKS_CONFIG 可选择的值有： 0 1 all ，分别对应ACK的3种级别         properties.put(ProducerConfig.ACKS_CONFIG, "all");         // 重试次数 retries，默认是 int 最大值，2147483647         properties.put(ProducerConfig.RETRIES_CONFIG, 3);          // 3. 创建 kafka 生产者对象         KafkaProducer&lt;String, String&gt; kafkaProducer = new KafkaProducer&lt;String, String&gt;(properties);         System.out.println("开始发送数据");         // 4. 调用 send 方法,发送消息         for (int i = 0; i &lt; 5; i++) {             kafkaProducer.send(new ProducerRecord&lt;&gt;("zcy222","congge " + i));         }         // 5. 关闭资源         kafkaProducer.close();     }   }</code></pre> <p>核心代码部分和之前正常发送消息没有太大区别，只需要在属性配置里面添加下面这句代码即可</p> <blockquote> <pre>properties.put(ProducerConfig.ACKS_CONFIG, "all");</pre> </blockquote> <p>同时，建议配合消息发送重试的配置一起使用，这个也是实际场景中常用的一种处理方式</p> <p>运行上面的程序，消息可以正常发送到 ”zcy222“这个topic中</p> <p><img fetchpriority="high" decoding="async" alt="" height="234" src="http://img.555519.xyz/uploads3/20220902/648ecb15083fca203722597a0e4b7b49.jpg"></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-22375.htm">宠物领养活动宣传语（宠物领养活动方案）</a></p>
                                         <p>下一个：<a href="/news/article-22831.htm">安安宠物医院官网（安安宠物医院简介）</a></p>
@@ -121,16 +122,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-4-25-free-clash-subscribe.htm" title="4月25日|Shadowrocket/Clash/V2ray/SSR每天更新21.9M/S免费节点订阅链接">4月25日|Shadowrocket/Clash/V2ray/SSR每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-ssr-subscribe.htm" title="12月2日|SSR/Shadowrocket/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅">12月2日|SSR/Shadowrocket/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-v2ray-subscribe.htm" title="10月12日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接">10月12日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-5-clash-node-daily-updates.htm" title="7月5日|Shadowrocket/SSR/V2ray/Clash每天更新18.6M/S免费节点订阅链接">7月5日|Shadowrocket/SSR/V2ray/Clash每天更新18.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22375.htm" title="宠物领养活动宣传语（宠物领养活动方案）">宠物领养活动宣传语（宠物领养活动方案）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-4-28-free-subscribe-node.htm" title="4月28日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接">4月28日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-clash-v2ray-ss-ssr.htm" title="9月2日|SSR/Shadowrocket/Clash/V2ray每天更新22.5M/S免费节点订阅链接">9月2日|SSR/Shadowrocket/Clash/V2ray每天更新22.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-15-free-clash.htm" title="7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接">7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22373.htm" title="宠物医院投诉电话多少号（宠物医院投诉怎么投诉）">宠物医院投诉电话多少号（宠物医院投诉怎么投诉）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-13-node-share-links.htm" title="5月13日|V2ray/Shadowrocket/SSR/Clash每天更新21.7M/S免费节点订阅链接">5月13日|V2ray/Shadowrocket/SSR/Clash每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-free-node-subscribe.htm" title="9月3日|Shadowrocket/V2ray/Clash/SSR每天更新20.4M/S免费节点订阅链接">9月3日|Shadowrocket/V2ray/Clash/SSR每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-node-share.htm" title="11月4日|V2ray/Shadowrocket/SSR/Clash每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅">11月4日|V2ray/Shadowrocket/SSR/Clash每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-22830.htm" title="kafka生产者发送消息可靠性">kafka生产者发送消息可靠性</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-30-free-shadowrocket-node.htm" title="5月30日|SSR/Shadowrocket/Clash/V2ray每天更新20.8M/S免费节点订阅链接">5月30日|SSR/Shadowrocket/Clash/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-18-clash-v2ray-ss-ssr.htm" title="7月18日|Clash/SSR/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接">7月18日|Clash/SSR/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-ssr-node.htm" title="6月21日|Clash/Shadowrocket/V2ray/SSR每天更新22M/S免费节点订阅链接">6月21日|Clash/Shadowrocket/V2ray/SSR每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23750.htm" title="动物医院评论（动物医院评价）">动物医院评论（动物医院评价）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-16-free-node-subscribe-links.htm" title="4月16日|SSR/V2ray/Shadowrocket/Clash每天更新19.9M/S免费节点订阅链接">4月16日|SSR/V2ray/Shadowrocket/Clash每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-ssr-subscribe.htm" title="11月16日|V2ray/SSR/Shadowrocket/Clash每天更新21.2M/S免费节点订阅链接，Clash便宜机场订阅">11月16日|V2ray/SSR/Shadowrocket/Clash每天更新21.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-clash-v2ray-ss-ssr.htm" title="8月16日|Clash/SSR/V2ray/Shadowrocket每天更新19.3M/S免费节点订阅链接">8月16日|Clash/SSR/V2ray/Shadowrocket每天更新19.3M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -142,7 +143,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -184,6 +185,15 @@
                 <div class="row">
                     <div class="col">
                         <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <p>
                                 ClashNodes分享订阅站 版权所有
                                 <br />
