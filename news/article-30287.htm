@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-30287.htm" />
+    <title>用 Python 定义 Schema 并生成 Parquet 文件</title>
+        <meta name="description" content="  原来用 Java 和 Python 实现过 Avro 转换成 Parquet 格式，所以 Schema 都是在 Avro 中定义的。这里要尝试的是如何定义 Parquet 的 Schema, 然后" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">用 Python 定义 Schema 并生成 Parquet 文件</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <p>  原来用 Java 和 Python 实现过 Avro 转换成 Parquet 格式，所以 Schema 都是在 Avro 中定义的。这里要尝试的是如何定义 Parquet 的 Schema, 然后据此填充数据并生成 Parquet 文件。</p> <p>  本文将演示两个例子，一个是没有层级的两个字段，另一个是含于嵌套级别的字段，将要使用到的 Python 模块有 pandas 和 pyarrow</p> <h3> <a id="_4" rel="nofollow"></a>简单字段定义</h3> <h3> <a id="_Schema__Parquet__5" rel="nofollow"></a>定义 Schema 并生成 Parquet 文件</h3> <pre><code class="prism language-bash"><span class="token function">import</span> pandas as pd <span class="token function">import</span> pyarrow as pa <span class="token function">import</span> pyarrow.parquet as pq  <span class="token comment"># 定义 Schema</span> schema <span class="token operator">=</span> pa.schema<span class="token punctuation">(</span><span class="token punctuation">[</span>     <span class="token punctuation">(</span><span class="token string">'id'</span>, pa.int32<span class="token punctuation">(</span><span class="token punctuation">))</span>,     <span class="token punctuation">(</span><span class="token string">'email'</span>, pa.string<span class="token punctuation">(</span><span class="token punctuation">))</span> <span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 准备数据</span> ids <span class="token operator">=</span> pa.array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span>, <span class="token number">2</span><span class="token punctuation">]</span>, <span class="token builtin class-name">type</span> <span class="token operator">=</span> pa.int32<span class="token punctuation">(</span><span class="token punctuation">))</span> emails <span class="token operator">=</span> pa.array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'first@example.com'</span>, <span class="token string">'second@example.com'</span><span class="token punctuation">]</span>, pa.string<span class="token punctuation">(</span><span class="token punctuation">))</span>  <span class="token comment"># 生成 Parquet 数据</span> batch <span class="token operator">=</span> pa.RecordBatch.from_arrays<span class="token punctuation">(</span>     <span class="token punctuation">[</span>ids, emails<span class="token punctuation">]</span>,     schema <span class="token operator">=</span> schema <span class="token punctuation">)</span> table <span class="token operator">=</span> pa.Table.from_batches<span class="token punctuation">(</span><span class="token punctuation">[</span>batch<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 写 Parquet 文件 plain.parquet</span> pq.write_table<span class="token punctuation">(</span>table, <span class="token string">'plain.parquet'</span><span class="token punctuation">)</span> <span class="token function">import</span> pandas as pd  <span class="token function">import</span> pyarrow as pa  <span class="token function">import</span> pyarrow <span class="token builtin class-name">.</span> parquet as pq  <span class="token comment"># 定义 Schema</span>  schema <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> schema <span class="token punctuation">(</span> <span class="token punctuation">[</span>       <span class="token punctuation">(</span> <span class="token string">'id'</span> , pa <span class="token builtin class-name">.</span> int32 <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> ,       <span class="token punctuation">(</span> <span class="token string">'email'</span> , pa <span class="token builtin class-name">.</span> string <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>  <span class="token punctuation">]</span> <span class="token punctuation">)</span>  <span class="token comment"># 准备数据</span>  ids <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> array <span class="token punctuation">(</span> <span class="token punctuation">[</span> <span class="token number">1</span> , <span class="token number">2</span> <span class="token punctuation">]</span> , <span class="token builtin class-name">type</span> <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> int32 <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>  emails <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> array <span class="token punctuation">(</span> <span class="token punctuation">[</span> <span class="token string">'first@example.com'</span> , <span class="token string">'second@example.com'</span> <span class="token punctuation">]</span> , pa <span class="token builtin class-name">.</span> string <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>  <span class="token comment"># 生成 Parquet 数据</span>  batch <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> RecordBatch <span class="token builtin class-name">.</span> from_arrays <span class="token punctuation">(</span>       <span class="token punctuation">[</span> ids , emails <span class="token punctuation">]</span> ,       schema <span class="token operator">=</span> schema  <span class="token punctuation">)</span>  table <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> Table <span class="token builtin class-name">.</span> from_batches <span class="token punctuation">(</span> <span class="token punctuation">[</span> batch <span class="token punctuation">]</span> <span class="token punctuation">)</span> </code></pre> </h1> <p>pq . write_table ( table , ‘plain.parquet’ )</p> <h3> <a id="_Parquet__70" rel="nofollow"></a>验证 Parquet 数据文件</h3> <p>我们可以用工具 parquet-tools 来查看 plain.parquet 文件的数据和 Schema</p> <pre><code class="prism language-bash"> $ parquet-tools schema plain.parquet  message schema <span class="token punctuation">{<!-- --></span>      optional int32 <span class="token function">id</span><span class="token punctuation">;</span>      optional binary email <span class="token punctuation">(</span>STRING<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span>  $ parquet-tools <span class="token function">cat</span> --json plain.parquet  <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:1,<span class="token string">"email"</span><span class="token builtin class-name">:</span><span class="token string">"first@example.com"</span><span class="token punctuation">}</span>  <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:2,<span class="token string">"email"</span><span class="token builtin class-name">:</span><span class="token string">"second@example.com"</span><span class="token punctuation">}</span>  </code></pre> <p>没问题，与我们期望的一致。也可以用 pyarrow 代码来获取其中的 Schema 和数据</p> <pre><code class="prism language-bash">schema <span class="token operator">=</span> pq.read_schema<span class="token punctuation">(</span><span class="token string">'plain.parquet'</span><span class="token punctuation">)</span> print<span class="token punctuation">(</span>schema<span class="token punctuation">)</span>  <span class="token function">df</span> <span class="token operator">=</span> pd.read_parquet<span class="token punctuation">(</span><span class="token string">'plain.parquet'</span><span class="token punctuation">)</span> print<span class="token punctuation">(</span>df.to_json<span class="token punctuation">(</span><span class="token punctuation">))</span> schema <span class="token operator">=</span> pq <span class="token builtin class-name">.</span> read_schema <span class="token punctuation">(</span> <span class="token string">'plain.parquet'</span> <span class="token punctuation">)</span>  print <span class="token punctuation">(</span> schema <span class="token punctuation">)</span>  <span class="token function">df</span> <span class="token operator">=</span> pd <span class="token builtin class-name">.</span> read_parquet <span class="token punctuation">(</span> <span class="token string">'plain.parquet'</span> <span class="token punctuation">)</span>  print <span class="token punctuation">(</span> <span class="token function">df</span> <span class="token builtin class-name">.</span> to_json <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> </code></pre> <p>输出为</p> <pre><code class="prism language-bash">id: int32   -- field metadata --   PARQUET:field_id: <span class="token string">'1'</span> email: string   -- field metadata --   PARQUET:field_id: <span class="token string">'2'</span> <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"0"</span>:1,<span class="token string">"1"</span>:2<span class="token punctuation">}</span>,<span class="token string">"email"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"0"</span><span class="token builtin class-name">:</span><span class="token string">"first@example.com"</span>,<span class="token string">"1"</span><span class="token builtin class-name">:</span><span class="token string">"second@example.com"</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token function">id</span> <span class="token builtin class-name">:</span> int32     -- field metadata --     PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'1'</span>  email <span class="token builtin class-name">:</span> string     -- field metadata --     PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'2'</span>  <span class="token punctuation">{<!-- --></span> <span class="token string">"id"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"0"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> , <span class="token string">"1"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> , <span class="token string">"email"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"0"</span> <span class="token builtin class-name">:</span> <span class="token string">"first@example.com"</span> , <span class="token string">"1"</span> <span class="token builtin class-name">:</span> <span class="token string">"second@example.com"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h3> <a id="_119" rel="nofollow"></a>含嵌套字段定义</h3> <p>下面的 Schema 定义加入一个嵌套对象，在 address 下分 email_address 和 post_address，Schema 定义及生成 Parquet 文件的代码如下</p> <pre><code class="prism language-bash"><span class="token function">import</span> pandas as pd <span class="token function">import</span> pyarrow as pa <span class="token function">import</span> pyarrow.parquet as pq  <span class="token comment"># 内部字段</span> address_fields <span class="token operator">=</span> <span class="token punctuation">[</span>     <span class="token punctuation">(</span><span class="token string">'email_address'</span>, pa.string<span class="token punctuation">(</span><span class="token punctuation">))</span>,     <span class="token punctuation">(</span><span class="token string">'post_address'</span>, pa.string<span class="token punctuation">(</span><span class="token punctuation">))</span>, <span class="token punctuation">]</span>  <span class="token comment"># 定义 Parquet Schema，address 嵌套了 address_fields</span> schema <span class="token operator">=</span> pa.schema<span class="token punctuation">(</span>j<span class="token punctuation">)</span>  <span class="token comment"># 准备数据</span> ids <span class="token operator">=</span> pa.array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span>, <span class="token number">2</span><span class="token punctuation">]</span>, <span class="token builtin class-name">type</span> <span class="token operator">=</span> pa.int32<span class="token punctuation">(</span><span class="token punctuation">))</span> addresses <span class="token operator">=</span> pa.array<span class="token punctuation">(</span>     <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'first@example.com'</span>, <span class="token string">'city1'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span><span class="token string">'second@example.com'</span>, <span class="token string">'city2'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>,     pa.struct<span class="token punctuation">(</span>address_fields<span class="token punctuation">)</span> <span class="token punctuation">)</span>  <span class="token comment"># 生成 Parquet 数据</span> batch <span class="token operator">=</span> pa.RecordBatch.from_arrays<span class="token punctuation">(</span>     <span class="token punctuation">[</span>ids, addresses<span class="token punctuation">]</span>,     schema <span class="token operator">=</span> schema <span class="token punctuation">)</span> table <span class="token operator">=</span> pa.Table.from_batches<span class="token punctuation">(</span><span class="token punctuation">[</span>batch<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment"># 写 Parquet 数据到文件</span> pq.write_table<span class="token punctuation">(</span>table, <span class="token string">'nested.parquet'</span><span class="token punctuation">)</span> <span class="token function">import</span> pandas as pd  <span class="token function">import</span> pyarrow as pa  <span class="token function">import</span> pyarrow <span class="token builtin class-name">.</span> parquet as pq  <span class="token comment"># 内部字段</span>  address_fields <span class="token operator">=</span> <span class="token punctuation">[</span>       <span class="token punctuation">(</span> <span class="token string">'email_address'</span> , pa <span class="token builtin class-name">.</span> string <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> ,       <span class="token punctuation">(</span> <span class="token string">'post_address'</span> , pa <span class="token builtin class-name">.</span> string <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> ,  <span class="token punctuation">]</span>  <span class="token comment"># 定义 Parquet Schema，address 嵌套了 address_fields</span>  schema <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> schema <span class="token punctuation">(</span> j <span class="token punctuation">)</span>  <span class="token comment"># 准备数据</span>  ids <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> array <span class="token punctuation">(</span> <span class="token punctuation">[</span> <span class="token number">1</span> , <span class="token number">2</span> <span class="token punctuation">]</span> , <span class="token builtin class-name">type</span> <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> int32 <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span>  addresses <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> array <span class="token punctuation">(</span>       <span class="token punctuation">[</span> <span class="token punctuation">(</span> <span class="token string">'first@example.com'</span> , <span class="token string">'city1'</span> <span class="token punctuation">)</span> , <span class="token punctuation">(</span> <span class="token string">'second@example.com'</span> , <span class="token string">'city2'</span> <span class="token punctuation">)</span> <span class="token punctuation">]</span> ,       pa <span class="token builtin class-name">.</span> struct <span class="token punctuation">(</span> address_fields <span class="token punctuation">)</span>  <span class="token punctuation">)</span>  <span class="token comment"># 生成 Parquet 数据</span>  batch <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> RecordBatch <span class="token builtin class-name">.</span> from_arrays <span class="token punctuation">(</span>       <span class="token punctuation">[</span> ids , addresses <span class="token punctuation">]</span> ,       schema <span class="token operator">=</span> schema  <span class="token punctuation">)</span>  table <span class="token operator">=</span> pa <span class="token builtin class-name">.</span> Table <span class="token builtin class-name">.</span> from_batches <span class="token punctuation">(</span> <span class="token punctuation">[</span> batch <span class="token punctuation">]</span> <span class="token punctuation">)</span>  <span class="token comment"># 写 Parquet 数据到文件</span>  pq <span class="token builtin class-name">.</span> write_table <span class="token punctuation">(</span> table , <span class="token string">'nested.parquet'</span> <span class="token punctuation">)</span> </code></pre> <h3> <a id="_Parquet__201" rel="nofollow"></a>验证 Parquet 数据文件</h3> <p>同样用 parquet-tools 来查看下 nested.parquet 文件</p> <pre><code class="prism language-bash"> $ parquet-tools schema nested.parquet  message schema <span class="token punctuation">{<!-- --></span>      optional int32 <span class="token function">id</span><span class="token punctuation">;</span>      optional group address <span class="token punctuation">{<!-- --></span>          optional binary email_address <span class="token punctuation">(</span>STRING<span class="token punctuation">)</span><span class="token punctuation">;</span>          optional binary post_address <span class="token punctuation">(</span>STRING<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span>  <span class="token punctuation">}</span>  $ parquet-tools <span class="token function">cat</span> --json nested.parquet  <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:1,<span class="token string">"address"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"email_address"</span><span class="token builtin class-name">:</span><span class="token string">"first@example.com"</span>,<span class="token string">"post_address"</span><span class="token builtin class-name">:</span><span class="token string">"city1"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:2,<span class="token string">"address"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"email_address"</span><span class="token builtin class-name">:</span><span class="token string">"second@example.com"</span>,<span class="token string">"post_address"</span><span class="token builtin class-name">:</span><span class="token string">"city2"</span><span class="token punctuation">}</span><span class="token punctuation">}</span>  </code></pre> <p>用 <strong>parquet-tools</strong> 看到的 Schama 并没有 <strong>struct</strong> 的字样，但体现了它 address 与下级属性的嵌套关系。</p> <p>用 pyarrow 代码来读取 <strong>nested.parquet</strong> 文件的 Schema 和数据是什么样子</p> <pre><code class="prism language-bash">schema <span class="token operator">=</span> pq.read_schema<span class="token punctuation">(</span><span class="token string">"nested.parquet"</span><span class="token punctuation">)</span> print<span class="token punctuation">(</span>schema<span class="token punctuation">)</span>  <span class="token function">df</span> <span class="token operator">=</span> pd.read_parquet<span class="token punctuation">(</span><span class="token string">'nested.parquet'</span><span class="token punctuation">)</span> print<span class="token punctuation">(</span>df.to_json<span class="token punctuation">(</span><span class="token punctuation">))</span> schema <span class="token operator">=</span> pq <span class="token builtin class-name">.</span> read_schema <span class="token punctuation">(</span> <span class="token string">"nested.parquet"</span> <span class="token punctuation">)</span>  print <span class="token punctuation">(</span> schema <span class="token punctuation">)</span>  <span class="token function">df</span> <span class="token operator">=</span> pd <span class="token builtin class-name">.</span> read_parquet <span class="token punctuation">(</span> <span class="token string">'nested.parquet'</span> <span class="token punctuation">)</span>  print <span class="token punctuation">(</span> <span class="token function">df</span> <span class="token builtin class-name">.</span> to_json <span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> </code></pre> <pre><code class="prism language-bash">id: int32   -- field metadata --   PARQUET:field_id: <span class="token string">'1'</span> address: struct<span class="token operator">&amp;</span>lt<span class="token punctuation">;</span>email_address: string, post_address: string<span class="token operator">&amp;</span>gt<span class="token punctuation">;</span>   child <span class="token number">0</span>, email_address: string     -- field metadata --     PARQUET:field_id: <span class="token string">'3'</span>   child <span class="token number">1</span>, post_address: string     -- field metadata --     PARQUET:field_id: <span class="token string">'4'</span>   -- field metadata --   PARQUET:field_id: <span class="token string">'2'</span> <span class="token punctuation">{<!-- --></span><span class="token string">"id"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"0"</span>:1,<span class="token string">"1"</span>:2<span class="token punctuation">}</span>,<span class="token string">"address"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"0"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"email_address"</span><span class="token builtin class-name">:</span><span class="token string">"first@example.com"</span>,<span class="token string">"post_address"</span><span class="token builtin class-name">:</span><span class="token string">"city1"</span><span class="token punctuation">}</span>,<span class="token string">"1"</span>:<span class="token punctuation">{<!-- --></span><span class="token string">"email_address"</span><span class="token builtin class-name">:</span><span class="token string">"second@example.com"</span>,<span class="token string">"post_address"</span><span class="token builtin class-name">:</span><span class="token string">"city2"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>  <span class="token function">id</span> <span class="token builtin class-name">:</span> int32     -- field metadata --     PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'1'</span>  address <span class="token builtin class-name">:</span> struct <span class="token operator">&amp;</span> lt <span class="token punctuation">;</span> email_address <span class="token builtin class-name">:</span> string , post_address <span class="token builtin class-name">:</span> string <span class="token operator">&amp;</span> gt <span class="token punctuation">;</span>     child <span class="token number">0</span> , email_address <span class="token builtin class-name">:</span> string       -- field metadata --       PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'3'</span>     child <span class="token number">1</span> , post_address <span class="token builtin class-name">:</span> string       -- field metadata --       PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'4'</span>     -- field metadata --     PARQUET <span class="token builtin class-name">:</span> field_id <span class="token builtin class-name">:</span> <span class="token string">'2'</span>  <span class="token punctuation">{<!-- --></span> <span class="token string">"id"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"0"</span> <span class="token builtin class-name">:</span> <span class="token number">1</span> , <span class="token string">"1"</span> <span class="token builtin class-name">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> , <span class="token string">"address"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"0"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"email_address"</span> <span class="token builtin class-name">:</span> <span class="token string">"first@example.com"</span> , <span class="token string">"post_address"</span> <span class="token builtin class-name">:</span> <span class="token string">"city1"</span> <span class="token punctuation">}</span> , <span class="token string">"1"</span> <span class="token builtin class-name">:</span> <span class="token punctuation">{<!-- --></span> <span class="token string">"email_address"</span> <span class="token builtin class-name">:</span> <span class="token string">"second@example.com"</span> , <span class="token string">"post_address"</span> <span class="token builtin class-name">:</span> <span class="token string">"city2"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>数据当然是一样的，有略微不同的是显示的 Schema 中, address 标识为 <strong>struct&lt;email_address: string, post_address: string&gt;</strong> , 明确的表明它是一个 <strong>struct</strong> 类型，而不是只展示嵌套层次。</p> <p>最后留下一个问题，前面我们定义 Parquet Schema 都是在 Python 代码中完成了，Parquet 是否也能像 Avro 一样用外部文件来定义 Schema, 然后编译给 Python 用？</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30110.htm">java class 文件格式解析</a></p>
+                                        <p>下一个：<a href="/news/article-30289.htm">猫批发价（猫批发市场货源）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-5-9-free-ssr-subscribe.htm" title="5月9日|Shadowrocket/SSR/V2ray/Clash每天更新18.1M/S免费节点订阅链接">5月9日|Shadowrocket/SSR/V2ray/Clash每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-ssr-subscribe.htm" title="12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅">12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-28-free-subscribe-node.htm" title="4月28日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接">4月28日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-ssr-node.htm" title="9月4日|Shadowrocket/Clash/V2ray/SSR每天更新22M/S免费节点订阅链接">9月4日|Shadowrocket/Clash/V2ray/SSR每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-ssr-node.htm" title="10月14日|SSR/Shadowrocket/V2ray/Clash每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅">10月14日|SSR/Shadowrocket/V2ray/Clash每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-v2ray-subscribe.htm" title="11月10日|Clash/V2ray/Shadowrocket/SSR每天更新21M/S免费节点订阅链接，Clash便宜机场订阅">11月10日|Clash/V2ray/Shadowrocket/SSR每天更新21M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-shadowrocket-node.htm" title="11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-27931.htm" title="动物疫苗批号查询系统官方网站（兽医疫苗批号）">动物疫苗批号查询系统官方网站（兽医疫苗批号）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-clash-v2ray-ss-ssr.htm" title="9月23日|Shadowrocket/V2ray/SSR/Clash每天更新21.3M/S免费节点订阅链接">9月23日|Shadowrocket/V2ray/SSR/Clash每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-ssr-node.htm" title="8月12日|SSR/Shadowrocket/Clash/V2ray每天更新21M/S免费节点订阅链接">8月12日|SSR/Shadowrocket/Clash/V2ray每天更新21M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

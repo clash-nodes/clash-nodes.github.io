@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-30757.htm" />
+    <title>vue 的ESlint .eslintrc.js 文件 常用配置和注释</title>
+        <meta name="description" content="module.exports={   root:true,   env:{     browser:true,     es6:true,     node:true},    globals:{  " />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">vue 的ESlint .eslintrc.js 文件 常用配置和注释</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <pre><code class="prism language-js">module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   root<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>   env<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     browser<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     es6<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     node<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span>    globals<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     AMap<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     Cesium<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     layer<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     $<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>     turf<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">extends</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token comment">//继承 vue 的标准特性</span><span class="token string">'plugin:vue/essential'</span><span class="token punctuation">,</span><span class="token string">'eslint:recommended'</span><span class="token punctuation">,</span><span class="token comment">//避免与 prettier 冲突</span><span class="token string">'plugin:prettier/recommended'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>    parserOptions<span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     ecmaVersion<span class="token operator">:</span><span class="token number">2016</span><span class="token punctuation">,</span>     sourceType<span class="token operator">:</span><span class="token string">'module'</span><span class="token punctuation">,</span>     parser<span class="token operator">:</span><span class="token string">'babel-eslint'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>    rules<span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 强制使用一致的缩进</span>     indent<span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>         SwitchCase<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 强制使用骆驼拼写法命名约定</span>     camelcase<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span>     semi<span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'never'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>     quotes<span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'single'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token string">'avoidEscape'</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 禁止没使用的变量</span><span class="token string">'no-unused-vars'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 避免使用不必要的括号</span><span class="token string">'no-extra-parens'</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 禁用行尾分号</span><span class="token string">'no-extra-semi'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 禁用行尾空格</span><span class="token string">'no-trailing-spaces'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 对象中禁止出现重复的key</span><span class="token string">'no-dupe-keys'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 强制对象赋值引用使用点形式</span><span class="token string">'dot-notation'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 魔术数字</span><span class="token string">'no-magic-numbers'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'warn'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>         ignoreArrayIndexes<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 禁止对 String，Number 和 Boolean 使用 new 操作符</span><span class="token string">'no-new-wrappers'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 自我赋值</span><span class="token string">'no-self-assign'</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 数组使用一致的空格</span><span class="token string">'array-bracket-spacing'</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 强制把变量的使用限制在其定义的作用域范围内</span><span class="token string">'block-scoped-var'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'block-spacing'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 强制使用let或const 不能使用var</span><span class="token string">'no-var'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// 要求对象字面量简写语法</span><span class="token string">'object-shorthand'</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 要求构造函数首字母大写 （要求调用 new 操作符时有首字母大小的函数，允许调用首字母大写的函数时没有 new 操作符。）</span><span class="token string">'new-cap'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>         newIsCap<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">,</span>         capIsNew<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 强制一行的最大长度</span><span class="token string">'max-len'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 强制 function 块最多允许的的语句数量</span><span class="token string">'max-statements'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 强制回调函数最大嵌套深度 5层</span><span class="token string">'max-nested-callbacks'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 控制逗号前后的空格</span><span class="token string">'comma-spacing'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>         before<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>         after<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'arrow-body-style'</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token comment">// 要求箭头函数的参数使用圆括号</span><span class="token string">'arrow-parens'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'as-needed'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span>requireForBlockBody<span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 禁止重新声明变量</span><span class="token string">'no-redeclare'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token comment">// if return之后没必要使用else</span><span class="token string">'no-else-return'</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token comment">// 禁止使用弱等于</span>     eqeqeq<span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'comma-dangle'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">,</span><span class="token string">'never'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 花开括号样式</span><span class="token comment">// 'brace-style': [2, 'tbs'],</span><span class="token string">'callback-return'</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'computed-property-spacing'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'never'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'dot-location'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'property'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'vue/html-self-closing'</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'vue/max-attributes-per-line'</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'vue/attribute-hyphenation'</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'vue/require-default-prop'</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token comment">// 此处关闭prettier的规则提示</span><span class="token string">'prettier/prettier'</span><span class="token operator">:</span><span class="token string">'off'</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30289.htm">猫批发价（猫批发市场货源）</a></p>
+                                        <p>下一个：<a href="/news/article-30758.htm">长春宠物医院24小时（长春良心的宠物医院）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-5-free-node-subscribe.htm" title="6月5日|SSR/V2ray/Clash/Shadowrocket每天更新18M/S免费节点订阅链接">6月5日|SSR/V2ray/Clash/Shadowrocket每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-free-v2ray.htm" title="8月4日|Shadowrocket/SSR/V2ray/Clash每天更新23M/S免费节点订阅链接">8月4日|Shadowrocket/SSR/V2ray/Clash每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-clash-node.htm" title="10月28日|SSR/V2ray/Clash/Shadowrocket每天更新19M/S免费节点订阅链接，Clash便宜机场订阅">10月28日|SSR/V2ray/Clash/Shadowrocket每天更新19M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-21-node-share.htm" title="5月21日|SSR/V2ray/Shadowrocket/Clash每天更新18.7M/S免费节点订阅链接">5月21日|SSR/V2ray/Shadowrocket/Clash每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-clash-node.htm" title="8月28日|V2ray/Clash/Shadowrocket/SSR每天更新18.1M/S免费节点订阅链接">8月28日|V2ray/Clash/Shadowrocket/SSR每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-15-free-clash.htm" title="7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接">7月15日|Clash/SSR/V2ray/Shadowrocket每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28861.htm" title="猫咪三针多久打完啊（猫咪三针疫苗多久打一次）">猫咪三针多久打完啊（猫咪三针疫苗多久打一次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe-links.htm" title="9月20日|V2ray/Clash/SSR/Shadowrocket每天更新19.7M/S免费节点订阅链接">9月20日|V2ray/Clash/SSR/Shadowrocket每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22375.htm" title="宠物领养活动宣传语（宠物领养活动方案）">宠物领养活动宣传语（宠物领养活动方案）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
