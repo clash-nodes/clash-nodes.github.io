@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-32183.htm" />
+    <title>SpringBoot启动报错Injection of autowired dependencies failed； Could not resolve placeholder: 问题</title>
+        <meta name="description" content="问题现象： SpringBoot项目读取配置文件中参数给类中的变量赋值时，，报错： Error creating bean with name 'testController': Unsatisfie" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">SpringBoot启动报错Injection of autowired dependencies failed； Could not resolve placeholder: 问题</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3>问题现象：</h3> <p>SpringBoot项目读取配置文件中参数给类中的变量赋值时，，报错：</p> <p>Error creating bean with name 'testController': Unsatisfied dependency expressed through field 'XXX'; |nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'testClass': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: &nbsp;Could not resolve placeholder 'test1.test2.test3' in value "${test1.test2.test3}"</p> <h3>问题原因：</h3> <p>（1）首先就是要检查你的拼写有没有问题，在@Value注解中写的跟配置文件中写的单词是不是一样！！</p> <p>（2）配置或依赖问题；</p> <h3>解决办法：</h3> <p>（1）检查@Value注解中的参数路径与配置文件中是否一样，就是'test1.test2.test3'这个有没有写错，很多人都是因为拼写错了，以为是程序和配置问题，结果弄了半天发现方向错了；</p> <p>（2）配置和使用方法，分三步：</p> <p><strong>第一步：</strong>添加依赖，在pom文件中添加</p> <pre><code class="Bash"><xmp><!-- 自动读取配置文件，赋值给成员变量依赖 -->  <dependency>      <groupId>org.springframework.boot</groupId>      <artifactId>spring-boot-configuration-processor</artifactId>      <optional>true</optional>  </dependency></xmp></code></pre> <p><strong>第二步：</strong>在application.yml中设置配置</p> <pre><code class="Bash"><xmp>test1:    test2:      test3: 11111111</xmp></code></pre> <p><strong>第三步：</strong>在要读取application.yml中数值的类上，加上注解</p> <pre><code class="Bash"><xmp>@ConfigurationProperties(prefix = "test1")  public class TencentSmsSender extends AbstractSmsSender {       @Value("${test1.test2.test3}")         private String sdkAppId;      ...................  }  </xmp></code></pre> <p><span style="background-color: rgb(241, 241, 241);">只要这</span><span style="font-size: 1em;">简单三步就可以了。</span></p> </div> <p></p> <p></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31708.htm">小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）</a></p>
+                                        <p>下一个：<a href="/news/article-32184.htm">idea如何代码回退</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26548.htm" title="宠物医院投诉部门电话多少（宠物医院去哪个部门投诉）">宠物医院投诉部门电话多少（宠物医院去哪个部门投诉）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-ssr-node.htm" title="11月17日|SSR/Clash/V2ray/Shadowrocket每天更新20.8M/S免费节点订阅链接，Clash便宜机场订阅">11月17日|SSR/Clash/V2ray/Shadowrocket每天更新20.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-23287.htm" title="动物疫苗行业市场竞争特征（动物疫苗行业市场竞争特征分析）">动物疫苗行业市场竞争特征（动物疫苗行业市场竞争特征分析）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-subscribe-node.htm" title="11月6日|SSR/Shadowrocket/Clash/V2ray每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅">11月6日|SSR/Shadowrocket/Clash/V2ray每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-ssr-subscribe.htm" title="11月9日|SSR/Clash/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，Clash便宜机场订阅">11月9日|SSR/Clash/V2ray/Shadowrocket每天更新20.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-21457.htm" title="想开宠物用品店怎么找货源（想开宠物用品店在哪里进货）">想开宠物用品店怎么找货源（想开宠物用品店在哪里进货）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-3-free-node-subscribe-links.htm" title="5月3日|SSR/Clash/Shadowrocket/V2ray每天更新19.5M/S免费节点订阅链接">5月3日|SSR/Clash/Shadowrocket/V2ray每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-22-clash-v2ray-ss-ssr.htm" title="7月22日|SSR/Shadowrocket/Clash/V2ray每天更新21.2M/S免费节点订阅链接">7月22日|SSR/Shadowrocket/Clash/V2ray每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24504.htm" title="动物疫苗概念股票代码（动物疫苗概念股票代码查询）">动物疫苗概念股票代码（动物疫苗概念股票代码查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-11-free-node-subscribe-links.htm" title="5月11日|V2ray/Shadowrocket/SSR/Clash每天更新22.5M/S免费节点订阅链接">5月11日|V2ray/Shadowrocket/SSR/Clash每天更新22.5M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
