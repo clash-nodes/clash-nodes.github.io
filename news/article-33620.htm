@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-33620.htm" />
+    <title>django.http.request中QueryDict 对象</title>
+        <meta name="description" content="在一个&nbsp;HttpRequest&nbsp;对象中，&nbsp;GET&nbsp;和&nbsp;POST&nbsp;属性都是&nbsp;django.http.QueryDict&nbsp;的" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">django.http.request中QueryDict 对象</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p id="cn15">在一个&nbsp;HttpRequest&nbsp;对象中，&nbsp;GET&nbsp;和&nbsp;POST&nbsp;属性都是&nbsp;django.http.QueryDict&nbsp;的实例。&nbsp;QueryDict&nbsp;是一个类似于字典的类，专门用来处理用一个键的多值。当处理一些HTML表单中的元素，特别是&nbsp;&lt;select multiple="multiple"&gt;&nbsp;之类传递同一key的多值的元素时，就需要这个类了。</p> <p id="cn16">QueryDict&nbsp;实例是不可变的，除非创建了一个&nbsp;copy()&nbsp;副本。也就是说不能直接更改&nbsp;request.POST&nbsp;和&nbsp;request.GET&nbsp;的属性。</p> <p id="cn17">QueryDict&nbsp;实现了所有标准的字典的方法，因为它正是字典的一个子类。与其不同的东西已在下表中列出。</p> <table id="cn18" border="1" cellspacing="0" cellpadding="0"> <thead> <tr> <td colspan="2"> <p>QueryDicts&nbsp;与标准字典的区别</p> </td> </tr> <tr> <td> <p>方法</p> </td> <td> <p>与标准字典实现的不同</p> </td> </tr> </thead> <tbody> <tr> <td style="width:130px;"> <p><span style="font-size:12px;">__getitem__</span></p> </td> <td> <p><span style="font-size:12px;">与一个字典一样。但是，当一个键有多个值时，&nbsp;__getitem__()&nbsp;返回最后一个值。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">__setitem__</span></p> </td> <td> <p><span style="font-size:12px;">将所给键的值设为&nbsp;[value]&nbsp;（一个只有一个&nbsp;value&nbsp;元素的&nbsp;Python列表）。&nbsp;注意，因对其它的字典函数有副作用，故它只能被称为一个可变的&nbsp;QueryDict&nbsp;（通过&nbsp;copy()&nbsp;创建）。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">get()</span></p> </td> <td> <p><span style="font-size:12px;">如果一个键多个值，和&nbsp;__getitem__&nbsp;一样，&nbsp;get()&nbsp;返回最后一个值。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">update()</span></p> </td> <td> <p><span style="font-size:12px;">参数是一个&nbsp;QueryDict&nbsp;或标准字典。&nbsp;和标准字典的</span></p> <p><span style="font-size:12px;">update&nbsp;不同，这个方法*增加*而不是替换一项内容：</span></p> <div> <p><span style="font-size:12px;">&gt;&gt;&gt; q = QueryDict('a=1')</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q = q.copy() #&nbsp;使其可变</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q.update({'a': '2'})</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q.getlist('a')</span></p> <p><span style="font-size:12px;">['1', '2']</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q['a'] #&nbsp;返回最后一个值</span></p> <p><span style="font-size:12px;">['2']</span></p> </p></div> </td> </tr> <tr> <td> <p><span style="font-size:12px;">items()</span></p> </td> <td> <p><span style="font-size:12px;">和标准字典的&nbsp;items()&nbsp;方法一样，&nbsp;不同的是它和&nbsp;__getitem()__&nbsp;一样，返回最后一个值：</span></p> <div> <p><span style="font-size:12px;">&gt;&gt;&gt; q = QueryDict('a=1&amp;a=2&amp;a=3')</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q.items()</span></p> <p><span style="font-size:12px;">[('a', '3')]</span></p> </p></div> </td> </tr> <tr> <td> <p><span style="font-size:12px;">values()</span></p> </td> <td> <p><span style="font-size:12px;">和标准字典的&nbsp;values()&nbsp;方法一样，&nbsp;不同的是它和&nbsp;__getitem()__&nbsp;一样，返回最后一个值。</span></p> </td> </tr> </tbody> </table> <p id="cn21">&nbsp;</p> <table id="cn22" border="1" cellspacing="0" cellpadding="0"> <thead> <tr> <td colspan="2"> <p>&nbsp;附加的&nbsp;(非字典的) QueryDict&nbsp;方法</p> </td> </tr> <tr> <td> <p>方法</p> </td> <td> <p>描述</p> </td> </tr> </thead> <tbody> <tr> <td> <p><span style="font-size:12px;">copy()</span></p> </td> <td> <p><span style="font-size:12px;">返回一个对象的副本，使用的是Python标准库中的&nbsp;copy.deepcopy()&nbsp;。&nbsp;该副本是可变的，也就是说，你能改变它的值。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">getlist(key)</span></p> </td> <td> <p><span style="font-size:12px;">以Python列表的形式返回所请求键的数据。若键不存在则返回空列表。它保证了一定会返回某种形式的list。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">setlist(key, list_)</span></p> </td> <td> <p><span style="font-size:12px;">将所给键的键值设为&nbsp;list_&nbsp;（与&nbsp;__setitem__()&nbsp;不同）。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">appendlist(key, item)</span></p> </td> <td> <p><span style="font-size:12px;">在&nbsp;key&nbsp;相关的list上增加&nbsp;item&nbsp;。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">setlistdefault(key, l)</span></p> </td> <td> <p><span style="font-size:12px;">和&nbsp;setdefault&nbsp;一样，&nbsp;不同的是它的第二个参数是一个列表，而不是一个值。</span></p> </td> </tr> <tr> <td> <p><span style="font-size:12px;">lists()</span></p> </td> <td> <p><span style="font-size:12px;">和&nbsp;items()&nbsp;一样，&nbsp;不同的是它以一个列表的形式返回字典每一个成员的所有值。&nbsp;例如：</span></p> <div> <p><span style="font-size:12px;">&gt;&gt;&gt; q = QueryDict('a=1&amp;a=2&amp;a=3')</span></p> <p><span style="font-size:12px;">&gt;&gt;&gt; q.lists()</span></p> <p><span style="font-size:12px;">[('a', ['1', '2', '3'])]</span></p> </p></div> </td> </tr> <tr> <td style="width:130px;"> <p><span style="font-size:12px;">urlencode()</span></p> </td> <td> <p><span style="font-size:12px;">返回一个请求字符串格式的数据字符串（如，&nbsp;"a=2&amp;b=3&amp;b=5"&nbsp;）。</span></p> <p><span style="font-size:12px;">&nbsp;</span></p> </td> </tr> </tbody> </table> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33618.htm">Vue中的插槽</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-4-18-free-ssr-subscribe.htm" title="4月18日|SSR/Clash/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接">4月18日|SSR/Clash/Shadowrocket/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-ssr-subscribe.htm" title="10月6日|V2ray/Shadowrocket/SSR/Clash每天更新21.9M/S免费节点订阅链接">10月6日|V2ray/Shadowrocket/SSR/Clash每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29318.htm" title="女人养猫的好处（女人养猫的好处和坏处）">女人养猫的好处（女人养猫的好处和坏处）</a></li>
+                        <li class="py-2"><a href="/news/article-20541.htm" title="动物防疫站猫打狂犬针免费吗现在（防疫站给猫打狂犬疫苗多少钱）">动物防疫站猫打狂犬针免费吗现在（防疫站给猫打狂犬疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share.htm" title="9月28日|V2ray/Shadowrocket/SSR/Clash每天更新19.8M/S免费节点订阅链接">9月28日|V2ray/Shadowrocket/SSR/Clash每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-free-v2ray-subscribe.htm" title="8月18日|Clash/V2ray/Shadowrocket/SSR每天更新19M/S免费节点订阅链接">8月18日|Clash/V2ray/Shadowrocket/SSR每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20542.htm" title="动物医院的设备叫什么 动物医院的设备叫什么名字">动物医院的设备叫什么 动物医院的设备叫什么名字</a></li>
+                        <li class="py-2"><a href="/news/article-29320.htm" title="动物疫苗保质期一般多久啊多少钱（动物疫苗保质期一般多久啊多少钱啊）">动物疫苗保质期一般多久啊多少钱（动物疫苗保质期一般多久啊多少钱啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-clash-node-daily-updates.htm" title="11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅">11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-node-daily-updates.htm" title="11月22日|V2ray/SSR/Clash/Shadowrocket每天更新20.6M/S免费节点订阅链接，Clash便宜机场订阅">11月22日|V2ray/SSR/Clash/Shadowrocket每天更新20.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

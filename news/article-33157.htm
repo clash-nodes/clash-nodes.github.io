@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-33157.htm" />
+    <title>Redis 单数据多源超高并发下的解决方案</title>
+        <meta name="description" content="Redis 是目前最流行的KV缓存数据库，它简单易用，安全稳定，在互联网行业有着非常广泛的应用。本文主要给大家分享一下 Redis 在单数据多源超高并发访问下的解决思路和方案。 前言 Redis 主要" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Redis 单数据多源超高并发下的解决方案</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div class="content-detail markdown-body"> <p>Redis 是目前最流行的KV缓存数据库，它简单易用，安全稳定，在互联网行业有着非常广泛的应用。<br />本文主要给大家分享一下 Redis 在单数据多源超高并发访问下的解决思路和方案。</p> <h2>前言</h2> <h3>Redis 主要解决两个问题：</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/6c5958af57b9cc2a0318075836f9e5b8.jpg" alt="Redis 单数据多源超高并发下的解决方案"><br />当遇到日活千万，同时百万在线的业务场景时，前端访问直接加载到后台数据库的话，可能顺间压垮底层数据库，导致业务停摆。又或者随着查询条件变多，结合条件复杂化，查询结果的响应时间也无法得到保证，导致用户体验下降，用户流失。为了解决高并发，低延迟的业务场景， Redis 应运而生。</p> <h3>下面我们来看两个场景</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/1095b1f55931b71fd08ac3174434a3c9.jpg" alt="Redis 单数据多源超高并发下的解决方案"><br />这是一个线上找房的业务场景，超多的查询条件导致后台必然是一个复杂的查询 SQL，这种场景下是否必须使用 Redis 呢？<br />答案是否定的，由于线上找房业务并发量低，客户对于业务响应时间要求也没有那么苛刻，大部分的请求可以直接通过动态 SQL 临时查询。当然为了提升用户体验，可以将一些热点的查询结果预缓存到 Redis 里提升用户体验。</p> <h3>我们再来看下这个场景</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/5ba5a0da8774aaf9ed71e87fc1e7889a.jpg" alt="Redis 单数据多源超高并发下的解决方案"><br />视频应用的查片系统，跟找房系统几乎是一模一样的业务场景，但是并发量要高几个数量级，这个场景就非常适合使用 Redis 作为缓存提升并发访问量，降低响应时间，满足几十万甚至上百万的并发访问需求。由此可见决定是否使用 Redis 的根本要素就是并发量和延迟要求。<br />下面我们来看一下 Redis 是如何解决互联网极端场景下的并发访问需求的。</p> <h2>超高并发访问下的缓存解决方案</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/35f4929232d527cf948e9467be2b5429.jpg" alt="Redis 单数据多源超高并发下的解决方案"></p> <p>这是一个典型的媒体类缓存架构图，发文系统不定期更新媒体库，通过分布式缓存服务将各个最新文章同步到 Redis 缓存，前端应用通过路由层找到相应的数据源访问。各个缓存服务数据不同步。当发生热点事件时，路由层可能将不通地区的访问路由到热点数据所在的缓存服务器，带来瞬间的流量暴涨，极端情况下可能导致服务器宕机，业务受损。那么这种不定期突发流量的场景要如何解决呢？</p> <p>这里有几个思路：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/c2aea2b3f9efd0ea28f52a0316b070b9.jpg" alt="Redis 单数据多源超高并发下的解决方案"></p> <ul> <li>将热点 Key 加前缀打散，实现热数据复制</li> <li>路由层追加本地缓存，通过多级缓存提升缓存能力</li> <li>缓存层提供数据副本，提高并发访问能力</li> </ul> <p>第一种方案，可以有效打散热数据，但是热点事件是不定期随机发生，运维压力大，成本高，这只是个头痛医头脚痛医脚的方案。<br />第二种方案，可以通过追加本地缓存提升缓存能力，但是本地缓存设置多大，刷新频率多高，业务是否能容忍脏读，这些都是无法绕开的问题。<br />第三种方案，可以追加只读副本来实现数据的复制，但是同样也会带来成本高企，主库负载高等问题。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a099c5c11e7d8c4e4521021dc1bb38e8.jpg" alt="Redis 单数据多源超高并发下的解决方案"><br />上面这个架构图是一个优化的解决方案，通过主库拉取多个只读从库的分支，对不同的请求源，划分独立的缓存服务。比如手机应用就固定路由到APP数据资源组，WEB 访问就路由到WEB 数据资源组等，并且每个资源组可以提供N个只读副本，提高同源访问下的并发访问能力。这种架构可以提升不同访问源的资源隔离能力，提升多源访问下业务的稳定性和可用性。</p> <p>这个方案的问题也比较明显：</p> <ul> <li>主库读写性能差</li> <li>只读副本多，成本高</li> <li>只读链路过长，管理维护难，运维成本高</li> </ul> <p>我们的客户里最夸张的用到过 1主40只读的架构，来满足类似的业务场景。</p> <h2>阿里云Redis是如何解决这种超高并发访问的问题呢？</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/166e80b561a62264c026c8dafde07b39.jpg" alt="Redis 单数据多源超高并发下的解决方案"></p> <p>阿里云重磅推出Redis性能增强版本，通过提升网络IO的并发处理能力，极大的提升了Redis单节点的读写性能，对比社区版本，性能提升3倍。由于保持单 Worker 的处理模式，100% 兼容 Redis 协议。上面的单数据百万QPS 的访问能力轻松达成。本文介绍的媒体类场景可以通过开通性能增强版1主5只读实例实现单数据200w+ QPS，有效缓解突发热点事件带来的流量激增，超高并发访问等行业痛点问题。相比较自建1主40只读的社区版本，同样性能标准的阿里云Redis性能增强版1主5只读架构更稳定，管理更便捷，使用也更方便。</p> <p>目前阿里云性能增强版已经上线，期待您的使用。</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32665.htm">动物疫苗价格表图片大全集高清 动物疫苗价格表图片大全集高清版</a></p>
+                                        <p>下一个：<a href="/news/article-33158.htm">MaxCompute SQL函数详解 ODPS SQL函数详解之日期相关函数</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-6-2-free-shadowrocket-node.htm" title="6月2日|Shadowrocket/V2ray/SSR/Clash每天更新19.5M/S免费节点订阅链接">6月2日|Shadowrocket/V2ray/SSR/Clash每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-19-clash-windows.htm" title="6月19日|Shadowrocket/Clash/SSR/V2ray每天更新22.5M/S免费节点订阅链接">6月19日|Shadowrocket/Clash/SSR/V2ray每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-clash-v2ray-ss-ssr.htm" title="12月24日|Clash/SSR/V2ray/Shadowrocket每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅">12月24日|Clash/SSR/V2ray/Shadowrocket每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-22373.htm" title="宠物医院投诉电话多少号（宠物医院投诉怎么投诉）">宠物医院投诉电话多少号（宠物医院投诉怎么投诉）</a></li>
+                        <li class="py-2"><a href="/news/article-22375.htm" title="宠物领养活动宣传语（宠物领养活动方案）">宠物领养活动宣传语（宠物领养活动方案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-clash-node-daily-updates.htm" title="10月26日|V2ray/SSR/Shadowrocket/Clash每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅">10月26日|V2ray/SSR/Shadowrocket/Clash每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node-daily-updates.htm" title="11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅">11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅">12月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-12-free-ssr-subscribe.htm" title="6月12日|SSR/V2ray/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接">6月12日|SSR/V2ray/Clash/Shadowrocket每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31188.htm" title="南京宠物救助站救助条件（南京宠物救助领养中心）">南京宠物救助站救助条件（南京宠物救助领养中心）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
