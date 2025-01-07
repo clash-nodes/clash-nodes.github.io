@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-36490.htm" />
+    <title>ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</title>
+        <meta name="description" content="目录  1.什么是Swagger/OpenAPI？ 2.NET Swagger实现 3.Swashbuckle主要组成部分 4.什么是REST? 5.配置Swagger中间件 6.XML注释 7.数据" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.什么是Swagger/OpenAPI？</a></li> <li><a href="#_label1" rel="nofollow">2.NET Swagger实现</a></li> <li><a href="#_label2" rel="nofollow">3.Swashbuckle主要组成部分</a></li> <li><a href="#_label3" rel="nofollow">4.什么是REST?</a></li> <li><a href="#_label4" rel="nofollow">5.配置Swagger中间件</a></li> <li><a href="#_label5" rel="nofollow">6.XML注释</a></li> <li><a href="#_label6" rel="nofollow">7.数据注释</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.什么是Swagger/OpenAPI？</h2> <p>Swagger是一个与语言无关的规范，用于描述REST API。因为Swagger项目已捐赠给OpenAPI计划，所以也叫OpenAPI。它允许计算机和人员了解服务的功能，可以直接在线访问测试API方法。而Swagger UI提供了基于Web的UI，它使用生成的Swagger规范提供有关服务API的信息。Swashbuckle和NSwag均包含Swagger UI的嵌入式版本，因此可使用中间件注册调用将该嵌入式版本托管在ASP.NET Core应用程序当中。Swagger的核心是Swagger规范，默认情况下是名为swagger.json的文档。它由Swagger工具链（或其第三方实现）根据你的服务生成。它描述了API的功能以及使用HTTP对其进行访问的方式。它驱动Swagger UI，并由工具链用来启用发现和客户端代码生成。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.NET Swagger实现</h2> <p>NET Swagger实现分为两大分类：</p> <ul> <li>Swashbuckle.AspNetCore是一个开源项目，用于生成ASP.NET Core Web API的Swagger文档。</li> <li>NSwag是另一个用于生成Swagger文档并将Swagger UI或ReDoc集成到ASP.NET Core Web API中的开源项目。此外，NSwag 还提供了为API生成C#和TypeScript客户端代码的方法。</li> </ul> <p>但是由于工作比较忙，我就不打算两个类型都讲了，我只选择Swashbuckle.AspNetCore来讲解和演示。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.Swashbuckle主要组成部分</h2> <p>Swashbuckle有三个主要组成部分：</p> <ul> <li>Swashbuckle.AspNetCore.Swagger：将SwaggerDocument对象公开为JSON终结点的Swagger对象模型和中间件。</li> <li>Swashbuckle.AspNetCore.SwaggerGen：从路由、控制器和模型直接生成SwaggerDocument对象的Swagger生成器。它通常与Swagger终结点中间件结合，以自动公开Swagger JSON。</li> <li>Swashbuckle.AspNetCore.SwaggerUI：Swagger UI工具的嵌入式版本。它解释Swagger JSON以构建描述Web API功能的可自定义的丰富体验，它包括针对公共方法的内置测试工具。</li> </ul> <p>安装Swashbuckle组件方法有两种：</p> <div class="ay1code"> <pre class="brush:ps;">--PowerShell  Install-Package Swashbuckle.AspNetCore -Version 5.0.0</pre> </div> <p>or</p> <div class="ay1code"> <pre class="brush:ps;">--.NET Core CLI  dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.什么是REST?</h2> <p>我百度一下，度娘解释是：REST是（Representational State Transfer）“表现层状态转移”的缩写，它是由罗伊·菲尔丁（Roy Fielding）提出的，是用来描述创建HTTP API的标准方法，他发现这四种常用的行为“查看（view），创建（create），编辑（edit）和删除（delete）”都可以直接映射到HTTP中已实现的GET、POST、PUT和DELETE方法。</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.配置Swagger中间件</h2> <p>将Swagger生成器添加到Startup.ConfigureServices方法中的服务集合中：</p> <div class="ay1code"> <pre class="brush:csharp;">//注册Swagger生成器，定义一个或多个Swagger文档.  services.AddSwaggerGen(c =&gt;  {      c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1", Description = "测试描述" });  });</pre> </div> <p>OpenApiInfo对象是用来标识Swagger文档信息（诸如作者、许可证和说明的信息），您还可以自定义您的主题的信息显示在UI上，详情配置，我就不多说，大家可以看官网描述，如上述OpenApilnfo信息配置示例图：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/073a52474a0573946ca4b65175bc3018.jpg"></p> <p>而在启动应用程序后并导航到http://localhost:&lt;port&gt;/swagger/v1/swagger.json。生成的描述终结点的文档显示在Swagger规范（swagger.json）中：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/202b79c59a4a1f66ecb4482bf5d56919.jpg"></p> <p>在Startup.Configure方法中，启用中间件为生成的JSON文档和Swagger UI提供服务：</p> <div class="ay1code"> <pre class="brush:csharp;">//使中间件能够将生成的Swagger用作JSON端点.  app.UseSwagger();  //允许中间件为swagger ui（HTML、JS、CSS等）提供服务，指定swagger JSON端点.  app.UseSwaggerUI(c =&gt;  {      c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");  });</pre> </div> <p>根据上述配置就能够启用swagger测试API服务接口了，如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/c638e12e6c1a1bd0d4723b5bff7dbbee.jpg"></p> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>6.XML注释</h2> <p>swagger还可以把服务API中对应方法名称，实体属性注释给在UI上显示出来，让您更加直观了解每个方法使用信息，并对没有注释每个方法进行警告提示，具体启用XML注释操作在“解决方案资源管理器”中右键单击该项目，然后选择“编辑&lt;project_name&gt;.csproj”，手动将突出显示的行添加到.csproj 文件：</p> <div class="ay1code"> <pre class="brush:xml;">&lt;PropertyGroup&gt;    &lt;GenerateDocumentationFile&gt;true&lt;/GenerateDocumentationFile&gt;  &lt;/PropertyGroup&gt;</pre> </div> <p>在启用了XML注释后，swagger只会针对没有添加注释每个方法进行警告提示，而添加了注释的方法则不会进行警告提示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/f491ee5be2727f46a1f08279ac4f699b.jpg"></p> <p>而每个添加了注释的方法会通过在Startup.ConfigureServices/services.AddSwaggerGen中设置Swagger JSON和UI的注释路径后：</p> <div class="ay1code"> <pre class="brush:csharp;">//设置Swagger JSON和UI的注释路径.  var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";  var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);  c.IncludeXmlComments(xmlPath);</pre> </div> <p>会在项目根目录生成的一个对应项目文件名的XML文件，而文件里面就包含所有已注释的方法，用于UI上显示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/c4989fbad211873786d3b74a36a69ac9.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/74e06d895a8b514a453a8a849f4f0d46.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/f0a4f873b31d2929c5af6e71d0419236.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/cb97519d44da303681b68892424aa2fa.jpg"></p> <p>在启动应用程序后，我们会看到每个有注释方法在左侧会有一行文字描述，效果如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/a8cc70bca3d8a578b1d8059797313151.jpg"></p> <p>如果某个方法或者类下面所有方法不想警告提示，可以通过加入#pragma warning disable声明屏蔽警告提示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/2388908f3d5563b249e7f90ca6fce7d1.jpg"></p> <p>加入声明之后，大家会看到警告提示消失了。</p> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>7.数据注释</h2> <p>可以使用System.ComponentModel.DataAnnotations命名空间中的属性来标记模型实体，以帮助驱动Swagger UI 组件。将[Required]属性添加到TodoItem类的Name属性：</p> <div class="ay1code"> <pre class="brush:csharp;">namespace TodoApi.Models  {      public class TodoItem      {          public long Id { get; set; }          [Required]          public string Name { get; set; }          [DefaultValue(false)]          public bool IsComplete { get; set; }      }  }</pre> </div> <p>此属性的状态会更改掉基础JSON架构：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/bd4da8ecd895011cbb16a9ace0a679a4.jpg"></p> <p>而将[Produces("application/json")]属性添加到API控制器去，这样做的目的是声明控制器的操作支持application/json的响应内容类型：</p> <div class="ay1code"> <pre class="brush:csharp;">[Produces("application/json")]  [Route("api/[controller]")]  [ApiController]  public class ValuesController : ControllerBase  {      /// &lt;summary&gt;      /// 获取值      /// &lt;/summary&gt;      /// &lt;returns&gt;&lt;/returns&gt;      // GET api/values      [HttpGet]      public async Task&lt;ActionResult&lt;IEnumerable&lt;string&gt;&gt;&gt; Get()      {          var result = await new GitHubApi().GetUser();          return new string[] { result.id.Value.ToString(), result.login };      }  }</pre> </div> <p>“响应内容类型”下拉列表选此内容类型作为控制器的默认GET操作：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/3acfc7b6a8d49aa9a2b2ac2c296f5afb.jpg"></p> <p>Swagger/OpenAPI出现，大大减少开发者调试时间，增加开发者开发效率，让开发者更加方便调试跟直观了解对应服务方法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35897.htm">动物疫苗管理法律法规最新版（动物疫苗的管理方法）</a></p>
+                                        <p>下一个：<a href="/news/article-36491.htm">让猫挠了出血过了24小时有事吗（让猫挠了出血过了24小时有事吗会感染吗）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node-daily-updates.htm" title="11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅">11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-23750.htm" title="动物医院评论（动物医院评价）">动物医院评论（动物医院评价）</a></li>
+                        <li class="py-2"><a href="/news/article-30110.htm" title="java class 文件格式解析">java class 文件格式解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-clash.htm" title="12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅">12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-ssr-subscribe.htm" title="10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接">10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-clash.htm" title="12月11日|Shadowrocket/Clash/V2ray/SSR每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅">12月11日|Shadowrocket/Clash/V2ray/SSR每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-33620.htm" title="django.http.request中QueryDict 对象">django.http.request中QueryDict 对象</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-node-share.htm" title="11月18日|Clash/V2ray/Shadowrocket/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅">11月18日|Clash/V2ray/Shadowrocket/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-20542.htm" title="动物医院的设备叫什么 动物医院的设备叫什么名字">动物医院的设备叫什么 动物医院的设备叫什么名字</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-clash-v2ray-ss-ssr.htm" title="10月19日|SSR/Clash/V2ray/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅">10月19日|SSR/Clash/V2ray/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
