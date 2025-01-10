@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-37950.htm" />
+    <title>项目打包成 jar 后包无法读取src/main/resources下文件</title>
+        <meta name="description" content="项目打包成 jar后包无法读取src/main/resources下文件  一、项目场景 二、问题描述   发现问题 分析问题 为什么使用 ClassPathResource 后, 可以找到打包后的文" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">项目打包成 jar 后包无法读取src/main/resources下文件</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>项目打包成 jar后包无法读取src/main/resources下文件</h3> <ul> <li><a href="#_8" rel="nofollow">一、项目场景</a></li> <li><a href="#_13" rel="nofollow">二、问题描述</a></li> <li> <ul> <li><a href="#_14" rel="nofollow">发现问题</a></li> <li><a href="#_30" rel="nofollow">分析问题</a></li> <li><a href="#_ClassPathResource___55" rel="nofollow">为什么使用 ClassPathResource 后, 可以找到打包后的文件路径?</a></li> </ul> </li> <li><a href="#_77" rel="nofollow">三、解决方案</a></li> <li> <ul> <li><a href="#_87" rel="nofollow">方案一</a></li> <li><a href="#_130" rel="nofollow">方案二</a></li> <li><a href="#_145" rel="nofollow">意外出现</a></li> </ul> </li> <li><a href="#_200" rel="nofollow">总结</a></li> </ul> </div> <hr/> </h1> <blockquote> <p>在项目中读取文件时, 使用new File() 出现的一个坑以及解决流程<br /> 这种问题不仅在本地文件读取时会遇到, 而且在下载项目下 (<code>例如: src/main/resources目录下</code>) 的文本时, 也会遇到,</p> </blockquote> </h1> <h2><a id="_14" rel="nofollow"></a>发现问题</h2> <ol> <li> <p>原来代码<br /> 该代码功能是利用 common.io 包下的FileUtils来读取文件, 放到一个字符串中</p> <pre><code class="prism language-java"><span class="token class-name">String</span> s<span class="token operator">=</span><span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">readFileToString</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"src/main/resources/holiday.txt"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> </li> <li> <p>这种路径书写方式<code>new File("src/main/resources/holiday.txt")</code> , 在本地运行没问题,<br /> 但是打包之后在服务器中运行出现了问题. 下面是错误截图<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/15ec3d0fd09ff494bf88c82ddfbea3e2.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> <li> <p>可以看到在服务器中日志提示:<code> java.io.FileNotFoundException: File 'holiday.txt' does not exist</code><br /> 即: 在打包后, 一开始配置的路径<code>src/main/resources</code>下无法找到该文件</p> </li> </ol> <h2><a id="_30" rel="nofollow"></a>分析问题</h2> <ol> <li> <p>项目在打包之后, 位于 resource目录下的文件, 最常见的就是各种Spring配置文件就会打包在<code>BOOT-INF/classes</code> 目录下<br /> 而FIle 在按照原来的文件路径<code>src/main/resources/holiday.txt'</code>去寻找, 必然找不到文件, 因此会报文件找不到的异常<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/128c3264690877bc91d44688b62a4992.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> <li> <p>在定位问题的过程中发现,<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/u011047968/article/details/107311462"  rel="nofollow">这里</a> 提供了一个思路<br /> 就是SpringBoot中所有文件都在jar包中，没有一个实际的路径，因此可以使用以下方式</p> <pre><code class="prism language-java"><span class="token comment">/**      * 通过ClassPathResource类获取，建议SpringBoot中使用      * springboot项目中需要使用此种方法，因为jar包中没有一个实际的路径存放文件      *      * @param fileName      * @throws IOException      */</span><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">function6</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">IOException</span><span class="token punctuation">{<!-- --></span><span class="token class-name">ClassPathResource</span> classPathResource<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ClassPathResource</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">InputStream</span> inputStream<span class="token operator">=</span> classPathResource<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">getFileContent</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </li> </ol> <h2><a id="_ClassPathResource___55" rel="nofollow"></a>为什么使用 ClassPathResource 后, 可以找到打包后的文件路径?</h2> <blockquote> <p>上面代码的核心就是:<strong>实例化<code>ClassPathResource</code> 对象. 然后调用<code>getInputStream</code> 来获取资源文件</strong></p> </blockquote> <ol> <li>下面我们来分析这些代码<br /> 在<code>ClassPathResource</code> 在实例化时, 会初始化类加载器<code>classLoader</code> 并将项目所用到的所有路径加载到类加载器<code>classLoader</code> 中, 这些路径包括:<strong>java运行环境的jar, Maven 项目中的jar,</strong> 以及<strong>当前项目打包后的jar等(如下图)</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/339fb8789ccf85385b604f2a8bc5c3b6.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></li> <li>而<code>classPathResource.getInputStream</code> 在获取资源文件时, 因为上面我们初始化了一个<code>classLoader</code>.<br /> 所以<code>classLoader</code>不为空, 因此会执行<code>getResourceAsStream</code> 方法, 我们来追一下这个方法<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/ddd9123182e4ff1bca531f08035329d5.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></li> <li><code>getResourceAsStream</code> 方法中的<code>getResource</code>是实际的业务处理方法, 我们继续深入<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/2b3847c2deac6e03168118a9609ca455.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></li> <li><code>getResource</code> 方法如下图, 实际的功能就是递归调用自己, 去不断遍历<code>parent</code> 下的路径, 获取对应的资源文件<br /> 那么<code>parent</code> 又是谁呢? 我们继续往下看<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/21d555674b837e603e602d95a013ede4.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></li> <li>看到这里我们豁然开朗, 这个神秘的<code>parent</code> 就是类加载器<code>classLoader</code>!!!<br /> 因此<code>getResource</code><strong>方法就是去不断遍历我们在</strong><code>ClassPathResource</code><strong>实例化时, 创建的类加载器下面的路径!!!</strong>(对应第1点)<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/fc3b7192640a33aa6637a35ff794192f.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></li> </ol> <hr/> </h1> <ol> <li> <p>原来读取文件的代码如下</p> <pre><code class="prism language-java"><span class="token class-name">String</span> s<span class="token operator">=</span><span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">readFileToString</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"src/main/resources/holiday.txt"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> </li> <li> <p>去查看 File 的构造函数, 看能否通过<code>InputStream</code> 来构造<br /> 从下图看是不行的<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/12a86b0467e66a4cb1caec45981c869b.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> </ol> <h2><a id="_87" rel="nofollow"></a>方案一</h2> <ol start="3"> <li> <p>并且我们发现<code>org.apache.commons.io</code> 下<strong>没有提供</strong>将<code>ClassPathResource</code> 作为入参的读取文件的方法.<br /> 因此我们必须手写读取文件的方法<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/a0e143e81d4f6c8f8fb0387193718840.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> <li> <p>手写的代码如下<br /> 主要注意<code>Resource resource = new ClassPathResource(fileName); is = resource.getInputStream();</code></p> <pre><code class="prism language-java"><span class="token comment">/**      * Java读取txt文件的内容      *      * @param fileName resources目录下文件名称(无需带目录)      * @return 将每行作为一个单位放到list中      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token function">readTxtFile</span><span class="token punctuation">(</span><span class="token class-name">String</span> fileName<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> listContent<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">InputStream</span> is<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token class-name">InputStreamReader</span> isr<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token class-name">BufferedReader</span> br<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token class-name">String</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token class-name">Resource</span> resource<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ClassPathResource</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span><span class="token punctuation">;</span>             is<span class="token operator">=</span> resource<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             isr<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>is<span class="token punctuation">,</span> encoding<span class="token punctuation">)</span><span class="token punctuation">;</span>             br<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">BufferedReader</span><span class="token punctuation">(</span>isr<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">String</span> lineTxt<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>lineTxt<span class="token operator">=</span> br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 listContent<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>lineTxt<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{<!-- --></span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span>                 br<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 isr<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 is<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">return</span> listContent<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </li> </ol> <h2><a id="_130" rel="nofollow"></a>方案二</h2> <ol start="5"> <li> <p>这种方式对代码入侵较小, 核心还是利用 common.io 下的 FileUtils, 具体方法是<br /><strong>利用FileUtils将<code>ClassPathResource.getInputStream</code> 得到的输入流复制到临时文件中, 然后读取这个临时文件</strong><br /> 这种方式<strong>缺点是: 需要创建临时文件, 如果待读取文件过大, 则重新创建文件和复制操作会消耗一定的空间和时间, 影响性能</strong></p> <pre><code class="prism language-java"><span class="token comment">//方式二 利用FileUtils将ClassPathResource.getInputStream 得到的输入流复制到临时文件中</span><span class="token class-name">Resource</span> resource<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">ClassPathResource</span><span class="token punctuation">(</span><span class="token string">"holiday.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">InputStream</span> inputStream<span class="token operator">=</span> resource<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">File</span> tempFile<span class="token operator">=</span><span class="token class-name">File</span><span class="token punctuation">.</span><span class="token function">createTempFile</span><span class="token punctuation">(</span><span class="token string">"temp"</span><span class="token punctuation">,</span><span class="token string">".txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">copyInputStreamToFile</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">,</span> tempFile<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token class-name">String</span> s<span class="token operator">=</span><span class="token class-name">FileUtils</span><span class="token punctuation">.</span><span class="token function">readFileToString</span><span class="token punctuation">(</span>tempFile<span class="token punctuation">,</span><span class="token class-name">StandardCharsets</span><span class="token punctuation">.</span>UTF_8<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> </li> </ol> <h2><a id="_145" rel="nofollow"></a>意外出现</h2> <ol> <li> <p>到这里又出现了一个问题, 就是我用的<strong>测试项目</strong>因为在 maven 里面指定了某些格式的文件. 如下配置<br /><strong>因为指定了banner.txt 以及 xml 与 properties结尾的文件作为资源被打包. 所以文件 holiday.txt 运行后还是访问不到</strong><br /> 有问题的pom.xml文件如下</p> <pre><code class="prism language-xml"><span class="token comment">&lt;!-- 资源拷贝插件，实现在打包时自动拷贝java目录下以及resources目录下的xml的配置文件 --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/resources<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/banner.txt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">&gt;</span></span></code></pre> <p>打包后资源文件截图如下, 从该图中可以看到 holiday.txt 没有被打包进来<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/128c3264690877bc91d44688b62a4992.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"><br /> 程序运行之后的错误截图<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/56abeeccf633c8d270acb6861a9c7f60.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> <li> <p>我们修改下指定打包的配置<code>&lt;include&gt;**/*.txt&lt;/include&gt;</code><br /> 这样配置后, 我们就可以<strong>将类路径下的所有txt 文件打包进行项目中</strong>了, 打包之后文件位置如下图<br /><strong>或者我们可以去除项目中下面的代码配置, 这样做会默认打包 resources 下面的所有文件</strong></p> <pre><code class="prism language-xml"><span class="token comment">&lt;!-- 资源拷贝插件，实现在打包时自动拷贝java目录下以及resources目录下的xml的配置文件 --&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">&gt;</span></span>src/main/resources<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">&gt;</span></span>**/*.txt<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">&gt;</span></span></code></pre> <p>修改pom文件后, 重新打包后资源文件(<strong>从这里可以看到 holiday.txt 被打包进来</strong> )<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220723/1eadbf4116fc2eae5f4e79c0ddfbbc2a.jpg" alt="项目打包成 jar 后包无法读取src/main/resources下文件"></p> </li> </ol> </h1> <ol> <li> <p><strong>在项目内的文件的读取/下载时, 由于本地路径和项目打包后的路径不同. 出现找不到文件的情况,<br /> 我们只需要实例化<code>ClassPathResource(文件名)</code> 对象. 然后调用getInputStream 来获取资源文件.<br /> 就能获取任意环境下项目内的文件</strong></p> </li> <li> <p><strong>如果想打算使用其他方式来获取resources 目录下的文件, 可以参见</strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/u011047968/article/details/107311462"  rel="nofollow">这篇博客</a> .<br /> 核心和上面问题分析差不多, 基本上都是通过类加载器来获取资源文件的输入流进而找到这个文件</p> </li> </ol> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37949.htm">Pytorch单GPU、多GPU训练的几个细节对比</a></p>
+                                        <p>下一个：<a href="/news/article-38446.htm">美联众合动物医院新街口 美联众合动物医院新街口店</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21003.htm" title="开一家宠物医院需要什么资质证书（要开一家宠物医院需要到哪些部门办理哪些证件方可开业）">开一家宠物医院需要什么资质证书（要开一家宠物医院需要到哪些部门办理哪些证件方可开业）</a></li>
+                        <li class="py-2"><a href="/news/article-37485.htm" title="IntelliJ IDEA配置Maven详解">IntelliJ IDEA配置Maven详解</a></li>
+                        <li class="py-2"><a href="/news/article-38446.htm" title="美联众合动物医院新街口 美联众合动物医院新街口店">美联众合动物医院新街口 美联众合动物医院新街口店</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-clash-subscribe.htm" title="11月8日|V2ray/SSR/Clash/Shadowrocket每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅">11月8日|V2ray/SSR/Clash/Shadowrocket每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node-daily-updates.htm" title="11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅">11月5日|Shadowrocket/V2ray/Clash/SSR每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-shadowrocket-node.htm" title="10月30日|SSR/V2ray/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅">10月30日|SSR/V2ray/Clash/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-34098.htm" title="天津宠物领养救助中心地址在哪里（天津市宠物救助站）">天津宠物领养救助中心地址在哪里（天津市宠物救助站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-v2ray-subscribe.htm" title="10月20日|SSR/Clash/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅">10月20日|SSR/Clash/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-31708.htm" title="小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）">小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅">12月3日|Shadowrocket/V2ray/Clash/SSR每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

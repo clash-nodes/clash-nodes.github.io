@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-37949.htm" />
+    <title>Pytorch单GPU、多GPU训练的几个细节对比</title>
+        <meta name="description" content="Pytorch单GPU、多GPU训练的区别主要在三个地方：训练前指定GPU、训练过程中保存模型和加载刚刚保存的模型。  训练前指定GPU 单GPU： os.environ["CUDA_VISIBLE_" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Pytorch单GPU、多GPU训练的几个细节对比</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <p>Pytorch单GPU、多GPU训练的区别主要在三个地方：训练前指定GPU、训练过程中保存模型和加载刚刚保存的模型。</p> <h3> <a id="GPU_1" rel="nofollow"></a>训练前指定GPU</h3> <p>单GPU：</p> <pre><code class="prism language-python">os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">"CUDA_VISIBLE_DEVICES"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0'</span> </code></pre> <p>多GPU：</p> <pre><code class="prism language-python">os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">"CUDA_VISIBLE_DEVICES"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0,1'</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Let's use"</span><span class="token punctuation">,</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"GPUs!"</span><span class="token punctuation">)</span>     self<span class="token punctuation">.</span>model <span class="token operator">=</span> nn<span class="token punctuation">.</span>DataParallel<span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">)</span> </code></pre> <h3> <a id="_16" rel="nofollow"></a>训练过程中保存模型</h3> <p>单GPU：</p> <pre><code class="prism language-python">state <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token string">'model'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'epoch'</span><span class="token punctuation">:</span> ite<span class="token punctuation">}</span> torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>state<span class="token punctuation">,</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>多GPU：</p> <pre><code class="prism language-python"><span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">,</span>torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>DataParallel<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token comment">##判断是否并行</span>     self<span class="token punctuation">.</span>model <span class="token operator">=</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>module      state <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token string">'model'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'epoch'</span><span class="token punctuation">:</span> ite<span class="token punctuation">}</span> torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>state<span class="token punctuation">,</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">:</span>     self<span class="token punctuation">.</span>model <span class="token operator">=</span> nn<span class="token punctuation">.</span>DataParallel<span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">)</span> </code></pre> <p>多加的上面两句是为了解决下面的问题</p> <pre><code>AttributeError: 'DataParallel' object has no attribute 'name' </code></pre> <p>如果不加最后两句，也不会报错，但是<strong>后面训练都会变成单GPU</strong>，也就是会导致下面的结果。（我用的两个GPU）</p> <div align="center">  <img decoding="async" src="http://img.555519.xyz/uploads/20221223/aeb1e471e8601019c12b7c6431fcd6b7.jpg" alt="Pytorch单GPU、多GPU训练的几个细节对比" title="2GPUs"/> </div> <p>加上后两句之后：</p> <div align="center">  <img decoding="async" src="http://img.555519.xyz/uploads/20221223/4670b1c6ed249c8b0b798fda5cc28e54.jpg" alt="Pytorch单GPU、多GPU训练的几个细节对比" title="2GPUs"/> </div> <p><strong>需要注意前两句、后两句以及原来两句的相对位置不能颠倒</strong>，例如把原来的第一句放到最前面，在后面加载模型的时候可能会出现问题。</p> <h3> <a id="_50" rel="nofollow"></a>加载刚刚保存的模型</h3> <p>单GPU：</p> <pre><code class="prism language-python">checkpoint <span class="token operator">=</span> torch<span class="token punctuation">.</span>load<span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>checkpoint<span class="token punctuation">[</span><span class="token string">'model'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </code></pre> <p>多GPU改成：</p> <pre><code class="prism language-python"><span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">,</span>torch<span class="token punctuation">.</span>nn<span class="token punctuation">.</span>DataParallel<span class="token punctuation">)</span><span class="token punctuation">:</span>         self<span class="token punctuation">.</span>model <span class="token operator">=</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>module <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment">#gpu</span>     checkpoint <span class="token operator">=</span> torch<span class="token punctuation">.</span>load<span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment">#cpu</span>     checkpoint <span class="token operator">=</span> torch<span class="token punctuation">.</span>load<span class="token punctuation">(</span>self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>map_location<span class="token operator">=</span><span class="token keyword">lambda</span> storage<span class="token punctuation">,</span> loc<span class="token punctuation">:</span> storage<span class="token punctuation">)</span> self<span class="token punctuation">.</span>model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>checkpoint<span class="token punctuation">[</span><span class="token string">'model'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37486.htm">兽用疫苗销售人员（兽用疫苗销售人员要求）</a></p>
+                                        <p>下一个：<a href="/news/article-37950.htm">项目打包成 jar 后包无法读取src/main/resources下文件</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-node-subscribe-links.htm" title="12月26日|Clash/Shadowrocket/V2ray/SSR每天更新21.7M/S免费节点订阅链接，Clash便宜机场订阅">12月26日|Clash/Shadowrocket/V2ray/SSR每天更新21.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-21003.htm" title="开一家宠物医院需要什么资质证书（要开一家宠物医院需要到哪些部门办理哪些证件方可开业）">开一家宠物医院需要什么资质证书（要开一家宠物医院需要到哪些部门办理哪些证件方可开业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-clash-subscribe.htm" title="1月1日|Clash/Shadowrocket/SSR/V2ray每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅">1月1日|Clash/Shadowrocket/SSR/V2ray每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-34929.htm" title="vue项目实战精粹汇总">vue项目实战精粹汇总</a></li>
+                        <li class="py-2"><a href="/news/article-22830.htm" title="kafka生产者发送消息可靠性">kafka生产者发送消息可靠性</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="12月9日|Shadowrocket/Clash/SSR/V2ray每天更新21.7M/S免费节点订阅链接，Clash便宜机场订阅">12月9日|Shadowrocket/Clash/SSR/V2ray每天更新21.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-29318.htm" title="女人养猫的好处（女人养猫的好处和坏处）">女人养猫的好处（女人养猫的好处和坏处）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-v2ray-subscribe.htm" title="10月12日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接">10月12日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-ssr-subscribe.htm" title="10月22日|V2ray/Shadowrocket/Clash/SSR每天更新22M/S免费节点订阅链接，Clash便宜机场订阅">10月22日|V2ray/Shadowrocket/Clash/SSR每天更新22M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-shadowrocket-node.htm" title="12月16日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅">12月16日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
