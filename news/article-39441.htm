@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-39441.htm" />
+    <title>Vue 实现骨架屏（skeleton）</title>
+        <meta name="description" content="Vue实现骨架屏的步骤： 1.安装骨架屏插件： npm install vue-skeleton-webpack-plugin 2.由于骨架屏插件依赖服务端渲染，再安装vue-server-rende" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Vue 实现骨架屏（skeleton）</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>Vue实现骨架屏的步骤：<br /> 1.安装骨架屏插件：</p> <pre><code>npm install vue-skeleton-webpack-plugin</code></pre> <p>2.由于骨架屏插件依赖服务端渲染，再安装vue-server-renderer</p> <pre><code>npm install vue-server-renderer</code></pre> <p>3.在src&gt;components新建skeleton目录，里面创建index.vue跟entry.skeleton.js，如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220604/0027516da83b95f9889a5c8e69838f86.jpg" alt="Vue 实现骨架屏（skeleton）"><br /> 4.在index,vue中写入骨架屏的样式，通常与首页的布局一致，例如：</p> <pre><code> &lt;template&gt;     &lt;div class="skeleton"&gt;         &lt;section&gt;&lt;/section&gt;         &lt;div class="center"&gt;           &lt;ul class="dec"&gt;               &lt;li v-for="n in 2" :key="n"&gt;                   &lt;span&gt;&lt;/span&gt;                   &lt;span&gt;&lt;/span&gt;               &lt;/li&gt;               &lt;li&gt;                   &lt;span&gt;&lt;/span&gt;               &lt;/li&gt;           &lt;/ul&gt;             &lt;ul class="features"&gt;                 &lt;li v-for="n in 3" :key="n"&gt;                     &lt;i&gt;&lt;/i&gt;                     &lt;span&gt;&lt;/span&gt;                 &lt;/li&gt;             &lt;/ul&gt;         &lt;/div&gt;         &lt;div class="detail"&gt;             &lt;ul&gt;                 &lt;li v-for="n in 3" :key="n"&gt;                     &lt;span&gt;&lt;/span&gt;                     &lt;span&gt;&lt;/span&gt;                 &lt;/li&gt;             &lt;/ul&gt;             &lt;p&gt;&lt;/p&gt;         &lt;/div&gt;     &lt;/div&gt; &lt;/template&gt; &lt;style lang="less"&gt;     @import "../less/public";     @skeleton:#eee;     .skeleton{         width: 100%;         height: 100vh;         overflow: hidden;         background: #fff;         section{             width: 100%;             height: 205px;             background:@skeleton;             animation: sport .2s;         }         .center{             .dec{                 li{                     width: 100%;                     height: 34px;                     margin: 30px 0;                     padding: 0 @padding20px;                     box-sizing: border-box;                     display: flex;                     justify-content: space-between;                     span{                         width: 100px;                         background: @skeleton;                     }                 }                 li:first-of-type{                     height: 44px;                 }             }             .features{                 display: flex;                 align-content: center;                 li{                     flex: 1;                     text-align: center;                     i{                         display: inline-block;                         width: 60px;                         height: 60px;                         background: @skeleton;                         border-radius: 50%;                         vertical-align: middle;                     }                     span{                         position: relative;                         left:-20px;                         top:-6px;                         display: inline-block;                         width: 120px;                         height: 40px;                         background: @skeleton;                     }                 }             }         }         .detail{             margin-top: @padding20px;             ul{                 li{                     width: 100%;                     display: flex;                     height: 44px;                     padding: 0 @padding20px;                     box-sizing: border-box;                     justify-content: space-between;                     margin-bottom: 10px;                     span{                         width: 300px;                         background: @skeleton;                     }                     span:first-of-type{                         width: 150px;                     }                 }                 li:first-of-type{                     height: 54px;                 }             }             p{                 width: 60%;                 height: 54px ;                 background: @skeleton;                 margin-left: @padding20px;                 margin-top: @padding20px;             }         }     }     @keyframes sport {         0%{background: #fff}         100%{background: @skeleton}     } &lt;/style&gt;</code></pre> <p>5.配置entry.skeleton.js的入口文件：</p> <pre><code>import Vue from 'vue' import Skeleton from './index' export default new Vue({   components: {     Skeleton   },   template: '&lt;Skeleton/&gt;' })</code></pre> <p>6.在build文件夹中创建一个webpack.skeleton.conf.js：</p> <pre><code>'use strict'; const path = require('path') const merge = require('webpack-merge') const baseWebpackConfig = require('./webpack.base.conf') const nodeExternals = require('webpack-node-externals')  const config = require('../config') const utils = require('./utils') const isProduction = process.env.NODE_ENV === 'production' const sourceMapEnabled = isProduction   ? config.build.productionSourceMap   : config.dev.cssSourceMap  function resolve(dir) {   return path.join(__dirname, dir) }  let skeletonWebpackConfig = merge(baseWebpackConfig, {   target: 'node',   devtool: false,   entry: {     app: resolve('../src/components/skeleton/entry-skeleton.js')   },   output: Object.assign({}, baseWebpackConfig.output, {     libraryTarget: 'commonjs2'   }),   externals: nodeExternals({     whitelist: /\.css$/   }),   plugins: [] })  //important: enable extract-text-webpack-plugin,让颜色生效 // 重点配置 skeletonWebpackConfig.module.rules[0].options.loaders = utils.cssLoaders({   sourceMap: sourceMapEnabled,   extract: true }) module.exports = skeletonWebpackConfig</code></pre> <p>7.在webpack.dev.conf.js跟webpack.pro.conf.js或者统一在webpack.base.conf.js中分别引入：</p> <pre><code>const SkeletonWebpackPlugin=require('vue-skeleton-webpack-plugin');</code></pre> <p>然后在plugins中分别导入：</p> <pre><code>    new SkeletonWebpackPlugin({       webpackConfig: require('./webpack.skeleton.conf'),       quiet: true,     }),</code></pre> <p>以上为Vue项目骨架屏的全部配置过程！！！</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38951.htm">猫三联是三针还是一针好（猫三联一针是什么意思）</a></p>
+                                        <p>下一个：<a href="/news/article-39442.htm">黄猫进屋十大预兆是什么（流浪猫来预示着家里要死人了）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32183.htm" title="SpringBoot启动报错Injection of autowired dependencies failed； Could not resolve placeholder: 问题">SpringBoot启动报错Injection of autowired dependencies failed； Could not resolve placeholder: 问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-clash-node-daily-updates.htm" title="10月26日|V2ray/SSR/Shadowrocket/Clash每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅">10月26日|V2ray/SSR/Shadowrocket/Clash每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-shadowrocket-node.htm" title="1月12日|Clash/SSR/V2ray/Shadowrocket每天更新22.8M/S免费节点订阅链接，Clash便宜机场订阅">1月12日|Clash/SSR/V2ray/Shadowrocket每天更新22.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-38950.htm" title="vue3.0 elementUI实现上传文件的暂停继续功能">vue3.0 elementUI实现上传文件的暂停继续功能</a></li>
+                        <li class="py-2"><a href="/news/article-22375.htm" title="宠物领养活动宣传语（宠物领养活动方案）">宠物领养活动宣传语（宠物领养活动方案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-clash-windows.htm" title="12月23日|V2ray/Shadowrocket/SSR/Clash每天更新19.5M/S免费节点订阅链接，Clash便宜机场订阅">12月23日|V2ray/Shadowrocket/SSR/Clash每天更新19.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-21918.htm" title="宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）">宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share-links.htm" title="1月10日|Shadowrocket/SSR/V2ray/Clash每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅">1月10日|Shadowrocket/SSR/V2ray/Clash每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-33157.htm" title="Redis 单数据多源超高并发下的解决方案">Redis 单数据多源超高并发下的解决方案</a></li>
+                        <li class="py-2"><a href="/news/article-31708.htm" title="小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）">小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

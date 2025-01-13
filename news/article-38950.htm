@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-38950.htm" />
+    <title>vue3.0 elementUI实现上传文件的暂停继续功能</title>
+        <meta name="description" content="uploadList.vue &lt;template&gt;   &lt;div class="uploader-list"&gt;       &lt;ul v-if="fileList.leng" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AerobicsFit template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">vue3.0 elementUI实现上传文件的暂停继续功能</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>uploadList.vue</p> <pre><code>&lt;template&gt;   &lt;div class="uploader-list"&gt;       &lt;ul v-if="fileList.length&gt;0"&gt;         &lt;li v-for="file in fileList" :key="file.id"&gt;           &lt;div class="fileItem"&gt;             &lt;span&gt;{<!-- -->{file.name.length&gt;30?file.name.substring(0,30)+'...':file.name}}({<!-- -->{commonFun.getFileSize(file.size)}})-{<!-- -->{(file.status=='ready'&amp;&amp;Number(file.percentage)&gt;0)?status.stop:status[file.status]}}               &lt;span v-if="file.status=='uploading'||file.status=='ready'"&gt;({<!-- -->{Number(file.percentage).toFixed(1)}}%)&lt;/span&gt;             &lt;/span&gt;             &lt;svg-icon icon-class="stop" @click="stopUpload(file)" v-if="file.status=='uploading'"/&gt;             &lt;i class="el-icon-caret-right" @click="startUpload(file)" v-if="file.status=='ready'||file.status=='stop'"&gt;&lt;/i&gt;             &lt;i class="el-icon-close" @click="delUpload(file)" style="color:#f56c6c"&gt;&lt;/i&gt;           &lt;/div&gt;           &lt;el-progress style="width:440px;" :width="440" :percentage="file.percentage"&gt;&lt;span&gt;{<!-- -->{Number(file.percentage).toFixed(1)}}%&lt;/span&gt;&lt;/el-progress&gt;         &lt;/li&gt;       &lt;/ul&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import { toRefs,reactive,watchEffect,getCurrentInstance } from 'vue'; import { useI18n } from 'vue-i18n'//要在js中使用国际化   export default {     name: "uploadList",     props: {         fileList:Array,     },      emits:["stopUploadFile","uploadFileFun"],     setup(props,ctx) {       const { t } = useI18n();       const {proxy} = getCurrentInstance();       const commonFun = proxy.$fun;       const state = reactive({         files:[],         stopUpload(file){           ctx.emit('stopUploadFile',file,'stop')           },         startUpload(file){           ctx.emit('uploadFileFun',file)         },         delUpload(file){           ctx.emit('stopUploadFile',file,'del')           },       })       let status={         ready:t("personal.page_myspace_wait_upload"),         stop:t("common.constants_stopped"),         uploading:t("personal.page_myspace_uploading"),         success:t("common.constants_uploaded"),       }       watchEffect(()=&gt;{         state.files = props.fileList       })       return{         ...toRefs(state),         status,         commonFun       }     }   } &lt;/script&gt;  &lt;style lang="scss"&gt;      .uploader-list {     position: relative;   }   .uploader-list &gt; ul {     list-style: none;     margin: 0;     padding: 0;     padding-bottom: 20px;     li{       width: 490px;       margin: auto;       height: 50px;       border-bottom: 1px solid #cdcdcd;       background: #FFF;       .fileItem{         line-height: 30px;         font-size: 14px;       }     }   } &lt;/style&gt;</code></pre> <p>将上传列表单独创建一个uploadList.vue</p> <p>上传组件</p> <pre><code>&lt;!-- 上传文件 --&gt; 		&lt;div class="file-panel" :class="showPercentage ? 'showPercentage' : 'hidePercentage'"&gt; 			&lt;el-card class="panelCard"&gt; 				&lt;template #header&gt; 				&lt;div class="card-header"&gt; 					&lt;span&gt;文件列表&lt;/span&gt; 					&lt;div&gt; 						&lt;i style="color:#409EFF" @click="showPercentageFun(false)" v-if="showPercentage" class="el-icon-minus" &gt;&lt;/i&gt; 						&lt;i style="color:#409EFF" @click="showPercentageFun(true)" v-else class="el-icon-full-screen"&gt;&lt;/i&gt; 					&lt;/div&gt; 				&lt;/div&gt; 				&lt;/template&gt; 				&lt;upload-list v-if="showPercentage" @stopUploadFile="stopUploadFile" @uploadFileFun="uploadFileFun" :fileList="uploadFileList"&gt;&lt;/upload-list&gt; 			&lt;/el-card&gt; 		&lt;/div&gt; 		&lt;el-dialog 			:title="$t('common.constants_add_file')" 			v-model="layout.upload" 			width="600px" 			custom-class="qrCodeDialog" 			&gt; 			&lt;el-upload  				ref="upload" 				style="text-align:center;" 				class="upload-demo" 				:action="UploadUrl()" 				multiple 				drag 				:auto-upload="false" 				name="modelfile" 				:file-list="uploadFileList" 				:show-file-list="false" 				:data="{pfolderid:pfolderid.pfolderid}" 				:on-change="fileChange" 				:on-progress="fileProgress" 				:on-success="uploadSuccess" 			&gt; 				&lt;i class="el-icon-upload"&gt;&lt;/i&gt; 				&lt;div class="el-upload__text"&gt;{<!-- -->{$t("common.constants_drop_file")}}&lt;em&gt;{<!-- -->{$t("common.constants_click_file")}}&lt;/em&gt;&lt;/div&gt; 			&lt;/el-upload&gt; 			&lt;ul v-if="uploadFileList1.length&gt;0" class="el-upload-list el-upload-list--text"&gt; 				&lt;li v-for="item of uploadFileList1" :key="item.uid" class="el-upload-list__item is-ready" tabindex="0"&gt;&lt;!--v-if--&gt; 					&lt;a class="el-upload-list__item-name"&gt;&lt;i class="el-icon-document"&gt;&lt;/i&gt;{<!-- -->{item.name}}&lt;/a&gt; 					&lt;label class="el-upload-list__item-status-label"&gt; 						&lt;i class="el-icon-upload-success el-icon-circle-check"&gt;&lt;/i&gt; 					&lt;/label&gt;&lt;i class="el-icon-close"&gt;&lt;/i&gt; 				&lt;/li&gt; 			&lt;/ul&gt; 			&lt;!-- &lt;el-progress v-if="uploadPercentage&gt;0" :percentage="uploadPercentage" color="#409eff" /&gt; --&gt; 			&lt;template #footer&gt; 				&lt;span class="dialog-footer"&gt; 				&lt;el-button @click="layout.upload = false"&gt;{<!-- -->{$t("common.constants_close")}}&lt;/el-button&gt; 				&lt;el-button type="primary" @click="uploadFileFun"&gt;{<!-- -->{$t("common.constants_begin_upload")}}&lt;/el-button&gt; 				&lt;/span&gt; 			&lt;/template&gt; 		&lt;/el-dialog&gt;</code></pre> <p>具体方法</p> <pre><code>uploadSuccess (res) { 				var flag=true; 				var result=""; 				res.map(item =&gt; { 					if(item.return=='0'){ 						flag=true; 					}else{ 						flag=false; 						result=item.return; 					} 				}); 				if(flag){ 					ElMessage.success(t("common.constants_file_success")); 				}else{ 					ElMessage.warning(t(`common[${result}]`)); 				} 				state.layout.upload=false; 				stateFun.refresh(); 			}, 			// 文件上传 			uploadFun(){ 				state.pfolderid.pfolderid=state.file.folderid; 				uploadFileList1.value=[]; 				state.layout.upload=true; 			}, 			fileProgress(event, file,fileList){ 				uploadFileList.value=fileList; 				console.log(file) 			}, 			// 停止上传 			stopUploadFile(file,type){ 				if(type=='stop'){ 					upload.value.abort(file); 					uploadFileList.value.findIndex(item =&gt;{ 						if(item.uid==file.uid){ 							item.status="ready"; 							return true 						} 					}) 				}else{ 					var index = uploadFileList.value.findIndex(item =&gt;{ 						if(item.uid==file.uid){ 							return true 						} 					}) 					uploadFileList.value.splice(index,1) 				} 			}, 			//  			uploadFileFun(){ 				// if(file&amp;&amp;file.uid){ 				// 	uploadFileList.value.findIndex(item =&gt;{ 				// 		if(item.uid==file.uid){ 				// 			item.status="ready"; 				// 			item.percentage=0; 				// 			return true 				// 		} 				// 	}) 				// }else{ 					state.layout.upload=false; 				// } 				upload.value.submit(); 			}, 			UploadUrl() { 				return "/api/"+store.state.site.version+"/file/uploadfromweb" 			}, 			// 文件状态改变时的钩子 			fileChange(file,fileList) { 				uploadFileList1.value.push(file); 				uploadFileList.value=fileList; 				showPercentage.value=true; 			}, 			showPercentageFun(val){ 				showPercentage.value=val; 			},</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38447.htm">青浦二中分数线会降吗（青浦二中2020本科录取率）</a></p>
+                                        <p>下一个：<a href="/news/article-38951.htm">猫三联是三针还是一针好（猫三联一针是什么意思）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-31708.htm" title="小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）">小猫养多久才认主人?猫对主人的记忆有多久呢（小猫多长时间认主）</a></li>
+                        <li class="py-2"><a href="/news/article-29318.htm" title="女人养猫的好处（女人养猫的好处和坏处）">女人养猫的好处（女人养猫的好处和坏处）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-high-speed-nodes.htm" title="11月12日|Clash/Shadowrocket/SSR/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">11月12日|Clash/Shadowrocket/SSR/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-ssr-node.htm" title="10月10日|Shadowrocket/V2ray/Clash/SSR每天更新19.4M/S免费节点订阅链接">10月10日|Shadowrocket/V2ray/Clash/SSR每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-v2ray-subscribe.htm" title="10月20日|SSR/Clash/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅">10月20日|SSR/Clash/Shadowrocket/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-38951.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="1月5日|Clash/SSR/Shadowrocket/V2ray每天更新18.7M/S免费节点订阅链接，Clash便宜机场订阅">1月5日|Clash/SSR/Shadowrocket/V2ray每天更新18.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share.htm" title="12月6日|SSR/Clash/Shadowrocket/V2ray每天更新22.9M/S免费节点订阅链接，Clash便宜机场订阅">12月6日|SSR/Clash/Shadowrocket/V2ray每天更新22.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-26548.htm" title="宠物医院投诉部门电话多少（宠物医院去哪个部门投诉）">宠物医院投诉部门电话多少（宠物医院去哪个部门投诉）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-clash-node-daily-updates.htm" title="11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅">11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
