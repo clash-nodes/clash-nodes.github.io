@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-46389.htm" />
+    <title>Springboot 使用Maven实现多环境打包</title>
+        <meta name="description" content="序言 当项目有多个运行环境需要打包发布时，每次手动修改配置文件未免太过劳累,尤其是做了服务拆分的项目，比如博主这边的这个项目有4个服务需要配置三个环境：本地、测试、生产。每次本地修改完代码，还需要打包" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-46389.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="Springboot 使用Maven实现多环境打包" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/85e3108786befe6661548c40fd68bba1.webp" />
+        <meta property="og:release_date" content="2025-01-26T09:59:07" />
+    <meta property="og:updated_time" content="2025-01-26T09:59:07" />
+        <meta property="og:description" content="序言 当项目有多个运行环境需要打包发布时，每次手动修改配置文件未免太过劳累,尤其是做了服务拆分的项目，比如博主这边的这个项目有4个服务需要配置三个环境：本地、测试、生产。每次本地修改完代码，还需要打包" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot 使用Maven实现多环境打包">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Springboot 使用Maven实现多环境打包</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>序言</h2> <p>当项目有多个运行环境需要打包发布时，每次手动修改配置文件未免太过劳累,尤其是做了服务拆分的项目，比如博主这边的这个项目有4个服务需要配置三个环境：本地、测试、生产。每次本地修改完代码，还需要打包测试环境，生产环境，修改配置文件操作过余繁琐，一般思路都是多个配置文件，打包时使用maven根据需要来进行对应环境的打包，下面贴下具体操作。</p> <h2>一、Maven实现多环境jar打包</h2> <p><img fetchpriority="high" decoding="async" alt="" height="618" src="http://img.555519.xyz/uploads/20230110/909dd8efedb654f82b8ed27c53b36efa.jpg"></p> <p>这是我们的示例工程，一个project里面有三个子模块。&nbsp;</p> <p>然后加上一些相关的配置，springboot jar依赖和resources里的配置文件，这里为了演示我们准备三个配置文件。resources文件夹下有两个prod、test分别放置生产环境和测试环境的同名配置文件，resources目录下默认的配置文件则为开发环境。</p> <p><img decoding="async" alt="" height="593" src="http://img.555519.xyz/uploads/20230110/46cca65a462e04c3cf64cda4966142e2.jpg"></p> <p>&nbsp;接下来统一在父级工程的pom下配置打包插件，来进行自定义的配置文件重写。</p> <pre><code class="language-XML">&lt;profiles&gt;         &lt;!-- 这里是你定义的环境可选项，下面罗列了有两种 生产环境选项、测试环境选项 --&gt;         &lt;profile&gt;             &lt;id&gt;prod&lt;/id&gt;             &lt;properties&gt;                 &lt;package.environment&gt;prod&lt;/package.environment&gt;             &lt;/properties&gt;         &lt;/profile&gt;         &lt;profile&gt;             &lt;id&gt;test&lt;/id&gt;             &lt;properties&gt;                 &lt;package.environment&gt;test&lt;/package.environment&gt;             &lt;/properties&gt;         &lt;/profile&gt; &lt;/profiles&gt;     &lt;build&gt;         &lt;plugins&gt;             &lt;plugin&gt;                 &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;                 &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;                 &lt;version&gt;2.6&lt;/version&gt;                 &lt;executions&gt;                     &lt;execution&gt;                         &lt;id&gt;copy-resources&lt;/id&gt;                         &lt;phase&gt;compile&lt;/phase&gt;                         &lt;goals&gt;                             &lt;goal&gt;copy-resources&lt;/goal&gt;                         &lt;/goals&gt;                         &lt;configuration&gt;                             &lt;!-- 重写属性为true 表示相关的配置文件会被重写 --&gt;                             &lt;overwrite&gt;true&lt;/overwrite&gt;                             &lt;outputDirectory&gt;${project.build.outputDirectory}                &lt;/outputDirectory&gt;                             &lt;resources&gt;                                 &lt;resource&gt;                          &lt;!-- 指明需要重写文件所在的目录，这里读取的就是上面定义的可选项 --&gt;                                     &lt;directory&gt;src/main/resources/${package.environment}&lt;/directory&gt;                                     &lt;filtering&gt;false&lt;/filtering&gt;                                 &lt;/resource&gt;                             &lt;/resources&gt;                         &lt;/configuration&gt;                     &lt;/execution&gt;                 &lt;/executions&gt;             &lt;/plugin&gt;</code></pre> <p>在父级pom文件中的project标签中加入以上配置，如果maven提示错误，则删掉注释文字。</p> <p>上面的 maven-resources-plugin 插件可以帮助我们在maven打包的编译期根据我们指定的环境选项来替换掉相应的文件，现在还有一个问题就是我们上述为了实现环境选项的可选，在resources文件目录下新增了两个原本没必要的文件夹，所以我们需要剔除这两个文件夹。</p> <p>剔除用到的maven插件为 maven -jar -plugin</p> <p>额外在父级工程下再引入该插件，剔除我们不需要打包进去的两个配置文件夹</p> <pre><code class="language-XML">&lt;plugin&gt;                 &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;                 &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;                 &lt;version&gt;3.0.2&lt;/version&gt;                 &lt;configuration&gt;                     &lt;excludes&gt;                         &lt;!-- 这个路径是项目artifact 编译class后的路径开始算起的 --&gt;                         &lt;exclude&gt;/**/prod/**&lt;/exclude&gt;                         &lt;exclude&gt;/**/test/**&lt;/exclude&gt;                     &lt;/excludes&gt;                 &lt;/configuration&gt;             &lt;/plugin&gt;</code></pre> <p>同样，如果以上配置存在maven报错，删掉注释文字。</p> <p>这样我们就完成了整体配置，下面来打包测试一下。</p> <p><img decoding="async" alt="" height="747" src="http://img.555519.xyz/uploads/20230110/2c46953e849f9162174f737eb3053c6f.jpg">&nbsp;这样因为没有输入环境选项参数，就是普通的打包，也就是我们默认的开发环境打包。</p> <p><img loading="lazy" decoding="async" alt="" height="346" src="http://img.555519.xyz/uploads/20230110/46063acd33d9512ca46a291c1c188def.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="339" src="http://img.555519.xyz/uploads/20230110/76123530133f870d06aa1f5552605f27.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="466" src="http://img.555519.xyz/uploads/20230110/33028463006bef981294f9b9c502469d.jpg">&nbsp;</p> <p>解压打包后的jar可以发现默认的环境为 dev 开发环境。</p> <p>使用环境选项参数打包，在原有的打包基础命令上添加 -P参数，参数后面跟的选项就是我们上面配置好的环境选项参数，这里以生产环境为示例。</p> <pre><code class="language-bash">mvn clean package -Pprod</code></pre> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="563" src="http://img.555519.xyz/uploads/20230110/4cdb340f0d79fb2dcc1192a62ec4d5af.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="505" src="http://img.555519.xyz/uploads/20230110/f08882743cb3b26fdd2d60d8421e4f45.jpg">&nbsp;</p> <p>&nbsp;打包后的配置文件即为生产环境下的配置文件了。</p> <h2>二、Gitee示例工程</h2> <p>&nbsp;以上示例工程代码，已上传gitee，有需要的话可自行尝试。</p> <p>&nbsp;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/firedarksouls/maven-demo/tree/master"  title="SuperVBird/MavenDemo - 码云 - 开源中国 (gitee.com)" rel="nofollow">SuperVBird/MavenDemo - 码云 - 开源中国 (gitee.com)</a></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45885.htm">RestTemplate中文问号?</a></p>
+                                        <p>下一个：<a href="/news/article-46390.htm">Vue滑块验证码组件anji-captcha的使用</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-subscribe-node.htm" title="12月1日|Shadowrocket/V2ray/SSR/Clash每天更新19.4M/S免费节点订阅链接，Clash便宜机场订阅">12月1日|Shadowrocket/V2ray/SSR/Clash每天更新19.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-46389.htm" title="Springboot 使用Maven实现多环境打包">Springboot 使用Maven实现多环境打包</a></li>
+                        <li class="py-2"><a href="/news/article-30110.htm" title="java class 文件格式解析">java class 文件格式解析</a></li>
+                        <li class="py-2"><a href="/news/article-41419.htm" title="天津24小时宠物救助电话 天津24小时宠物救助电话号码">天津24小时宠物救助电话 天津24小时宠物救助电话号码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-clash.htm" title="1月8日|Shadowrocket/Clash/SSR/V2ray每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅">1月8日|Shadowrocket/Clash/SSR/V2ray每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-40426.htm" title="宠物疫苗查询系统（宠物疫苗接种查询系统）">宠物疫苗查询系统（宠物疫苗接种查询系统）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-ssr-subscribe.htm" title="10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接">10月7日|Clash/V2ray/Shadowrocket/SSR每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-shadowrocket-node.htm" title="1月20日|V2ray/Clash/SSR/Shadowrocket每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">1月20日|V2ray/Clash/SSR/Shadowrocket每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-37950.htm" title="项目打包成 jar 后包无法读取src/main/resources下文件">项目打包成 jar 后包无法读取src/main/resources下文件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-clash-v2ray-ss-ssr.htm" title="10月19日|SSR/Clash/V2ray/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅">10月19日|SSR/Clash/V2ray/Shadowrocket每天更新22.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
