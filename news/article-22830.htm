@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://clash-nodes.github.io/news/article-22830.htm" />
@@ -7,9 +7,36 @@
         <meta name="description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
         <meta charset="utf-8">
     <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-22830.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="kafka生产者发送消息可靠性" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/49c47860c99b7403adeafd7a8d1b9e7f.webp" />
+        <meta property="og:release_date" content="2024-12-08T07:14:34" />
+    <meta property="og:updated_time" content="2024-12-08T07:14:34" />
+        <meta property="og:description" content="在实际业务场景下，为保证消息从producer能够准确无误的送达kafka的broker，kafka提供了针对消息ACK的几种级别，即broker对producer消息应答级别 kafka提供了3种A" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="AerobicsFit template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="kafka生产者发送消息可靠性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
 <script>
@@ -22,10 +49,10 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
-    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
 </head>
@@ -122,16 +149,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-clash-v2ray-ss-ssr.htm" title="8月10日|V2ray/Shadowrocket/Clash/SSR每天更新22.9M/S免费节点订阅链接">8月10日|V2ray/Shadowrocket/Clash/SSR每天更新22.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-clash.htm" title="12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅">12月8日|Clash/Shadowrocket/SSR/V2ray每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-27-free-high-speed-nodes.htm" title="5月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.9M/S免费节点订阅链接">5月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-4-clash-node-daily-updates.htm" title="5月4日|V2ray/Shadowrocket/Clash/SSR每天更新21.3M/S免费节点订阅链接">5月4日|V2ray/Shadowrocket/Clash/SSR每天更新21.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-16-free-node-subscribe.htm" title="9月16日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接">9月16日|Shadowrocket/SSR/Clash/V2ray每天更新20.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-8-free-subscribe-node.htm" title="5月8日|V2ray/Clash/Shadowrocket/SSR每天更新18.9M/S免费节点订阅链接">5月8日|V2ray/Clash/Shadowrocket/SSR每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-1-shadowrocket-node.htm" title="5月1日|V2ray/SSR/Shadowrocket/Clash每天更新18M/S免费节点订阅链接">5月1日|V2ray/SSR/Shadowrocket/Clash每天更新18M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-6-clash-windows.htm" title="6月6日|V2ray/Clash/Shadowrocket/SSR每天更新21M/S免费节点订阅链接">6月6日|V2ray/Clash/Shadowrocket/SSR每天更新21M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27472.htm" title="给动物打的疫苗人注射会有什么后果（给动物打疫苗有什么用）">给动物打的疫苗人注射会有什么后果（给动物打疫苗有什么用）</a></li>
+                        <li class="py-2"><a href="/news/article-30110.htm" title="java class 文件格式解析">java class 文件格式解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-v2ray-subscribe.htm" title="12月21日|V2ray/Shadowrocket/Clash/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅">12月21日|V2ray/Shadowrocket/Clash/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-40426.htm" title="宠物疫苗查询系统（宠物疫苗接种查询系统）">宠物疫苗查询系统（宠物疫苗接种查询系统）</a></li>
+                        <li class="py-2"><a href="/news/article-19625.htm" title="宠物店一年盈利多少合适（正常宠物店一年利润有多少）">宠物店一年盈利多少合适（正常宠物店一年利润有多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-v2ray-subscribe.htm" title="1月25日|Shadowrocket/V2ray/Clash/SSR每天更新21M/S免费节点订阅链接，Clash便宜机场订阅">1月25日|Shadowrocket/V2ray/Clash/SSR每天更新21M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-20542.htm" title="动物医院的设备叫什么 动物医院的设备叫什么名字">动物医院的设备叫什么 动物医院的设备叫什么名字</a></li>
+                        <li class="py-2"><a href="/news/article-43388.htm" title="docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群">docker启动kafka自动退出_mac 使用 docker 搭建 kafka 集群</a></li>
+                        <li class="py-2"><a href="/news/article-43389.htm" title="广州宠物救援队（宠物救助站广州）">广州宠物救援队（宠物救助站广州）</a></li>
+                        <li class="py-2"><a href="/news/article-36490.htm" title="ASP.NET Core使用Swagger/OpenAPI规范_实用技巧">ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</a></li>
+                        <li class="py-2"><a href="/news/article-47842.htm" title="开个动物医院需要办理那些证件和手续（开个动物医院需要办理那些证件和手续和证件）">开个动物医院需要办理那些证件和手续（开个动物医院需要办理那些证件和手续和证件）</a></li>
                     </ul>
     </div>
 </div>
@@ -143,34 +170,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
@@ -209,8 +218,8 @@
         </footer>
     </div>
     <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
-    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
-    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://clash-nodes.github.io/news/article-37949.htm" />
@@ -7,9 +7,36 @@
         <meta name="description" content="Pytorch单GPU、多GPU训练的区别主要在三个地方：训练前指定GPU、训练过程中保存模型和加载刚刚保存的模型。  训练前指定GPU 单GPU： os.environ["CUDA_VISIBLE_" />
         <meta charset="utf-8">
     <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-37949.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="Pytorch单GPU、多GPU训练的几个细节对比" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/7de654af138710f9d66462b795d7a58f.webp" />
+        <meta property="og:release_date" content="2025-01-09T05:59:15" />
+    <meta property="og:updated_time" content="2025-01-09T05:59:15" />
+        <meta property="og:description" content="Pytorch单GPU、多GPU训练的区别主要在三个地方：训练前指定GPU、训练过程中保存模型和加载刚刚保存的模型。  训练前指定GPU 单GPU： os.environ["CUDA_VISIBLE_" />
+        
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="AerobicsFit template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pytorch单GPU、多GPU训练的几个细节对比">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
 <script>
@@ -22,10 +49,10 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
-    <link href="__ADDON__/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="__ADDON__/js/frontend/clash_nodes/plugins/animate.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
     <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
 </head>
@@ -122,16 +149,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-ssr-subscribe.htm" title="12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅">12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-34100.htm" title="动物疫苗合格证怎么办理流程视频（动物疫苗证书）">动物疫苗合格证怎么办理流程视频（动物疫苗证书）</a></li>
-                        <li class="py-2"><a href="/news/article-35414.htm" title="宠物主粮上市公司排名 宠物主粮上市公司排名前十">宠物主粮上市公司排名 宠物主粮上市公司排名前十</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">10月21日|Shadowrocket/Clash/V2ray/SSR每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-37950.htm" title="项目打包成 jar 后包无法读取src/main/resources下文件">项目打包成 jar 后包无法读取src/main/resources下文件</a></li>
-                        <li class="py-2"><a href="/news/article-21916.htm" title="宠物医院美团好评50字通用评论 宠物医院美团好评50字通用评论怎么写">宠物医院美团好评50字通用评论 宠物医院美团好评50字通用评论怎么写</a></li>
-                        <li class="py-2"><a href="/news/article-25148.htm" title="开宠物店盈利吗现在还有吗（开宠物店到底赚不赚钱）">开宠物店盈利吗现在还有吗（开宠物店到底赚不赚钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-ssr-subscribe.htm" title="10月22日|V2ray/Shadowrocket/Clash/SSR每天更新22M/S免费节点订阅链接，Clash便宜机场订阅">10月22日|V2ray/Shadowrocket/Clash/SSR每天更新22M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-shadowrocket-node.htm" title="11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-20080.htm" title="动物疫苗经销商资格（动物疫苗经销商资格查询）">动物疫苗经销商资格（动物疫苗经销商资格查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-shadowrocket-node.htm" title="12月29日|V2ray/Clash/SSR/Shadowrocket每天更新19.1M/S免费节点订阅链接，Clash便宜机场订阅">12月29日|V2ray/Clash/SSR/Shadowrocket每天更新19.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-30109.htm" title="在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala">在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala</a></li>
+                        <li class="py-2"><a href="/news/article-40427.htm" title="天津宠物领养救助中心地址在哪里（天津市宠物救助站）">天津宠物领养救助中心地址在哪里（天津市宠物救助站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-high-speed-nodes.htm" title="11月14日|Shadowrocket/SSR/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅">11月14日|Shadowrocket/SSR/Clash/V2ray每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-20082.htm" title="宠物寄养协议书怎么写的（宠物寄养服务内容怎么写）">宠物寄养协议书怎么写的（宠物寄养服务内容怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-33618.htm" title="Vue中的插槽">Vue中的插槽</a></li>
+                        <li class="py-2"><a href="/news/article-27012.htm" title="动物疫苗注射注意事项及禁忌（动物注射疫苗应注意什么）">动物疫苗注射注意事项及禁忌（动物注射疫苗应注意什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-subscribe-node.htm" title="11月27日|Clash/V2ray/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅">11月27日|Clash/V2ray/Shadowrocket/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-node-share.htm" title="1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅">1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-33158.htm" title="MaxCompute SQL函数详解 ODPS SQL函数详解之日期相关函数">MaxCompute SQL函数详解 ODPS SQL函数详解之日期相关函数</a></li>
                     </ul>
     </div>
 </div>
@@ -143,16 +170,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
@@ -191,8 +218,8 @@
         </footer>
     </div>
     <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
-    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
-    <script src="__ADDON__/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
     <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
