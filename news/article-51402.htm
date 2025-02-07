@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-51402.htm" />
+    <title>详解盒子模型和div布局</title>
+        <meta name="description" content="background的覆盖范围是content区域加上padding区域加上border区域(border-color:transparent设置透明后可以看到)。 许多浏览器都有自己默认的margi" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-51402.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="详解盒子模型和div布局" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/8d2ec24e2dbe6207ecfafbf85b82ddd6.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:19:03" />
+    <meta property="og:updated_time" content="2025-02-05T08:19:03" />
+        <meta property="og:description" content="background的覆盖范围是content区域加上padding区域加上border区域(border-color:transparent设置透明后可以看到)。 许多浏览器都有自己默认的margi" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="详解盒子模型和div布局">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">详解盒子模型和div布局</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/2ac13ada3ab23a8f5a5f0d24784e4614.jpg" alt="详解盒子模型和div布局"></p> <p><span style="font-size:12px">background的覆盖范围是content区域加上padding区域加上border区域(border-color:transparent设置透明后可以看到)。</span></p> <p><span style="font-size:12px">许多浏览器都有自己默认的margin和padding值，我们可以通过将元素的margin和padding设置为0来覆盖原本的浏览器样式。</span></p> <pre><code class="language-html">* {   margin: 0;   padding: 0; }</code></pre> <p></p> <p><span style="font-size:24px"><strong>float：</strong></span></p> <p>当一个div容器里没有内容且不指明width时，他的宽度默认100%，但是当为这个div设置float：left时，width值变为0.</p> <p><strong><span style="font-size:14px">对于兄弟级别的div：</span></strong></p> <p>1.每个div原本都是独占一行的</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/7a2b95dd68c097b63bf01d0afd444b40.jpg" alt="详解盒子模型和div布局"><br /> 2.但是当前一个节点的div设置float:left;时，后div将出现在第一个div的下面。原因：第一个div漂浮起来了(float),它原本的位置就空出来了，于是第二个div就占据了第一个的位置，所以他们的状态是一种重叠的状态。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/de4a04462e35c154a3abd0a967b072ae.jpg" alt="详解盒子模型和div布局"></p> <p>3.当所有兄弟级别的div都设置float:left;时，每个div就失去了独占一排的状态，可以并排存在。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/9ff1678b703b9a36f90c78320e8826a9.jpg" alt="详解盒子模型和div布局"></p> <p><strong><span style="font-size:14px">对于父子级别的div：</span></strong></p> <p>1.如果不指定父元素的高度，则父元素的高度为0，因为子元素漂浮起来，并没有把父元素撑开</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt; 	&lt;meta charset="UTF-8"&gt; 	&lt;title&gt;Document&lt;/title&gt; &lt;style&gt;      #father{      	width: 250px;      	background:purple;      }      #child1{      	width: 100px;         height: 100px;      	background: orange;      	float: left;      }      #child2{      	background: green;      	width: 200px;      	height: 200px;      	float:left;      } &lt;/style&gt; &lt;/head&gt;     &lt;body&gt;          &lt;div id = "father"&gt;             &lt;div id = "child1"&gt;&lt;/div&gt;             &lt;div id = "child2"&gt;&lt;/div&gt;          &lt;/div&gt;        &lt;/body&gt; &lt;/html&gt;</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/7a2b95dd68c097b63bf01d0afd444b40.jpg" alt="详解盒子模型和div布局"></p> <p>2.如果指定了父元素的高度，则父元素保持原高度不变.同理，子元素浮动并不能撑开父元素。</p> <p>浮动子元素在父容器内的排列规则：浮动元素优先排一列，若宽度溢出父容器则另起一行排列。若竖排列子元素合高度若大于父元素高度，则向下溢出。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/ba32eb03fdd37e58b75ba43c5e087649.jpg" alt="详解盒子模型和div布局"></p> <p>3..如果子元素没有浮动效果且父元素高度没有指定大小，则父元素会被撑开</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/1d7ebb0f6108717b05951b6993e8cf83.jpg" alt="详解盒子模型和div布局"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50878.htm">治疗仓鼠宠物医院在线咨询（治仓鼠的宠物医院）</a></p>
+                                        <p>下一个：<a href="/news/article-51403.htm">vue在table表中悬浮显示数据及右键菜单_vue.js_</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29318.htm" title="女人养猫的好处（女人养猫的好处和坏处）">女人养猫的好处（女人养猫的好处和坏处）</a></li>
+                        <li class="py-2"><a href="/news/article-30109.htm" title="在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala">在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala</a></li>
+                        <li class="py-2"><a href="/news/article-21918.htm" title="宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）">宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）</a></li>
+                        <li class="py-2"><a href="/news/article-36982.htm" title="宠物粮生产设备多少钱一个 宠物粮生产设备多少钱一个啊">宠物粮生产设备多少钱一个 宠物粮生产设备多少钱一个啊</a></li>
+                        <li class="py-2"><a href="/news/article-36491.htm" title="让猫挠了出血过了24小时有事吗（让猫挠了出血过了24小时有事吗会感染吗）">让猫挠了出血过了24小时有事吗（让猫挠了出血过了24小时有事吗会感染吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-clash-node-daily-updates.htm" title="11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅">11月23日|Clash/Shadowrocket/V2ray/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-22375.htm" title="宠物领养活动宣传语（宠物领养活动方案）">宠物领养活动宣传语（宠物领养活动方案）</a></li>
+                        <li class="py-2"><a href="/news/article-19168.htm" title="和田宠物市场电话多少（和田卖宠物的地方）">和田宠物市场电话多少（和田卖宠物的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-19166.htm" title="全场景AI推理引擎MindSpore Lite， 助力HMS Core视频编辑服务打造更智能的剪辑体验_在线工具">全场景AI推理引擎MindSpore Lite， 助力HMS Core视频编辑服务打造更智能的剪辑体验_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-39442.htm" title="黄猫进屋十大预兆是什么（流浪猫来预示着家里要死人了）">黄猫进屋十大预兆是什么（流浪猫来预示着家里要死人了）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

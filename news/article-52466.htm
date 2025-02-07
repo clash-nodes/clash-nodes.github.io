@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-52466.htm" />
+    <title>java集成pdf.js实现pdf文件在线预览</title>
+        <meta name="description" content="最近项目需要实现在线预览pdf文件功能，找来找去，发现有个pdf.js的类库挺好用，直接用js实现在线预览。 pdf.js是开源项目，github的地址：https://github.com/mozi" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-52466.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="java集成pdf.js实现pdf文件在线预览" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/b85ddada33b9105fca299646c5b93768.webp" />
+        <meta property="og:release_date" content="2025-02-07T07:18:38" />
+    <meta property="og:updated_time" content="2025-02-07T07:18:38" />
+        <meta property="og:description" content="最近项目需要实现在线预览pdf文件功能，找来找去，发现有个pdf.js的类库挺好用，直接用js实现在线预览。 pdf.js是开源项目，github的地址：https://github.com/mozi" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java集成pdf.js实现pdf文件在线预览">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                        <li><a href="#">关于</a></li>
+                                    <li><a href="#">联系</a></li>
+                                </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">java集成pdf.js实现pdf文件在线预览</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>最近项目需要实现在线预览pdf文件功能，找来找去，发现有个pdf.js的类库挺好用，直接用js实现在线预览。<br /> pdf.js是开源项目，<strong>github</strong>的地址：<br /><strong>https://github.com/mozilla/pdf.js</strong><br /> 根据教程指引，有以下几个步骤：</p> <ul> <li>clone源码到本地，如果是linux的话很方便，windows的话要另外下载git工具；<br /><strong>git地址</strong>：https://git-for-windows.github.io/<br /> 下载按默认安装方式就行，然后在开始菜单找到git打开git cmd就可以clone源码，当然，也可以直接download源码，不过国内的下载的速度实在是太慢了，可以更改hosts文件加快下载，在hosts文件添加：</li> </ul> <pre><code>185.31.16.184 github.global.ssl.fastly.net </code></pre> <p><strong>PS</strong>：其实我们使用pdf.js，只需要构建后的内容，大家可以到我的百度云盘下载：http://pan.baidu.com/s/1bDK8Zs ，下载后复制generic到tomcat的webapps下，这样访问 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/web/viewer.html"  rel="nofollow">http://localhost:8080/web/viewer.html</a> 能看到demo效果，跳过以下步骤，直接到项目集成。</p> <ul> <li>clone好源码后使用nodejs的包管理工具npm安装gulp构建工具，如下：</li> </ul> <pre><code>npm install -g gulp-cli </code></pre> <p>安装好gulp之后在源代码使用npm安装模块：</p> <pre><code>npm install </code></pre> <p>安装好模块后使用gulp构建本地web服务器：</p> <pre><code>gulp server </code></pre> <p>效果如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230211/1c379003a51ead4878500baf4050b158.jpg" alt="java集成pdf.js实现pdf文件在线预览"><br /> 接着访问 http://localhost:8888/web/viewer.html 就能看到效果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230211/84561b65c226fa81128aee81482663f3.jpg" alt="java集成pdf.js实现pdf文件在线预览"></p> <p>接下来使用gulp构建pdf.js，如下：</p> <pre><code>gulp generic </code></pre> <p>构建完成后项目目录下生成build文件夹：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230211/b093f23b2b107d630013137a37d0c5f3.jpg" alt="java集成pdf.js实现pdf文件在线预览"></p> <p>generic/web/viewer.html渲染pdf阅读器页面，而generic/web/viewer.js则是打开指定的pdf文件，打开viewer.js<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230211/fa42422476971e464c61ff52912e07cc.jpg" alt="java集成pdf.js实现pdf文件在线预览"></p> <p>可以看到，默认打开的是generic/web/compressed.tracemonkey-pldi-09.pdf文件，再来看下面这段代码：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230211/d49370f5ebbff44b4272c0508bcd1e0a.jpg" alt="java集成pdf.js实现pdf文件在线预览"></p> <p>这样，我们就可以使用传递file形参来动态指定打开的pdf文件，如：</p> <pre><code>http://localhost:8080/generic/web/viewer.html?file=file.pdf </code></pre> <ul> <li>接着把项目集成到web项目中， 把generic作为插件使用，目录结构如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230211/22ec3ab3421b8de2af0b7913b71d6fb0.jpg" alt="java集成pdf.js实现pdf文件在线预览"> </li> </ul> <p>先写一个简单的jsp页面，使用iframe标签来加载pdf：</p> <pre><code>&lt;%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %&gt; &lt;%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt; &lt;html&gt; &lt;head&gt;     &lt;title&gt;Title&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;iframe src="&lt;c:url value="/res/pdf/web/viewer.html" /&gt;?file=/displayPDF.do"         width="100%" height="800"&gt;&lt;/iframe&gt;  &lt;/body&gt; &lt;/html&gt; </code></pre> <p>接着写个controller读取pdf文件并返回：</p> <pre><code>import org.apache.commons.io.IOUtils; import org.springframework.stereotype.Controller; import org.springframework.web.bind.annotation.RequestMapping;  import javax.servlet.http.HttpServletResponse; import java.io.File; import java.io.FileInputStream; import java.io.OutputStream;  /**  * 在线预览pdf  * @Auothor wzx  * @Date 2016/12/18 0018  */ @Controller public class DisplayPDFController {      @RequestMapping("/displayPDF.do")     public void displayPDF(HttpServletResponse response) {         try {             File file = new File("F:/资料/pdf/JVM基础.pdf");             FileInputStream fileInputStream = new FileInputStream(file);             response.setHeader("Content-Disposition", "attachment;fileName=test.pdf");             response.setContentType("multipart/form-data");             OutputStream outputStream = response.getOutputStream();             IOUtils.write(IOUtils.toByteArray(fileInputStream), outputStream);         } catch(Exception e) {             e.printStackTrace();         }     } } </code></pre> <p>运行，在浏览器访问以下地址：</p> <pre><code>http://localhost:8080/res/pdf.jsp </code></pre> <p>效果如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230211/ba0a16ac132c51779a01872368385411.jpg" alt="java集成pdf.js实现pdf文件在线预览"></p> <p>本质是访问generic/web/viewer.html，通过指定的file形参打开指定pdf文件。</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://url.cn/QPlTOdTu"  rel="nofollow"><img decoding="async" src="http://img.555519.xyz/uploads/20230211/e9d51070a8a7bc5103d9e067c504a6cb.jpg" alt="java集成pdf.js实现pdf文件在线预览"></a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51936.htm">宠物店的领养要钱吗（宠物店里免费领养有什么附加条件）</a></p>
+                                        <p>下一个：<a href="/news/article-52467.htm">动物疫苗的了解和认识怎么写作文（动物疫苗的了解和认识怎么写作文三年级）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-node-share-links.htm" title="12月19日|Clash/Shadowrocket/V2ray/SSR每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅">12月19日|Clash/Shadowrocket/V2ray/SSR每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-shadowrocket-node.htm" title="1月20日|V2ray/Clash/SSR/Shadowrocket每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">1月20日|V2ray/Clash/SSR/Shadowrocket每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-free-v2ray-subscribe.htm" title="2月4日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅">2月4日|SSR/V2ray/Clash/Shadowrocket每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-clash-windows.htm" title="12月10日|Clash/SSR/V2ray/Shadowrocket每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅">12月10日|Clash/SSR/V2ray/Shadowrocket每天更新18.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-39441.htm" title="Vue 实现骨架屏（skeleton）">Vue 实现骨架屏（skeleton）</a></li>
+                        <li class="py-2"><a href="/news/article-19168.htm" title="和田宠物市场电话多少（和田卖宠物的地方）">和田宠物市场电话多少（和田卖宠物的地方）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share.htm" title="1月13日|Shadowrocket/SSR/Clash/V2ray每天更新20.5M/S免费节点订阅链接，Clash便宜机场订阅">1月13日|Shadowrocket/SSR/Clash/V2ray每天更新20.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-35896.htm" title="违约养宠物（养宠物违背了动物权利吗）">违约养宠物（养宠物违背了动物权利吗）</a></li>
+                        <li class="py-2"><a href="/news/article-30109.htm" title="在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala">在Python中使用ibis,impyla,pyhive,pyspark连接Kerberos安全认证的Hive、Impala</a></li>
+                        <li class="py-2"><a href="/news/article-49853.htm" title="上海宠物领养中心地址查询官网电话号码（上海宠物领养救助基地地址）">上海宠物领养中心地址查询官网电话号码（上海宠物领养救助基地地址）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
