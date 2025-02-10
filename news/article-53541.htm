@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-53541.htm" />
+    <title>MySQL 自定义序列</title>
+        <meta name="description" content="原来用过Oracle的都清楚，序列的便利性。我们想在MySQL中也能使用序列，而不是字段的自增长。 网上有很多这方面的资料，有些不够全面。 我这里整理 并 优化了一些细节问题，直接上代码。 use a" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-53541.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="MySQL 自定义序列" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/49c47860c99b7403adeafd7a8d1b9e7f.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:04:01" />
+    <meta property="og:updated_time" content="2025-02-09T10:04:01" />
+        <meta property="og:description" content="原来用过Oracle的都清楚，序列的便利性。我们想在MySQL中也能使用序列，而不是字段的自增长。 网上有很多这方面的资料，有些不够全面。 我这里整理 并 优化了一些细节问题，直接上代码。 use a" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL 自定义序列">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">MySQL 自定义序列</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>原来用过Oracle的都清楚，序列的便利性。我们想在MySQL中也能使用序列，而不是字段的自增长。</p> <p>网上有很多这方面的资料，有些不够全面。</p> <p>我这里整理 并 优化了一些细节问题，直接上代码。</p> <pre class="has"><code class="language-sql">use aglog;  -- 创建公共的序列表 DROP TABLE IF EXISTS t_common_sequence; CREATE TABLE t_common_sequence (   seq_name VARCHAR(100) NOT NULL COMMENT '序列名称',   current_val INT NOT NULL COMMENT '当前值',   increment_val INT NOT NULL DEFAULT '1' COMMENT '增长值 默认1',   PRIMARY KEY(seq_name) ) ENGINE = InnoDB CHARACTER SET = utf8 COMMENT='公共的序列表';  -- 创建函数，获取指定名称的 当前序列值 DELIMITER // DROP FUNCTION IF EXISTS f_currval; CREATE FUNCTION f_currval(v_seq_name VARCHAR(100)) RETURNS INT BEGIN   DECLARE value INT;   SET value = 0;   SELECT current_val into value    FROM t_common_sequence   WHERE seq_name = v_seq_name;   RETURN value; END; // DELIMITER ;  -- 创建函数，获取指定名称的 下一个序列值 DELIMITER // DROP FUNCTION IF EXISTS f_nextval; CREATE FUNCTION f_nextval(v_seq_name VARCHAR(100)) RETURNS INT BEGIN   UPDATE t_common_sequence   SET current_val = current_val + increment_val   WHERE seq_name = v_seq_name;   RETURN f_currval(v_seq_name); END; // DELIMITER ;  -- 创建函数，修改指定名称的序列值，并返回 DELIMITER // DROP FUNCTION IF EXISTS f_setval; CREATE FUNCTION f_setval(v_seq_name VARCHAR(100), v_new_val INT) RETURNS INT BEGIN   UPDATE t_common_sequence   SET current_val = v_new_val   WHERE seq_name = v_seq_name;   RETURN f_currval(v_seq_name); END; // DELIMITER ;</code></pre> <p>使用的实例：</p> <pre class="has"><code class="language-sql">insert into t_common_sequence(seq_name,current_val,increment_val) values('seq_job',1,1); commit;   -- 获取当前序列 select f_currval('seq_job');  -- 获取下一个序列 select f_nextval('seq_job');  -- 设置序列值，并返回 select f_setval('seq_job',10);  select * from t_common_sequence;</code></pre> <p>END</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52996.htm">海拉鲁大陆之外 海拉鲁大陆之外的世界</a></p>
+                                        <p>下一个：<a href="/news/article-53542.htm">java/Springboot项目把Base64数据转为文件</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43389.htm" title="广州宠物救援队（宠物救助站广州）">广州宠物救援队（宠物救助站广州）</a></li>
+                        <li class="py-2"><a href="/news/article-48828.htm" title="为什么给猫打防疫针（猫咪打疫苗为了预防什么）">为什么给猫打防疫针（猫咪打疫苗为了预防什么）</a></li>
+                        <li class="py-2"><a href="/news/article-28861.htm" title="猫咪三针多久打完啊（猫咪三针疫苗多久打一次）">猫咪三针多久打完啊（猫咪三针疫苗多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-21918.htm" title="宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）">宠物医院收费价目表2023最新消息（宠物医院收费价目表2023最新消息及图片）</a></li>
+                        <li class="py-2"><a href="/news/article-46390.htm" title="Vue滑块验证码组件anji-captcha的使用">Vue滑块验证码组件anji-captcha的使用</a></li>
+                        <li class="py-2"><a href="/news/article-37486.htm" title="兽用疫苗销售人员（兽用疫苗销售人员要求）">兽用疫苗销售人员（兽用疫苗销售人员要求）</a></li>
+                        <li class="py-2"><a href="/news/article-30110.htm" title="java class 文件格式解析">java class 文件格式解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-clash-node-daily-updates.htm" title="1月15日|Clash/V2ray/SSR/Shadowrocket每天更新21.1M/S免费节点订阅链接，Clash便宜机场订阅">1月15日|Clash/V2ray/SSR/Shadowrocket每天更新21.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-45884.htm" title="GET_FORMAT()函数如何与DATE_FORMAT()和STR_TO_DATE()函数结合使用？">GET_FORMAT()函数如何与DATE_FORMAT()和STR_TO_DATE()函数结合使用？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-node-daily-updates.htm" title="11月22日|V2ray/SSR/Clash/Shadowrocket每天更新20.6M/S免费节点订阅链接，Clash便宜机场订阅">11月22日|V2ray/SSR/Clash/Shadowrocket每天更新20.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
