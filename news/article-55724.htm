@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-55724.htm" />
+    <title>MySQL EXTRACT()函数中可以使用哪种复合单位？</title>
+        <meta name="description" content="MySQLEXTRACT()函数可以使用以下复合单位-   SECOND_MICROSECOND   MINUTE_MICROSECOND   HOUR_MICROSECOND   DAY_MICRO" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-55724.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="MySQL EXTRACT()函数中可以使用哪种复合单位？" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/7f6d2b81afe0838f38efc0cf6c9a3c3a.webp" />
+        <meta property="og:release_date" content="2025-02-13T03:09:00" />
+    <meta property="og:updated_time" content="2025-02-13T03:09:00" />
+        <meta property="og:description" content="MySQLEXTRACT()函数可以使用以下复合单位-   SECOND_MICROSECOND   MINUTE_MICROSECOND   HOUR_MICROSECOND   DAY_MICRO" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL EXTRACT()函数中可以使用哪种复合单位？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">MySQL EXTRACT()函数中可以使用哪种复合单位？</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>MySQL<code>EXTRACT()</code>函数可以使用以下复合单位-</p> <ul class="list-paddingleft-2"> <li> <p>SECOND_MICROSECOND</p> </li> <li> <p>MINUTE_MICROSECOND</p> </li> <li> <p>HOUR_MICROSECOND</p> </li> <li> <p>DAY_MICROSECOND</p> </li> <li> <p>MINUTE_SECOND</p> </li> <li> <p>HOUR_SECOND</p> </li> <li> <p>HOUR_MINUTE</p> </li> <li> <p>DAY_SECOND</p> </li> <li> <p>DAY_MINUTE</p> </li> <li> <p>DAY_HOUR</p> </li> <li> <p>YEAR_MONTH</p> </li> </ul> <p>这些在<code>EXTRACT()</code>方法中使用的复合单元的一些示例如下-</p> <pre>mysql&gt;&nbsp;Select&nbsp;EXTRACT(YEAR_MONTH&nbsp;from&nbsp;'2017-10-20'); +---------------------------------------+ |&nbsp;EXTRACT(YEAR_MONTH&nbsp;from&nbsp;'2017-10-20')&nbsp;| +---------------------------------------+ |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;201710&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>上面的查询将从日期返回年份和月份值。</p> <pre>mysql&gt;&nbsp;Select&nbsp;EXTRACT(DAY_HOUR&nbsp;from&nbsp;'2017-10-20&nbsp;05:46:45'); +----------------------------------------------+ |&nbsp;EXTRACT(DAY_HOUR&nbsp;from&nbsp;'2017-10-20&nbsp;05:46:45')&nbsp;| +----------------------------------------------+ |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2005&nbsp;| +----------------------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>上面的查询将从日期返回日期和小时值。</p> <p>必须要考虑的一件事是，上述复合单位是一组完整的值，即，如果我们将使用DAY_MINUTE，MySQL将返回DAY，HOUR和MINUTE。这意味着通常期望的任何值都将填充在开始和结束单元之间。</p> <p>例如，以下查询使用的是DAY_MICROSECOND复合单元，而MySQL返回DAY，HOUR，MINUTE，SECOND和MICROSECOND。这意味着HOUR，MINUTE和SECOND的值在DAY和MICROSECOND之间填写。</p> <pre>mysql&gt;&nbsp;Select&nbsp;EXTRACT(DAY_MICROSECOND&nbsp;from&nbsp;'2017-10-22&nbsp;05:52:45.102356'); +---------------------------------------------------------------------------+ |&nbsp;EXTRACT(DAY_MICROSECOND&nbsp;from&nbsp;'2017-10-22&nbsp;05:52:45.102356')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------------------------------------------------------------+ |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22055245102356&nbsp;| +---------------------------------------------------------------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-55182.htm">设计类哪个行业最赚钱的(设计类什么最赚钱)</a></p>
+                                        <p>下一个：<a href="/news/article-55725.htm">数据库事务的四大特性和四个隔离级别</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37949.htm" title="Pytorch单GPU、多GPU训练的几个细节对比">Pytorch单GPU、多GPU训练的几个细节对比</a></li>
+                        <li class="py-2"><a href="/news/article-48828.htm" title="为什么给猫打防疫针（猫咪打疫苗为了预防什么）">为什么给猫打防疫针（猫咪打疫苗为了预防什么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-ssr-subscribe.htm" title="12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅">12月28日|SSR/Shadowrocket/V2ray/Clash每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-47354.htm" title="宠物粮品牌排行前十有哪些 宠物粮品牌排行前十有哪些牌子">宠物粮品牌排行前十有哪些 宠物粮品牌排行前十有哪些牌子</a></li>
+                        <li class="py-2"><a href="/news/article-44396.htm" title="领养宠物协议书范本下载电子版大全（领养宠物协议怎么写）">领养宠物协议书范本下载电子版大全（领养宠物协议怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-46390.htm" title="Vue滑块验证码组件anji-captcha的使用">Vue滑块验证码组件anji-captcha的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-node-share-links.htm" title="1月19日|SSR/Shadowrocket/Clash/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅">1月19日|SSR/Shadowrocket/Clash/V2ray每天更新20M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-49853.htm" title="上海宠物领养中心地址查询官网电话号码（上海宠物领养救助基地地址）">上海宠物领养中心地址查询官网电话号码（上海宠物领养救助基地地址）</a></li>
+                        <li class="py-2"><a href="/news/article-28860.htm" title="给动物打针需要资格证吗?（动物 打针）">给动物打针需要资格证吗?（动物 打针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-shadowrocket-node.htm" title="11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">11月25日|SSR/Shadowrocket/Clash/V2ray每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
