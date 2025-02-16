@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-57404.htm" />
+    <title>java中使用poi导出ppt（图片和表格）</title>
+        <meta name="description" content="在做项目中遇到一个需求，将职员的信息导出成一个形式固定的ppt文档，poi有许多方法可以实现，因为我是一名Java小白，于是便想用最简单的方法来实现，代码如下： 该需求需要用到poi的jar包：htt" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-57404.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="java中使用poi导出ppt（图片和表格）" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/449ae0c619703231ed2c8cd2e095f4c2.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:45" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:45" />
+        <meta property="og:description" content="在做项目中遇到一个需求，将职员的信息导出成一个形式固定的ppt文档，poi有许多方法可以实现，因为我是一名Java小白，于是便想用最简单的方法来实现，代码如下： 该需求需要用到poi的jar包：htt" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java中使用poi导出ppt（图片和表格）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">java中使用poi导出ppt（图片和表格）</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>在做项目中遇到一个需求，将职员的信息导出成一个形式固定的ppt文档，poi有许多方法可以实现，因为我是一名Java小白，于是便想用最简单的方法来实现，代码如下：<br /> 该需求需要用到poi的jar包：<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://download.csdn.net/download/weixin_42142057/10652136"  rel="nofollow">https://download.csdn.net/download/weixin_42142057/10652136</a></p> <pre class="prettyprint"><code class="hljs avrasm">public static void main(String[] args) throws IOException {         //创建PPT         SlideShow ppt = new SlideShow()<span class="hljs-comment">;</span>          //设置ppt母版,也就是背景图片。         ppt<span class="hljs-preprocessor">.setPageSize</span>(new Dimension(<span class="hljs-number">760</span>,<span class="hljs-number">600</span>))<span class="hljs-comment">;</span>         SlideMaster master = ppt<span class="hljs-preprocessor">.getSlidesMasters</span>()[<span class="hljs-number">0</span>]<span class="hljs-comment">;</span>         int picIndex =<span class="hljs-number">0</span><span class="hljs-comment">;</span>         try {             picIndex = ppt<span class="hljs-preprocessor">.addPicture</span>(new File(<span class="hljs-string">"c:/text.png"</span>), Picture<span class="hljs-preprocessor">.PNG</span>)<span class="hljs-comment">;</span>         } catch (IOException e) {             e<span class="hljs-preprocessor">.printStackTrace</span>()<span class="hljs-comment">;</span>             throw new InfomationException(<span class="hljs-string">"加载ppt背景图片失败"</span>+e)<span class="hljs-comment">;</span>         }         Picture background = new Picture(picIndex)<span class="hljs-comment">;</span>         background<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>, ppt<span class="hljs-preprocessor">.getPageSize</span>()<span class="hljs-preprocessor">.width</span>, ppt<span class="hljs-preprocessor">.getPageSize</span>()<span class="hljs-preprocessor">.height</span>))<span class="hljs-comment">;</span>         master<span class="hljs-preprocessor">.addShape</span>(background)<span class="hljs-comment">;</span>          //创建ppt的一张幻灯片         Slide newSlide = ppt<span class="hljs-preprocessor">.createSlide</span>()<span class="hljs-comment">;</span>          //职员所属单位         //创建一个文本框         TextBox orgTxt = new TextBox()<span class="hljs-comment">;</span>         RichTextRun orgRichTextRun = orgTxt<span class="hljs-preprocessor">.getTextRun</span>()<span class="hljs-preprocessor">.getRichTextRuns</span>()[<span class="hljs-number">0</span>]<span class="hljs-comment">;</span>         //赋值         orgRichTextRun<span class="hljs-preprocessor">.setText</span>(<span class="hljs-string">"ssdw"</span>)<span class="hljs-comment">;</span>         //设置文本框在ppt中的位置         orgTxt<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">90</span>,<span class="hljs-number">30</span>,<span class="hljs-number">400</span>,<span class="hljs-number">30</span>))<span class="hljs-comment">;</span>         //将文本框加入到ppt         newSlide<span class="hljs-preprocessor">.addShape</span>(orgTxt)<span class="hljs-comment">;</span>          //个人照片         int pic =<span class="hljs-number">0</span><span class="hljs-comment">;</span>         try {             //bytes是图片的二进制码             pic = ppt<span class="hljs-preprocessor">.addPicture</span>(bytes, Picture<span class="hljs-preprocessor">.PNG</span>)<span class="hljs-comment">;</span>         } catch (IOException e1) {             e1<span class="hljs-preprocessor">.printStackTrace</span>()<span class="hljs-comment">;</span>             throw new InfomationException(<span class="hljs-string">"加载员工照片失败"</span>+e1)<span class="hljs-comment">;</span>         }         Picture staffPicture = new Picture(pic)<span class="hljs-comment">;</span>         staffPicture<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">60</span>,<span class="hljs-number">80</span>,<span class="hljs-number">180</span>,<span class="hljs-number">180</span>))<span class="hljs-comment">;</span>         newSlide<span class="hljs-preprocessor">.addShape</span>(staffPicture)<span class="hljs-comment">;</span>          //个人信息框         TextBox personTxt = new TextBox()<span class="hljs-comment">;</span>         RichTextRun personRichTextRun = personTxt<span class="hljs-preprocessor">.getTextRun</span>()<span class="hljs-preprocessor">.getRichTextRuns</span>()[<span class="hljs-number">0</span>]<span class="hljs-comment">;</span>         personRichTextRun<span class="hljs-preprocessor">.setText</span>(<span class="hljs-string">"       "</span>+personInfo)<span class="hljs-comment">;</span>         personTxt<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">20</span>,<span class="hljs-number">280</span>,<span class="hljs-number">300</span>,<span class="hljs-number">180</span>))<span class="hljs-comment">;</span>         newSlide<span class="hljs-preprocessor">.addShape</span>(personTxt)<span class="hljs-comment">;</span>          //家庭情况-表格         //创建一个表格，并设置其行数和列数，我这里行数是随着不同职员的数据大小而变化的         Table familytable = new Table(familyInfos<span class="hljs-preprocessor">.size</span>(),<span class="hljs-number">3</span>)<span class="hljs-comment">;</span>         //遍历行与列         for (int i =<span class="hljs-number">0</span><span class="hljs-comment">; i &lt; familyInfos.size(); i++) {<!-- --></span>             for (int j =<span class="hljs-number">0</span><span class="hljs-comment">; j &lt; 3; j++) {<!-- --></span>                 //获取单元格                 TableCell cell = familytable<span class="hljs-preprocessor">.getCell</span>(i, j)<span class="hljs-comment">;</span>                 //设置单元格的行高                 familytable<span class="hljs-preprocessor">.setRowHeight</span>(i,<span class="hljs-number">10</span>)<span class="hljs-comment">;</span>                 if (j ==<span class="hljs-number">0</span>) {                     //设置单元格的宽度                     familytable<span class="hljs-preprocessor">.setColumnWidth</span>(j,<span class="hljs-number">55</span>)<span class="hljs-comment">;</span>                     //给单元格里赋值                     cell<span class="hljs-preprocessor">.setText</span>(familyInfos<span class="hljs-preprocessor">.get</span>(i)<span class="hljs-preprocessor">.getYbrgx</span>()+<span class="hljs-string">":"</span>)<span class="hljs-comment">;</span>                 }else if (j ==<span class="hljs-number">1</span>) {                     familytable<span class="hljs-preprocessor">.setColumnWidth</span>(j,<span class="hljs-number">70</span>)<span class="hljs-comment">;</span>                     cell<span class="hljs-preprocessor">.setText</span>(familyInfos<span class="hljs-preprocessor">.get</span>(i)<span class="hljs-preprocessor">.getCyxm</span>())<span class="hljs-comment">;</span>                 }else {                     familytable<span class="hljs-preprocessor">.setColumnWidth</span>(j,<span class="hljs-number">180</span>)<span class="hljs-comment">;</span>                     cell<span class="hljs-preprocessor">.setText</span>(familyInfos<span class="hljs-preprocessor">.get</span>(i)<span class="hljs-preprocessor">.getDwjzw</span>())<span class="hljs-comment">;</span>                 }             }         }         newSlide<span class="hljs-preprocessor">.addShape</span>(familytable)<span class="hljs-comment">;</span>         //设置表格在ppt中的位置         familytable<span class="hljs-preprocessor">.moveTo</span>(<span class="hljs-number">20</span>,<span class="hljs-number">480</span>)<span class="hljs-comment">;</span>          TextBox familyTxt = new TextBox()<span class="hljs-comment">;</span>         RichTextRun familyRichTextRun = familyTxt<span class="hljs-preprocessor">.getTextRun</span>()<span class="hljs-preprocessor">.getRichTextRuns</span>()[<span class="hljs-number">0</span>]<span class="hljs-comment">;</span>         familyRichTextRun<span class="hljs-preprocessor">.setText</span>(<span class="hljs-string">"家庭情况："</span>)<span class="hljs-comment">;</span>         familyTxt<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">20</span>,<span class="hljs-number">460</span>,<span class="hljs-number">300</span>,<span class="hljs-number">40</span>))<span class="hljs-comment">;</span>         newSlide<span class="hljs-preprocessor">.addShape</span>(familyTxt)<span class="hljs-comment">;</span>          //工作经历标题         TextBox workExpTitle = new TextBox()<span class="hljs-comment">;</span>         RichTextRun workExpRichRunTitle = workExpTitle<span class="hljs-preprocessor">.getTextRun</span>()<span class="hljs-preprocessor">.getRichTextRuns</span>()[<span class="hljs-number">0</span>]<span class="hljs-comment">;</span>         workExpRichRunTitle<span class="hljs-preprocessor">.setText</span>(stdName+<span class="hljs-string">"简历"</span>)<span class="hljs-comment">;</span>         workExpRichRunTitle<span class="hljs-preprocessor">.setFontSize</span>(<span class="hljs-number">24</span>)<span class="hljs-comment">;</span>         workExpTitle<span class="hljs-preprocessor">.setAnchor</span>(new Rectangle(<span class="hljs-number">450</span>,<span class="hljs-number">70</span>,<span class="hljs-number">200</span>,<span class="hljs-number">40</span>))<span class="hljs-comment">;</span>         newSlide<span class="hljs-preprocessor">.addShape</span>(workExpTitle)<span class="hljs-comment">;</span>          //工作经历         Table positionTable = new Table(maps<span class="hljs-preprocessor">.size</span>(),<span class="hljs-number">2</span>)<span class="hljs-comment">;</span>         Iterator&lt;Entry&lt;String, String&gt;&gt; it = maps<span class="hljs-preprocessor">.entrySet</span>()<span class="hljs-preprocessor">.iterator</span>()<span class="hljs-comment">;</span>         int<span class="hljs-built_in">x</span> =<span class="hljs-number">0</span><span class="hljs-comment">;</span>         while(it<span class="hljs-preprocessor">.hasNext</span>()) {               Map<span class="hljs-preprocessor">.Entry</span>&lt;String, String&gt; entity = (Entry&lt;String, String&gt;) it<span class="hljs-preprocessor">.next</span>()<span class="hljs-comment">;</span>             TableCell cell1 = positionTable<span class="hljs-preprocessor">.getCell</span>(<span class="hljs-built_in">x</span>,<span class="hljs-number">0</span>)<span class="hljs-comment">;</span>             cell1<span class="hljs-preprocessor">.setText</span>(entity<span class="hljs-preprocessor">.getKey</span>())<span class="hljs-comment">;</span>             TableCell cell2 = positionTable<span class="hljs-preprocessor">.getCell</span>(<span class="hljs-built_in">x</span>,<span class="hljs-number">1</span>)<span class="hljs-comment">;</span>             cell2<span class="hljs-preprocessor">.setText</span>(entity<span class="hljs-preprocessor">.getValue</span>() )<span class="hljs-comment">;</span>             positionTable<span class="hljs-preprocessor">.setRowHeight</span>(<span class="hljs-built_in">x</span>,<span class="hljs-number">10</span>)<span class="hljs-comment">;</span>             positionTable<span class="hljs-preprocessor">.setColumnWidth</span>(<span class="hljs-number">0</span>,<span class="hljs-number">160</span>)<span class="hljs-comment">;</span>             positionTable<span class="hljs-preprocessor">.setColumnWidth</span>(<span class="hljs-number">1</span>,<span class="hljs-number">250</span>)<span class="hljs-comment">;</span><span class="hljs-built_in">x</span>++<span class="hljs-comment">;</span>         }           newSlide<span class="hljs-preprocessor">.addShape</span>(positionTable)<span class="hljs-comment">;</span>         positionTable<span class="hljs-preprocessor">.moveTo</span>(<span class="hljs-number">330</span>,<span class="hljs-number">110</span>)<span class="hljs-comment">;</span>          //导出ppt         File outFile = new File(<span class="hljs-string">"c:/demo.ppt"</span>)<span class="hljs-comment">;</span>         FileOutputStream<span class="hljs-keyword">out</span> = new FileOutputStream(outFile)<span class="hljs-comment">;</span>         ppt<span class="hljs-preprocessor">.write</span>(<span class="hljs-keyword">out</span>)<span class="hljs-comment">;</span><span class="hljs-keyword">out</span><span class="hljs-preprocessor">.close</span>()<span class="hljs-comment">;</span>  }</code></pre> <p>小伙伴们，赶紧试试吧，祝你一次成功！</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56847.htm">动物医院的英文单词有哪些怎么写呀（动物医院的英文怎么说）</a></p>
+                                        <p>下一个：<a href="/news/article-57405.htm">我所在的城市有一家宠物医院的英语怎么写 我所在的城市有一家宠物医院的英语怎么写</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-node-share.htm" title="1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅">1月24日|Shadowrocket/V2ray/Clash/SSR每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-34929.htm" title="vue项目实战精粹汇总">vue项目实战精粹汇总</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-node-share.htm" title="1月11日|Shadowrocket/SSR/Clash/V2ray每天更新21.9M/S免费节点订阅链接，Clash便宜机场订阅">1月11日|Shadowrocket/SSR/Clash/V2ray每天更新21.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-ssr-subscribe.htm" title="12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅">12月7日|V2ray/Shadowrocket/SSR/Clash每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-22831.htm" title="安安宠物医院官网（安安宠物医院简介）">安安宠物医院官网（安安宠物医院简介）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-clash.htm" title="2月12日|SSR/Shadowrocket/Clash/V2ray每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅">2月12日|SSR/Shadowrocket/Clash/V2ray每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-v2ray.htm" title="11月28日|V2ray/Shadowrocket/Clash/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅">11月28日|V2ray/Shadowrocket/Clash/SSR每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-clash-v2ray-ss-ssr.htm" title="12月24日|Clash/SSR/V2ray/Shadowrocket每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅">12月24日|Clash/SSR/V2ray/Shadowrocket每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-33618.htm" title="Vue中的插槽">Vue中的插槽</a></li>
+                        <li class="py-2"><a href="/news/article-21002.htm" title="动物疫苗产业链全景展望（动物疫苗行业分析）">动物疫苗产业链全景展望（动物疫苗行业分析）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
