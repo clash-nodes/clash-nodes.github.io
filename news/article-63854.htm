@@ -137,6 +137,7 @@
                   				  				  				<p>字符串</p> <p>Go语言中的字符串以原生数据类型出现。 Go 语言里的字符串的内部实现使用UTF-8编码。 字符串的值为双引号(")中的内容，可以在Go语言的源码中直接添加非ASCII码字符</p> <p>GO语言中字符串是用双引号包裹的</p> <p>GO语言中单引号包裹的是字符</p> <pre><code>// 字符串 s := "Hello 中国" // 单独的字母、汉字、符合表示一个字符 c1 := 'h' c2 := '1' c3 := '中' // 字节：1字节=8Bit(8个二进制位) // 1个字符'A'=1个字节 // 1个utf8编码的汉字'中'= 一般占3个字节</code></pre> <p>字符串转义符</p> <p>转义符 	       含义<br /> \r 	    回车符（返回行首）<br /> \n 	换行符（直接跳到下一行的同列位置）<br /> \t 	       制表符<br /> ' 	       单引号<br /> " 	       双引号<br /> \ 	       反斜杠</p> <p>字符串的常用操作</p> <pre><code>              方法                 	  介绍               len(str)              	  求长度            +或fmt.Sprintf           	 拼接字符串           strings.Split           	  分割           strings.contains          	判断是否包含</code></pre> <p>strings.HasPrefix,strings.HasSuffix	前缀/后缀判断<br /> strings.Index(),strings.LastIndex()	子串出现的位置<br /> strings.Join(a[]string, sep string)	join操作</p> <pre><code>package main  import ( 	"fmt" 	"strings" )  // 字符串  func main(){ 	// \ 本来是具有特殊含义的，告诉程序\就是一个单纯的\ 	path := "\"E:\\36期Python全栈开发资料\\Administrator(8E5370323193)\\预习(2)\"" 	path1 := "'E:\\36期Python全栈开发资料\\Administrator(8E5370323193)\\预习(2)'" 	fmt.Println(path) 	fmt.Println(path1)  	s := "I'm ok" 	fmt.Println(s)  	// 多行的字符串 	s2 := ` 	世情薄 	人情恶 	雨送黄昏花易落 	` 	fmt.Println(s2) 	s3 := `E:\36期Python全栈开发资料\Administrator(8E5370323193)\预习(2)` 	fmt.Println(s3)  	// 字符串相关操作 	fmt.Println(len(s3))  	// 字符串拼接 	name := "理想" 	world := "远大" 	ss := name + world 	fmt.Println(ss) 	ss1 := fmt.Sprintf("%s%s", name, world) 	// fmt.Printf("%s%s", name, world) 	fmt.Println(ss1) 	// 分割 	ret := strings.Split(s3, "\\") 	fmt.Println(ret)  	// 包含 	fmt.Println(strings.Contains(ss, "理想")) 	// 前缀 	fmt.Println(strings.HasPrefix(ss, "理想")) 	// 后缀 	fmt.Println(strings.HasSuffix(ss, "理想"))  	s4 := "abcded" 	fmt.Println(strings.Index(s4, "c")) 	fmt.Println(strings.LastIndex(s4, "c")) 	fmt.Println(strings.Index(s4, "d")) 	fmt.Println(strings.LastIndex(s4, "d")) 	// 拼接 	fmt.Println(strings.Join(ret, "+"))  }</code></pre> <p>byte和rune类型</p> <p>字符用单引号（’）包裹起来</p> <p>Go 语言的字符有以下两种：</p> <ol> <li>uint8类型，或者叫 byte 型，代表了ASCII码的一个字符。</li> <li>rune类型，代表一个 UTF-8字符。rune类型实际是一个int32</li> </ol> <p>字符串底层是一个byte数组，可以和[]byte类型相互转换。字符串是不能修改的 字符串是由byte字节组成，所以字符串的长度是byte字节的长度。 rune类型用来表示utf8字符，一个rune字符由一个或多个byte组成。</p> <p>修改字符串</p> <p>要修改字符串，需要先将其转换成[]rune或[]byte，完成后再转换为string。无论哪种转换，都会重新分配内存，并复制字节数组。</p> <p>类型转换</p> <p>强制类型转换的基本语法如下：</p> <pre><code>T(表达式)</code></pre> <p>其中，T表示要转换的类型。表达式包括变量、复杂算子和函数返回值等.</p> <pre><code>package main  import ( 	"fmt" )  func main() { 	s := "Hello 中国" 	// len()求的是byte字节的数量 	n := len(s) 	fmt.Println(n)  	// for i := 0; i &lt; len(s); i++ { 	// 	fmt.Println(s[i]) 	// 	fmt.Printf("%c\n", s[i]) // %c：字符 	// }  	// 字符串修改 	s2 := "白萝卜" // [白 萝 卜] 	s3 := []rune(s2) // 把字符串强制转换成了一个rune切片 	s3[0] = '红' // 单引号表示字符 	fmt.Println(string(s3)) // 把rune切片强制转换成字符串  	c1 := "红" 	c2 := '红' // rune(int32) 	fmt.Printf("c1:%T c2:%T\n", c1, c2) // c1:string c2:int32 	c3 := "H" 	c4 := 'H' 	c5 := byte('H') 	fmt.Printf("c3:%T c4:%T\n", c3, c4) // c3:string c4:int32 	fmt.Printf("c4:%d\n", c4) // c4:72 	fmt.Printf("c5:%T\n", c5) // c5:uint8  	// 类型转换 	n1 := 10 // int 	var f float64 	f = float64(n1) 	fmt.Println(f) 	fmt.Printf("%T\n", f) // float64   }</code></pre> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-63853.htm">简单实现JS浅拷贝和深拷贝</a></p>
+                                        <p>下一个：<a href="/news/article-64452.htm">宠物粮食生产配方表最新（宠物粮的配方）</a></p>
                                     </div>
                                             </div>
                         </div>
@@ -148,16 +149,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="12月17日|V2ray/SSR/Shadowrocket/Clash每天更新19.2M/S免费节点订阅链接，Clash便宜机场订阅">12月17日|V2ray/SSR/Shadowrocket/Clash每天更新19.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-43882.htm" title="mysql主从复制+读写分离+负载均衡">mysql主从复制+读写分离+负载均衡</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-ssr-subscribe.htm" title="1月23日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅">1月23日|Shadowrocket/V2ray/Clash/SSR每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-38447.htm" title="青浦二中分数线会降吗（青浦二中2020本科录取率）">青浦二中分数线会降吗（青浦二中2020本科录取率）</a></li>
-                        <li class="py-2"><a href="/news/article-52466.htm" title="java集成pdf.js实现pdf文件在线预览">java集成pdf.js实现pdf文件在线预览</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-v2ray-subscribe.htm" title="12月21日|V2ray/Shadowrocket/Clash/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅">12月21日|V2ray/Shadowrocket/Clash/SSR每天更新18.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
-                        <li class="py-2"><a href="/news/article-26547.htm" title="狗粮颗粒制作方法配方大全（最简颗粒狗粮制作方法）">狗粮颗粒制作方法配方大全（最简颗粒狗粮制作方法）</a></li>
-                        <li class="py-2"><a href="/news/article-57405.htm" title="我所在的城市有一家宠物医院的英语怎么写 我所在的城市有一家宠物医院的英语怎么写">我所在的城市有一家宠物医院的英语怎么写 我所在的城市有一家宠物医院的英语怎么写</a></li>
-                        <li class="py-2"><a href="/news/article-22830.htm" title="kafka生产者发送消息可靠性">kafka生产者发送消息可靠性</a></li>
-                        <li class="py-2"><a href="/news/article-20542.htm" title="动物医院的设备叫什么 动物医院的设备叫什么名字">动物医院的设备叫什么 动物医院的设备叫什么名字</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-clash.htm" title="12月18日|SSR/Clash/Shadowrocket/V2ray每天更新21.3M/S免费节点订阅链接，Clash便宜机场订阅">12月18日|SSR/Clash/Shadowrocket/V2ray每天更新21.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-subscribe-node.htm" title="1月28日|Clash/V2ray/Shadowrocket/SSR每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅">1月28日|Clash/V2ray/Shadowrocket/SSR每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-48283.htm" title="宠物店狗粮品牌（宠物店狗粮一般多少钱一袋）">宠物店狗粮品牌（宠物店狗粮一般多少钱一袋）</a></li>
+                        <li class="py-2"><a href="/news/article-25615.htm" title="动物医学专业社会实践报告（动物医学专业社会实践报告范文）">动物医学专业社会实践报告（动物医学专业社会实践报告范文）</a></li>
+                        <li class="py-2"><a href="/news/article-38950.htm" title="vue3.0 elementUI实现上传文件的暂停继续功能">vue3.0 elementUI实现上传文件的暂停继续功能</a></li>
+                        <li class="py-2"><a href="/news/article-36983.htm" title="动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全">动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-34579.htm" title="ElementUI el-upload 断点续传文件">ElementUI el-upload 断点续传文件</a></li>
+                        <li class="py-2"><a href="/news/article-57975.htm" title="1970年农历6月27日是什么命?（1970年6月27日阴历是多少）">1970年农历6月27日是什么命?（1970年6月27日阴历是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-30757.htm" title="vue 的ESlint .eslintrc.js 文件 常用配置和注释">vue 的ESlint .eslintrc.js 文件 常用配置和注释</a></li>
+                        <li class="py-2"><a href="/news/article-62046.htm" title="狗粮厂家联系方式怎么写（狗粮生产公司）">狗粮厂家联系方式怎么写（狗粮生产公司）</a></li>
                     </ul>
     </div>
 </div>
@@ -169,7 +170,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
