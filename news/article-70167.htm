@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-70167.htm" />
+    <title>C#语法糖系列聊聊 ref，in 修饰符底层玩法</title>
+        <meta name="description" content="自从 C# 7.3 放开 ref 之后，这玩法就太花哨了，也让 C# 这门语言变得越来越多范式，越来越重，这篇我们就来聊聊 ref，本质上来说 ref 的放开就是把 C/C++ 指针的那一套又拿回来了" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-70167.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="C#语法糖系列聊聊 ref，in 修饰符底层玩法" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/a6829564010808b8e6f7ef96819d91d7.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:44:47" />
+    <meta property="og:updated_time" content="2025-03-09T09:44:47" />
+        <meta property="og:description" content="自从 C# 7.3 放开 ref 之后，这玩法就太花哨了，也让 C# 这门语言变得越来越多范式，越来越重，这篇我们就来聊聊 ref，本质上来说 ref 的放开就是把 C/C++ 指针的那一套又拿回来了" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C#语法糖系列聊聊 ref，in 修饰符底层玩法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">C#语法糖系列聊聊 ref，in 修饰符底层玩法</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>自从 C# 7.3 放开 ref 之后，这玩法就太花哨了，也让 C# 这门语言变得越来越多范式，越来越重，这篇我们就来聊聊 ref，本质上来说 ref 的放开就是把 C/C++ 指针的那一套又拿回来了，而且还封装成一套自己的玩法，下面一一解读下。</p> <h2 id="一方法参数上的-ref">一：方法参数上的 ref</h2> <p>我想设计者的初心把 ref 的功能限制的死死的，可能也考虑到 C# 是一门面向业务开发的语言，讲究的是做项目快狠准，性能反而不是第一要素，这个时候的 ref 很简单，看一下代码：</p> <pre><code class="language-C#">     class Program     {         static void Main(string[] args)         {             long price = 0;              GetPrice(ref price);              Console.WriteLine($"output: price={price}");         }          public static void GetPrice(ref long price)         {             price = 10;         }     }  output: price=10</code></pre> <p>我相信很有朋友都知道，方法参数中的<code>ref long price</code>  拿的是栈地址，对栈地址上的值进行修改，自然就修改了指向这些地址上的变量，和引用类型原理一致，接下来我们从汇编角度去验证，在 Price 方法上下一个断点。</p> <pre><code class="language-C#"> D:\net5\ConsoleApp4\ConsoleApp3\Program.cs @ 16: 026b048e 8d4dec          lea     ecx,[ebp-14h] 026b0491 ff15a0ebc800    call    dword ptr ds:[0C8EBA0h] (ConsoleApp3.Program.GetPrice(Int64 ByRef), mdToken: 06000002) 026b0497 90              nop 0:000&gt; bp 026b0491 0:000&gt; g Breakpoint 1 hit ChangeEngineState eax=00000000 ebx=0057f354 ecx=0057f2d4 edx=783aaa50 esi=02979e7c edi=0057f2dc eip=026b0491 esp=0057f2c4 ebp=0057f2e8 iopl=0         nv up ei pl zr na pe nc cs=0023  ss=002b  ds=002b  es=002b  fs=0053  gs=002b             efl=00000246 026b0491 ff15a0ebc800    call    dword ptr ds:[0C8EBA0h] ds:002b:00c8eba0=00c2be10</code></pre> <p>从汇编的<code>lea     ecx,[ebp-14h]</code> 就能看到，将<code>ebp-14</code> 这个单元的内存地址给了 ecx，这个 ecx 也就是作为参数传递给了<code>Price</code> 方法，后续的赋值将会影响这个<code>栈位置</code> 上的内容。</p> <h2 id="2-方法返回值上的-ref">2. 方法返回值上的 ref</h2> <p>这就有意思了，进入的时候传地址，回来的时候也想传地址，很显然<code>方法线程栈</code>上的<code>值类型</code> 是传不出去的，毕竟方法返回后，esp,ebp 所控制的方法栈帧空间是要销毁的，所以只能是堆上对象才能实现。</p> <p>为了方便理解，看如下代码：</p> <pre><code class="language-C#">     class Program     {         static void Main(string[] args)         {             ref long price = ref GetCurrentPrice();              price = 12;              Console.WriteLine($"output: price={price}");         }          public static ref long GetCurrentPrice()         {             long[] nums = { 10, 20, 30 };              return ref nums[1];         }     }  output: price=12</code></pre> <p>可以看到当前的<code>price=12</code>,同时<code>nums</code> 这个数组也被修改了，可以用 windbg 验证一下。</p> <pre><code class="language-C#"> 0:000&gt; !dumpheap  -type System.Int64[]   Address       MT     Size 027ca7b0 04c39d00       36       Statistics:       MT    Count    TotalSize Class Name 04c39d00        1           36 System.Int64[] Total 1 objects 0:000&gt; dq 027ca7b0 L4 027ca7b0  00000003`04c39d00 00000000`0000000a 027ca7c0  00000000`0000000c 00000000`0000001e</code></pre> <p>可以看到上面的<code>000000000000000c</code> 被修改成<code>price=12</code> ，这时候有人就不爽了，我不希望外面的代码能修改 price 内容，那怎么办呢？ 还得在<code>ref</code> 后面加上<code>readonly</code> ，改造后如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f4279856e14181131760eb07d993b271.jpg" alt="C#语法糖系列聊聊 ref，in 修饰符底层玩法"></p> <p>到此时写法就有点疯狂了，对 C# 开发者来说很难理解，对熟悉 C/C++ 指针的朋友来说又很不习惯，太纠结了，下面是一段翻译过来的<code>C/C++指针代码</code> 。</p> <pre><code class="language-C++"> const long long* getcurrentprice();  int main() { 	int i = 0;  	const long long* price = getcurrentprice();  	price = 12;  	printf("num=%d, price=%d \n", i, *price);  }  const long long* getcurrentprice() {  	long long* num = new long long[3]{ 10,20,30 }; 	return num + 1; }</code></pre> <p>说实话，这代码看起来就清爽多了。</p> <h2 id="2-对-ref-变量的-in-操作">2. 对 ref 变量的 in 操作</h2> <p>这又是一套 C/C++ 的玩法，有时候不希望某一个方法对 ref 变量进行修改，注意：是不希望某一个方法进行修改，其他方法是可以的，那这个怎么实现呢？这就需要在入参上加<code>in</code> 前缀，把代码修改一下。</p> <pre><code class="language-C#">     class Program     {         static void Main(string[] args)         {             ref long price = ref GetCurrentPrice();              ModifyPrice(in price);              Console.WriteLine($"output: price={price}");         }          public static ref long GetCurrentPrice()         {             long[] nums = { 10, 20, 30 };              return ref nums[1];         }          public static void ModifyPrice(in long price)         {             price = 12;             Console.WriteLine(price);         }     }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6e89468a5e3d2f0e468724a0ac70f229.jpg" alt="C#语法糖系列聊聊 ref，in 修饰符底层玩法"></p> <p>可以看到，这时候报错了，如果换成 C++ 就很简单了，只需要在参数上把 in 改成 const 即可。</p> <pre><code class="language-C++"> void modifyprice(const long long* price) { 	*price = 12; 	printf("%d", *price); }</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/40e79010e54d638a0441264722297bf2.jpg" alt="C#语法糖系列聊聊 ref，in 修饰符底层玩法"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70166.htm">JavaScript怎么比较数组元素是否相等</a></p>
+                                        <p>下一个：<a href="/news/article-70824.htm">湖北最大的大闸蟹市场（湖北哪里有大闸蟹）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-free-v2ray.htm" title="2月19日|Clash/Shadowrocket/V2ray/SSR每天更新19.8M/S免费节点订阅链接，Clash便宜机场订阅">2月19日|Clash/Shadowrocket/V2ray/SSR每天更新19.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-43883.htm" title="淘宝0.1元领养猫咪是真的吗知乎（淘宝01元领养猫咪是真的吗知乎）">淘宝0.1元领养猫咪是真的吗知乎（淘宝01元领养猫咪是真的吗知乎）</a></li>
+                        <li class="py-2"><a href="/news/article-61454.htm" title="养土狗的禁忌（狗最怕三种手势）">养土狗的禁忌（狗最怕三种手势）</a></li>
+                        <li class="py-2"><a href="/news/article-66325.htm" title="新疆养狗基地（新疆大型犬基地）">新疆养狗基地（新疆大型犬基地）</a></li>
+                        <li class="py-2"><a href="/news/article-51935.htm" title="宠物医院申请手续（宠物医院办理流程）">宠物医院申请手续（宠物医院办理流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-ssr-node.htm" title="2月2日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接，Clash便宜机场订阅">2月2日|Shadowrocket/SSR/Clash/V2ray每天更新22.5M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share.htm" title="1月22日|V2ray/Clash/SSR/Shadowrocket每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅">1月22日|V2ray/Clash/SSR/Shadowrocket每天更新22.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-65085.htm" title="领绣集团纹绣培训学院（领绣集团纹绣培训学院简介）">领绣集团纹绣培训学院（领绣集团纹绣培训学院简介）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-shadowrocket-node.htm" title="1月12日|Clash/SSR/V2ray/Shadowrocket每天更新22.8M/S免费节点订阅链接，Clash便宜机场订阅">1月12日|Clash/SSR/V2ray/Shadowrocket每天更新22.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-ssr-node.htm" title="2月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅">2月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
