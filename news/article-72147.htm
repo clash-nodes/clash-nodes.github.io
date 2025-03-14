@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-72147.htm" />
+    <title>echarts实现动态折线图</title>
+        <meta name="description" content="&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt; 		&lt;meta charset="UTF-8"&gt; 		&lt;title&gt;&lt" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-72147.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="echarts实现动态折线图" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/449ae0c619703231ed2c8cd2e095f4c2.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:07:44" />
+    <meta property="og:updated_time" content="2025-03-12T06:07:44" />
+        <meta property="og:description" content="&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt; 		&lt;meta charset="UTF-8"&gt; 		&lt;title&gt;&lt" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="echarts实现动态折线图">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">echarts实现动态折线图</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <pre class="has"><code class="language-javascript">&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt; 		&lt;meta charset="UTF-8"&gt; 		&lt;title&gt;&lt;/title&gt; 	&lt;/head&gt; 	&lt;!--&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;--&gt; 	&lt;script type="text/javascript" src="js/echarts.js"&gt;&lt;/script&gt;  	&lt;body&gt; 		&lt;div id="main" style="width: 600px;height:400px;"&gt;&lt;/div&gt; 	&lt;/body&gt;  &lt;/html&gt; &lt;script type="text/javascript"&gt; 	// 基于准备好的dom，初始化echarts实例	 	var myChart = echarts.init(document.getElementById('main'));  	function randomData() { 		now = new Date(+now + oneDay); 		value = value + Math.random() * 21 - 10; 		return { 			name: now.toString(), 			value: [ 				[now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'), 				Math.round(value) 			] 		} 	} 	var data = []; 	var now = +new Date(1997, 9, 3); 	var oneDay = 24 * 3600 * 1000; 	var value = Math.random() * 1000; 	for(var i = 0; i &lt; 1000; i++) { 		data.push(randomData()); 	} 	option = { 		title: { 			text: '动态数据 + 时间坐标轴' 		}, 		tooltip: { 			trigger: 'axis', 			formatter: function(params) { 				params = params[0]; 				var date = new Date(params.name); 				return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1]; 			}, 			axisPointer: { 				animation: false 			} 		}, 		xAxis: { 			type: 'time', 			splitLine: { 				show: false 			} 		}, 		yAxis: { 			type: 'value', 			boundaryGap: [0, '100%'], 			splitLine: { 				show: false 			} 		}, 		series: [{ 			name: '模拟数据', 			type: 'line', 			showSymbol: false, 			hoverAnimation: false, 			data: data, 			markLine: { 				itemStyle: { 					normal: { 						borderWidth: 1, 						lineStyle: { 							type: "dash", 							color: 'red', 							width: 2 						}, 						label: { 							formatter: 'COD', 							textStyle: { 								fontSize: 16, 								fontWeight: "bolder" 							} 						}, 						show: true, 						color: '#4c5336' 					} 				}, 				data: [{ 					yAxis: 900 				}] 			}, 		}], 	}; 	// 使用刚指定的配置项和数据显示图表。	 	myChart.setOption(option); 	setInterval(function() { 		for(var i = 0; i &lt; 5; i++) { 			data.shift(); 			data.push(randomData()); 		} 		myChart.setOption({ 			series: [{ 				data: data 			}] 		}); 	}, 1000); &lt;/script&gt;</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71484.htm">宠物回收平台同城可靠吗（宠物回收平台同城可靠吗）</a></p>
+                                        <p>下一个：<a href="/news/article-72148.htm">宠物猫做驱虫大概多少钱（宠物猫做驱虫大概多少钱一只）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43389.htm" title="广州宠物救援队（宠物救助站广州）">广州宠物救援队（宠物救助站广州）</a></li>
+                        <li class="py-2"><a href="/news/article-59694.htm" title="小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）">小猫要跟主人睡一个房间吗（小猫咪一定要和主人在一个房间）</a></li>
+                        <li class="py-2"><a href="/news/article-54625.htm" title="领养协议范本模板图片（领养协议有法律效力吗）">领养协议范本模板图片（领养协议有法律效力吗）</a></li>
+                        <li class="py-2"><a href="/news/article-51935.htm" title="宠物医院申请手续（宠物医院办理流程）">宠物医院申请手续（宠物医院办理流程）</a></li>
+                        <li class="py-2"><a href="/news/article-63853.htm" title="简单实现JS浅拷贝和深拷贝">简单实现JS浅拷贝和深拷贝</a></li>
+                        <li class="py-2"><a href="/news/article-48827.htm" title="LevelDB 学习笔记2：合并">LevelDB 学习笔记2：合并</a></li>
+                        <li class="py-2"><a href="/news/article-58430.htm" title="动物医院实践心得怎么写啊作文（动物医院实践心得2000）">动物医院实践心得怎么写啊作文（动物医院实践心得2000）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-shadowrocket-node.htm" title="3月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.7M/S免费节点订阅链接，Clash便宜机场订阅">3月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-46390.htm" title="Vue滑块验证码组件anji-captcha的使用">Vue滑块验证码组件anji-captcha的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-clash.htm" title="2月12日|SSR/Shadowrocket/Clash/V2ray每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅">2月12日|SSR/Shadowrocket/Clash/V2ray每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
