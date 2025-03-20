@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-76827.htm" />
+    <title>设计模式-六大原则之单一职责</title>
+        <meta name="description" content="在校学生，闲来无事复习设计模式，写此以记录。   定义 对于单一职责的原定义是：There should never be more than one reason for a class to ch" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-76827.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="设计模式-六大原则之单一职责" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/8d2ec24e2dbe6207ecfafbf85b82ddd6.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:09:00" />
+    <meta property="og:updated_time" content="2025-03-19T09:09:00" />
+        <meta property="og:description" content="在校学生，闲来无事复习设计模式，写此以记录。   定义 对于单一职责的原定义是：There should never be more than one reason for a class to ch" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="设计模式-六大原则之单一职责">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">设计模式-六大原则之单一职责</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>在校学生，闲来无事复习设计模式，写此以记录。</p> </blockquote> <h2> <a id="_3" rel="nofollow"></a>定义</h2> <p>对于单一职责的原定义是：There should never be more than one reason for a class to change.很简单的一句英文，有且只有一个原因能引起类的改变。即使对于英语很渣的我来说也能看懂，但要想理解却也是不容易。<br /> 单一职责主要应用于三个方面，接口、类和方法。我下面给出一些示例来详细阐述我的看法。</p> <h3> <a id="_7" rel="nofollow"></a>对于接口</h3> <p>Java本就是面向接口编程，接口的定义基本定下了后面实现类的走向。记得刚接触Java没多久的时候，根本无法体会到接口存在的意义，很多时候都不去写接口，即时写也都是随便糊弄那种。为此写过下面这段很蠢的代码</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description: 接口方法  * @Date 2019/10/22-17:08  */</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserInfo</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//登录验证</span>     <span class="token keyword">boolean</span> <span class="token function">loginVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">,</span>String username<span class="token punctuation">,</span>String password<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//注册信息验证</span>     <span class="token keyword">boolean</span> <span class="token function">registerVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  </code></pre> <p>在实现类中</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description: 实现类  * @Date 2019/10/22-17:11  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserLogin</span> <span class="token keyword">implements</span> <span class="token class-name">UserInfo</span><span class="token punctuation">{<!-- --></span>      <span class="token comment">//登录验证</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">loginVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">,</span> String username<span class="token punctuation">,</span> String password<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          * 登录验证方法          */</span>         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//注册信息验证</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">registerVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>各位应该都能看出这段代码写的是有多差劲，我在一个接口中同时将登录和注册都写了进去，而在写登录和注册的实体类的时候又分开写，两个实体类都需要继承UserInfo接口，但这就造成登录实体类根本不需要注册这部分方法但我不得不去实现它。虽然这里也可以将登录和注册的实体类写在一起，这样就可以避免这种情况，但这样就造成了这个类的复杂程度进一步提高，如果项目越做越大，后面的维护就变得相当困难。<br /> 为此不如看看下面的这种写法</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description: 登录接口  * @Date 2019/10/22-17:31  */</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">LoginVerifyInter</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//登录验证</span>     <span class="token keyword">boolean</span> <span class="token function">loginVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">,</span>String username<span class="token punctuation">,</span>String password<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description: 注册接口  * @Date 2019/10/22-17:32  */</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">RegisterVerifyInter</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//注册信息验证</span>     <span class="token keyword">boolean</span> <span class="token function">registerVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description: 实现类  * @Date 2019/10/22-17:11  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserLogin</span> <span class="token keyword">implements</span> <span class="token class-name">LoginVerifyInter</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//登录验证</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">loginVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">,</span> String username<span class="token punctuation">,</span> String password<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description:  * @Date 2019/10/22-17:38  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserRegister</span> <span class="token keyword">implements</span> <span class="token class-name">RegisterVerifyInter</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//注册信息验证</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">registerVerify</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>这种方式就是简单的实现了接口的单一职责。我的理解，接口的单一职责就是将一种功能或者某一类基本相似的功能放到一起。</p> <h3> <a id="_123" rel="nofollow"></a>类的单一职责</h3> <p>对于类的单一职责，我感觉没有很严格的规范，需求不同，实现的方式也不同，下面依旧按照登录和注册的例子列举两种不同的写法。<br /> 对于一个用户来说，一个用户就是一个实体，一个实体就应该包括相应的操作。</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description:  * @Date 2019/10/22-17:56  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfo</span> <span class="token punctuation">{<!-- --></span>          <span class="token comment">//登录操作</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">login</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          * 登录验证          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>          <span class="token comment">//注册验证</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">register</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          * 注册验证          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>          <span class="token comment">//更新信息</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">update</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          *更新信息          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>但如果用户中每一步操作的话又可以将每步操作分开写</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description:  * @Date 2019/10/22-18:03  */</span> <span class="token keyword">class</span> <span class="token class-name">Login</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//登录操作</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">login</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          * 登录验证          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token keyword">class</span> <span class="token class-name">Register</span><span class="token punctuation">{<!-- --></span>      <span class="token comment">//注册验证</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">register</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          * 注册验证          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  <span class="token keyword">class</span> <span class="token class-name">Update</span><span class="token punctuation">{<!-- --></span>      <span class="token comment">//更新信息</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">update</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">/**          *更新信息          */</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>虽然在这里第二种写法显得有些累赘，但确实严格按照单一职责的原则。没有孰优孰劣，只有适不适合，如果一个大型项目中一个用户的操作有相当大量的代码要进行实现的时候采用第二种方法分开写也没有任何错误。</p> <h2> <a id="_204" rel="nofollow"></a>方法的单一职责</h2> <p>个人感觉，方法的单一职责可以参考接口，尽量避免一个方法中进行多种类型的操作，参考《设计模式之禅》写出下面的示例</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description:  * @Date 2019/10/22-18:03  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChangeMessage</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">changeInfo</span><span class="token punctuation">(</span>String username<span class="token punctuation">,</span>String password<span class="token punctuation">,</span>String sex<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>          <span class="token comment">//更新用户名</span>          <span class="token comment">//更新密码</span>          <span class="token comment">//更新性别</span>                  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>在这个示例中，当用户提交修改账户信息的指令后service层调用changeInfo方法，直接对所有需要修改的账户信息进行修改，但这造成一个问题，changeInfo这个方法的职责太过笼统，如果后期需要添加或者修改这部分的代码，可能会造成较大的麻烦。<br /> 下面对代码进行优化</p> <pre><code class="prism language-java"><span class="token comment">/**  * @Author: Lemon  * @Program: Single Responsibility Principle  * @Description:  * @Date 2019/10/22-18:03  */</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChangeMessage</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//更新用户名</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">changeUsername</span><span class="token punctuation">(</span>String username<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">//更新用户名操作</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>          <span class="token comment">//更新密码</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">changePassword</span><span class="token punctuation">(</span>String password<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">//更新密码操作</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>          <span class="token comment">//更新性别</span>     <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">changeSex</span><span class="token punctuation">(</span>String sex<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token comment">//更新性别操作</span>         <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>改进后每个修改部分都有对应的方法，后期如果需要进行大量的修改会更加清晰，维护也更加方便。</p> <p>单一职责最重要的特点就是提高代码的可维护性，可读性和扩展性。但其中很多部分还要结合实际需求去考虑，采用最合适的方式。</p> <p>参考资料：《设计模式之禅》《一故事一设计模式》</p> <p><strong>如哪里写的有不对的地方，欢迎大家指正。</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76165.htm">生物疫苗和动物疫苗的区别是什么（生物疫苗一样吗）</a></p>
+                                        <p>下一个：<a href="/news/article-76828.htm">宠物粮食生产需要什么条件和手续 宠物粮食生产需要什么条件和手续呢</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36983.htm" title="动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全">动物疫苗的作用有哪些种类图片 动物疫苗的作用有哪些种类图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-35414.htm" title="宠物主粮上市公司排名 宠物主粮上市公司排名前十">宠物主粮上市公司排名 宠物主粮上市公司排名前十</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-ssr-node.htm" title="2月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅">2月27日|Clash/Shadowrocket/V2ray/SSR每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-38950.htm" title="vue3.0 elementUI实现上传文件的暂停继续功能">vue3.0 elementUI实现上传文件的暂停继续功能</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-ssr-subscribe.htm" title="3月13日|SSR/Clash/Shadowrocket/V2ray每天更新23M/S免费节点订阅链接，Clash便宜机场订阅">3月13日|SSR/Clash/Shadowrocket/V2ray每天更新23M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-70825.htm" title="兽用疫苗瓶如何处理（兽用疫苗注射器）">兽用疫苗瓶如何处理（兽用疫苗注射器）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-shadowrocket-node.htm" title="3月17日|SSR/Shadowrocket/V2ray/Clash每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">3月17日|SSR/Shadowrocket/V2ray/Clash每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-52466.htm" title="java集成pdf.js实现pdf文件在线预览">java集成pdf.js实现pdf文件在线预览</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-clash-windows.htm" title="3月6日|Shadowrocket/SSR/Clash/V2ray每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅">3月6日|Shadowrocket/SSR/Clash/V2ray每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-clash.htm" title="3月15日|Clash/Shadowrocket/SSR/V2ray每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅">3月15日|Clash/Shadowrocket/SSR/V2ray每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
