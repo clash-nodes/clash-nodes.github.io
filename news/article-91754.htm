@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-91754.htm" />
+    <title>通过cdn引入vant，van-swipe-cell没有效果</title>
+        <meta name="description" content="前言 &nbsp; &nbsp; &nbsp; &nbsp;最近接手一个项目，是h5多页面，页面中通过cdn的方式引入vant的样式和js。在用到van-swipe-cell时，把官网上的代码搬下来却" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-91754.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="通过cdn引入vant，van-swipe-cell没有效果" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/0d1ca71887c4cd6899e1d92e434c2da5.webp" />
+        <meta property="og:release_date" content="2025-04-09T09:16:36" />
+    <meta property="og:updated_time" content="2025-04-09T09:16:36" />
+        <meta property="og:description" content="前言 &nbsp; &nbsp; &nbsp; &nbsp;最近接手一个项目，是h5多页面，页面中通过cdn的方式引入vant的样式和js。在用到van-swipe-cell时，把官网上的代码搬下来却" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="通过cdn引入vant，van-swipe-cell没有效果">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">通过cdn引入vant，van-swipe-cell没有效果</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>前言</h2> <p>&nbsp; &nbsp; &nbsp; &nbsp;最近接手一个项目，是h5多页面，页面中通过cdn的方式引入vant的样式和js。在用到van-swipe-cell时，把官网上的代码搬下来却没任何效果，明明设置了右侧滑动的内容，却也是滑动不了。同样的代码，在我的vue单页面应用项目里，使用是没问题的。</p> <p>代码如下：</p> <pre><code class="language-html">&lt;van-swipe-cell&gt;   &lt;van-cell :border="false" title="单元格" value="内容" /&gt;   &lt;template #right&gt;     &lt;van-button square type="danger" text="删除" /&gt;     &lt;van-button square type="primary" text="收藏" /&gt;   &lt;/template&gt; &lt;/van-swipe-cell&gt;</code></pre> <h2>分析</h2> <p>查了一天，终于找到一位网友说的关键点，通过cdn方式引入，格式需要严格要求，标签必须成对出现，比如：</p> <pre><code class="language-html">&lt;!--正确--&gt; &lt;van-button&gt;xxx&lt;/van-button&gt;   &lt;!--错误--&gt; &lt;van-button /&gt;</code></pre> <p>把上面有格式问题的代码，全部修改完后，发现还是滑动不了。又回去看官网的介绍，右侧滑动的内容是通过slot引入到页面中的，如下：</p> <p><img fetchpriority="high" decoding="async" alt="" height="193" src="http://img.555519.xyz/uploads3/20220607/54d8c608cfad7b36d1b021734a8ac8dc.jpg"></p> <p>于是想起自己写组件时候，引入插槽的方法，果断把#换成slot字样，解决了！！！</p> <h2>总结</h2> <p>如果通过cdn的方式引入vant，使用它的插件的时候，需要注意两点：</p> <p>1.插件里的标签必须成对出现，不能这样结尾&nbsp;&lt;单标签/&gt;</p> <p>2.左侧/右侧 滑动显示的内容，要使用slot="left/right"标识，而不能直接用#</p> <p>示例</p> <pre><code class="language-html">&lt;van-swipe-cell&gt;   &lt;van-cell :border="false" title="单元格" value="内容"&gt;&lt;/van-cell&gt;   &lt;template slot="right"&gt;     &lt;van-button square type="danger" text="删除"&gt;&lt;/van-button&gt;     &lt;van-button square type="primary" text="收藏"&gt;&lt;/van-button&gt;   &lt;/template&gt; &lt;/van-swipe-cell&gt;</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90992.htm">云南农大动物医院 云南农大动物医院哪个医生好</a></p>
+                                        <p>下一个：<a href="/news/article-91755.htm">上海宠物医院地址电话大全（上海宠物医院知乎）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-clash-node-daily-updates.htm" title="3月18日|Clash/Shadowrocket/SSR/V2ray每天更新19.7M/S免费节点订阅链接，Clash便宜机场订阅">3月18日|Clash/Shadowrocket/SSR/V2ray每天更新19.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-clash-subscribe.htm" title="3月3日|SSR/Shadowrocket/V2ray/Clash每天更新19.7M/S免费节点订阅链接，Clash便宜机场订阅">3月3日|SSR/Shadowrocket/V2ray/Clash每天更新19.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-node-share.htm" title="3月26日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅">3月26日|SSR/V2ray/Shadowrocket/Clash每天更新22.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-84491.htm" title="jenkins 新增用户和修改用户名密码">jenkins 新增用户和修改用户名密码</a></li>
+                        <li class="py-2"><a href="/news/article-70825.htm" title="兽用疫苗瓶如何处理（兽用疫苗注射器）">兽用疫苗瓶如何处理（兽用疫苗注射器）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-clash-node-daily-updates.htm" title="3月7日|V2ray/SSR/Shadowrocket/Clash每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅">3月7日|V2ray/SSR/Shadowrocket/Clash每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-node-subscribe.htm" title="3月9日|Clash/Shadowrocket/SSR/V2ray每天更新20.8M/S免费节点订阅链接，Clash便宜机场订阅">3月9日|Clash/Shadowrocket/SSR/V2ray每天更新20.8M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-76164.htm" title="动物防疫法动物产品包括下列哪些内容（动物防疫法解读）">动物防疫法动物产品包括下列哪些内容（动物防疫法解读）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-clash-node.htm" title="3月22日|SSR/Clash/Shadowrocket/V2ray每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅">3月22日|SSR/Clash/Shadowrocket/V2ray每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-73469.htm" title="重庆宠物领养中心官网电话（重庆宠物领养中心官网电话地址）">重庆宠物领养中心官网电话（重庆宠物领养中心官网电话地址）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
