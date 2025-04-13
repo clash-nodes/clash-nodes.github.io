@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-93893.htm" />
+    <title>C# 实现登录并跳转界面</title>
+        <meta name="description" content="前言：本篇文章没有使用连接数据库验证登录名和密码，只是最基本的字符串对比，下篇文章会在本文基础上增加数据库连接和验证。 正文： 1. 登录窗口界面的布局设计 &nbsp; &nbsp; （1）新建一个" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-93893.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="C# 实现登录并跳转界面" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/a1c2c38ec5e855980aff9d03bfc9b0c9.webp" />
+        <meta property="og:release_date" content="2025-04-12T08:53:00" />
+    <meta property="og:updated_time" content="2025-04-12T08:53:00" />
+        <meta property="og:description" content="前言：本篇文章没有使用连接数据库验证登录名和密码，只是最基本的字符串对比，下篇文章会在本文基础上增加数据库连接和验证。 正文： 1. 登录窗口界面的布局设计 &nbsp; &nbsp; （1）新建一个" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C# 实现登录并跳转界面">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">C# 实现登录并跳转界面</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>前言：</strong>本篇文章没有使用连接数据库验证登录名和密码，只是最基本的字符串对比，下篇文章会在本文基础上增加数据库连接和验证。</p> <p><strong>正文：</strong></p> <p>1. 登录窗口界面的布局设计</p> <p style="text-indent:0px;">&nbsp; &nbsp; （1）新建一个form窗体，并且修改属性值。如图</p> <p>&nbsp; &nbsp;&nbsp; 属性Text：Form1 改为 登录界面 ；</p> <p>&nbsp; &nbsp; &nbsp;属性Name：Form1 改为 Login ；</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/ccb8ceb90d3bed3d63e10f3c222e6763.jpg"></p> <p><img decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/2bcd50e61d8657d416868104c60459b0.jpg"></p> <p><img decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/613b6d7dae9b8aacd042f35e39216b6c.jpg"></p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/62b0ab4d5be7f4ebdd4f7aba65cbd879.jpg"></p> <p>&nbsp;（2）在工具箱搜索寻找需要的控件，登录界面一般需要Label，Button，TextBox。<br /> &nbsp;&nbsp;同样，在属性窗格修改属性值，方便代码书写的命名。这里命名为：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="300" src="http://img.555519.xyz/uploads3/20220904/70e2617869b627578327d793e9a1d932.jpg"></p> <p>&nbsp;（3）调整各个控件的大小，字体，布局：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/631843eb5777b002cda58d9e4fd52ade.jpg"></p> <p>（4）双击登录按钮，进行代码编辑</p> <pre class="has"><code class="language-csharp">private void btnLogin_Click(object sender, EventArgs e)         {             //1. 获取数据             //从TextBox中获取用户输入信息             string userName = this.txtUserName.Text;                  string userPassword = this.txtPassword.Text;              //2. 验证数据             // 验证用户输入是否为空，若为空，提示用户信息             if( userName.Equals("") || userPassword.Equals(""))             {                 MessageBox.Show("用户名或密码不能为空！");             }             // 若不为空，验证用户名和密码是否与数据库匹配             // 这里只做字符串对比验证             else             {                    //用户名和密码验证正确，提示成功，并执行跳转界面。                 if( userName.Equals("admin") &amp;&amp; userPassword.Equals("admin"))                 {                     MessageBox.Show("登录成功！");                      /**                      * 待添加代码区域                      * 实现界面跳转功能                      *                       */                 }                 //用户名和密码验证错误，提示错误。                 else                 {                     MessageBox.Show("用户名或密码错误！");                 }             }              //3. 处理数据         }</code></pre> <p>2. 跳转主界面实现</p> <p><span style="color:#4f4f4f;">&nbsp;（1）右键资源管理器中项目名 "blog1"，依次单击 "添加"、"Windows窗体"。</span></p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/bb2107e1e97cc2f73dd6bad68b0b7fd6.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/a8202f473a830c6a4a548f20a6be6f62.jpg"></p> <p>（2）单击添加按钮。对新的窗口像前面一样操作，对相应属性进行修改。并且添加一个label，用于界面的辨识。</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/761aedff1d0068e9727e1e3c999b74cf.jpg"></p> <p>（3）在programma.cs中的Main函数中，添加代码：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/54d4b9c2b7e11838e9c7670842395e24.jpg"></p> <pre class="has"><code class="language-csharp">&nbsp;static void Main()         {             Application.EnableVisualStyles();             Application.SetCompatibleTextRenderingDefault(false);             //Application.Run(new Login());             Login login = new Login();              //界面转换             login.ShowDialog();              if (login.DialogResult == DialogResult.OK)             {                 login.Dispose();                 Application.Run(new MainForm());             }             else if (login.DialogResult == DialogResult.Cancel)             {                 login.Dispose();                 return;             }         }</code>static void Main()         {             Application.EnableVisualStyles();             Application.SetCompatibleTextRenderingDefault(false);             //Application.Run(new Login());             Login login = new Login();              //界面转换             login.ShowDialog();              if (login.DialogResult == DialogResult.OK)             {                 login.Dispose();                 Application.Run(new MainForm());             }             else if (login.DialogResult == DialogResult.Cancel)             {                 login.Dispose();                 return;             }         }</pre> <p>&nbsp;（4）并在Form1.cs中，验证用户名和密码后面（有注释：待添加代码区），添加代码：</p> <pre class="has"><code class="language-csharp">//跳转主界面      this.DialogResult = DialogResult.OK;      this.Dispose();      this.Close();</code></pre> <p>3.启动运行，一起检查代码实现情况。</p> <p style="text-indent:32px;">（1）不输入用户名和密码，单击登录；</p> <p style="text-indent:32px;">（2）正确输入用户名，错误输入密码，单击登录；</p> <p style="text-indent:32px;">（3）正确输入用户名和密码，单击登录；</p> <p style="text-indent:32px;">（4）单击提示框确定按钮，查看跳转情况。</p> <p style="text-indent:32px;"> <p style="text-indent:32px;"><span style="color:#4f4f4f;"><strong>后续：</strong></span><span style="color:#4f4f4f;">我是一个C#的初学者，目前只是学了最基本的语法。想在实践中边练习边学习，</span>于是找了点小项目</p> <p style="text-indent:32px;">作为学习C#的练手利器，文中有错误或者不是很好的地方，望各位大神批评指正。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-93252.htm">安安宠物医院收费价目表（安安宠物医院贵吗）</a></p>
+                                        <p>下一个：<a href="/news/article-93894.htm">vue-cli3.0 吃过的坑</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-84491.htm" title="jenkins 新增用户和修改用户名密码">jenkins 新增用户和修改用户名密码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-node-subscribe.htm" title="3月10日|Shadowrocket/V2ray/SSR/Clash每天更新23M/S免费节点订阅链接，Clash便宜机场订阅">3月10日|Shadowrocket/V2ray/SSR/Clash每天更新23M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-76828.htm" title="宠物粮食生产需要什么条件和手续 宠物粮食生产需要什么条件和手续呢">宠物粮食生产需要什么条件和手续 宠物粮食生产需要什么条件和手续呢</a></li>
+                        <li class="py-2"><a href="/news/article-90262.htm" title="宠物商品粮有哪些（宠物商品粮有哪些品种）">宠物商品粮有哪些（宠物商品粮有哪些品种）</a></li>
+                        <li class="py-2"><a href="/news/article-81625.htm" title="投资一个狗粮加工厂前景好吗多少钱（投资一家狗粮生产厂需要多少钱）">投资一个狗粮加工厂前景好吗多少钱（投资一家狗粮生产厂需要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-73469.htm" title="重庆宠物领养中心官网电话（重庆宠物领养中心官网电话地址）">重庆宠物领养中心官网电话（重庆宠物领养中心官网电话地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-ssr-node.htm" title="3月23日|Clash/Shadowrocket/V2ray/SSR每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅">3月23日|Clash/Shadowrocket/V2ray/SSR每天更新19.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-free-shadowrocket-node.htm" title="3月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.7M/S免费节点订阅链接，Clash便宜机场订阅">3月8日|Shadowrocket/Clash/V2ray/SSR每天更新20.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-69523.htm" title="我所在的城市有一家宠物医院英语怎么写 我所在的城市有一家宠物医院英语怎么写">我所在的城市有一家宠物医院英语怎么写 我所在的城市有一家宠物医院英语怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-75491.htm" title="卖宠物粮食需要什么资质（卖宠物粮需要懂什么知识）">卖宠物粮食需要什么资质（卖宠物粮需要懂什么知识）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">38</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
