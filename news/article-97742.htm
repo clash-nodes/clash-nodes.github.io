@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-97742.htm" />
+    <title>DRF-认证权限频率</title>
+        <meta name="description" content="DRF-认证权限频率    前后端混合开发，可以通过HttpResponse对象来设置cookie进而校验登录，现在前后端分离开发，用不到cookie，那么该怎么认证？DRF提供了认证的方法  我们知" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-97742.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="DRF-认证权限频率" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/449ae0c619703231ed2c8cd2e095f4c2.webp" />
+        <meta property="og:release_date" content="2025-04-17T09:00:25" />
+    <meta property="og:updated_time" content="2025-04-17T09:00:25" />
+        <meta property="og:description" content="DRF-认证权限频率    前后端混合开发，可以通过HttpResponse对象来设置cookie进而校验登录，现在前后端分离开发，用不到cookie，那么该怎么认证？DRF提供了认证的方法  我们知" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="DRF-认证权限频率">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">DRF-认证权限频率</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div class="toc"> <div class="toc-container-header"><span style="font-size: 1.5em;">DRF-认证权限频率</span></div> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8cde25a2d5a6b90f1db4d297893f0b80.jpg" alt="DRF-认证权限频率"></p> <blockquote> <p>前后端混合开发，可以通过HttpResponse对象来设置cookie进而校验登录，现在前后端分离开发，用不到cookie，那么该怎么认证？DRF提供了认证的方法</p> </blockquote> <p>我们知道在APIView执行的过程中，在dispatch方法中走了三大认证<code>self.initial(request, *args, **kwargs)</code></p> <pre><code class="language-python">def initial(self, request, *args, **kwargs): 	···     self.perform_authentication(request)  # 认证     self.check_permissions(request)    # 权限     self.check_throttles(request)    # 频率</code></pre> <h2 id="认证">认证</h2> <p><strong>需求</strong></p> <p>我们通过登录接口，来模拟认证登录，登录成功返回json字符串，并且携带随机字符串(uuid模拟生成token)，通过token随机字符串来判断用户是否登录，登录了就更新token，首次登录就存token；</p> <p><strong>分析</strong></p> <ul> <li>创建User表</li> <li>创建UserToken表，和User一对一关系</li> <li>前端传入用户名，密码</li> <li>数据库取校验用户信息</li> <li>校验成功，Token表内新增一条记录，返回给前端json格式字符串，字符串中带一个随机字符串</li> </ul> <h3 id="登录接口">登录接口</h3> <p><strong>模型</strong></p> <pre><code class="language-python">from django.db import models   class User(models.Model):     username = models.CharField(max_length=32)     password = models.CharField(max_length=16)     user_type = models.IntegerField(choices=((1, '超级管理员'), (2, '普通管理员'), (3, '普通用户')))      def get_code(self):         self.get_user_type_display()         print(self.get_user_type_display())  class UserToken(models.Model):     user = models.OneToOneField(to=User,on_delete=models.CASCADE)     token = models.CharField(max_length=32)</code></pre> <p><strong>视图</strong></p> <pre><code class="language-python">from rest_framework.response import Response from rest_framework.viewsets import ViewSet from rest_framework.decorators import action from app01 import models   class UserView(ViewSet):     @action(methods=['POST'], detail=False)     def login(self, request, *args, **kwargs):         # 获取数据         username = request.data.get('username')         password = request.data.get('password')         user = models.User.objects.filter(username=username, password=password).first()         if user:             # 如果user有值说明登录成功，生产随机字符串，存入数据库，如果重复登录那么就更新随机字符串             import uuid             uuid_str = uuid.uuid4()             # print(type(uuid_str)) # &lt;class 'uuid.UUID'&gt;             token = str(uuid_str)             # 如果存在就更新，如果不存在就新增,指定搜索对象，然后defaults指定更新内容             models.UserToken.objects.update_or_create(user=user,defaults={'token': token} )             # 返回随机字符串             return Response({'code': 100, 'msg': '登录成功', 'token': token})         return Response({'code': 101, 'msg': '登录失败，用户名或密码错误'})</code></pre> <p><strong>路由</strong></p> <pre><code class="language-python">from django.contrib import admin from django.urls import path,include from app01 import views from rest_framework.routers import SimpleRouter router = SimpleRouter() router.register('user',views.UserView,'user') urlpatterns = [     path('admin/', admin.site.urls),     path('',include(router.urls)) ]</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d5eca54d516facd20f53a9d8b8080df9.jpg" alt="DRF-认证权限频率"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/23f7192390129391afe462abe55e5c17.jpg" alt="DRF-认证权限频率"></p> <h3 id="认证-1"><strong>认证</strong></h3> <ul> <li> <p>局部使用：写一个认证类，通过<code>authentication_classes</code>参数指定认证类</p> <pre><code class="language-python">class BookView(ModelViewSet):     # 局部使用     authentication_classes = [LoginAuth,]</code></pre> </li> <li> <p>全局使用：写一个认证类，settings.py配置，所有的视图类生效</p> <pre><code class="language-python">REST_FRAMEWORK={       "DEFAULT_AUTHENTICATION_CLASSES":["app01.auth.LoginAuth",]   		}</code></pre> </li> <li> <p>局部禁用：<code>authentication_classes = []</code></p> </li> </ul> <blockquote> <p>我们知道平时生活中，有一些接口是认证后才能调用的，比如我们登录后才能查看个人站点内容等···</p> <p>在执行视图函数之前执行了认证方法：self.perform_authentication(request)</p> </blockquote> <p><strong>这里写一个认证demo，只有登录过的才能查看Book表</strong></p> <pre><code class="language-python">'''auth.py''' from rest_framework.authentication import BaseAuthentication from rest_framework.exceptions import AuthenticationFailed from app01 import models  # 写一个类继承BaseAuthentication class LoginAuth(BaseAuthentication):     # 重写authenticate方法     def authenticate(self, request):         # 获取前端携带的token,token放在哪是自己规定的，比如从查询参数中获取         token = request.query_params.get('token')         # 比对随机字符串         user_token = models.UserToken.objects.filter(token=token).first()         if user_token:             # 登录了，返回当前登录用户和token             return user_token.user,token         else:             # 没有登录，抛异常             raise AuthenticationFailed('您没有登录，请登录')              '''serializer.py''' from rest_framework import serializers from app01 import models class BookSerializer(serializers.ModelSerializer):     class Meta:         model = models.Book         fields = '__all__' '''models.py''' class Book(models.Model):     name = models.CharField(max_length=32)     price = models.DecimalField(decimal_places=2,max_digits=5)     author = models.CharField(max_length=32) '''urls.py''' from django.contrib import admin from django.urls import path,include from app01 import views from rest_framework.routers import SimpleRouter router = SimpleRouter() router.register('user',views.UserView,'user') router.register('books',views.BookView,'books') urlpatterns = [     path('admin/', admin.site.urls),     path('',include(router.urls)) ]</code></pre> <ul> <li> <p><strong>返回的user_token和token值可以通过在视图类里重写list方法拿到</strong></p> <pre><code class="language-python">'''views.py''' from .auth import LoginAuth class BookView(ModelViewSet):     # 局部使用     authentication_classes = [LoginAuth,]     queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer 	     def list(self, request, *args, **kwargs):         print(request.user) # User object (1)         print(request.user.username) # HammerZe         print(request.auth) # de914129-2f08-41a4-a7a9-de289badb659         return super().list(request, *args, **kwargs)</code></pre> </li> </ul> <p><strong>总结</strong></p> <ul> <li>返回的第一个(user_token.user)，给了request.user，就是当前登录用户对象</li> <li>返回的第二个(token)，给了request.auth，就是token串</li> <li>局部禁用和全局配置使用的时候要注意，全局如果认证的时候是每个视图函数都认证，就比如登录视图认证登录，那么就死循环了，不认证不能登录，就相当于做核酸需要核酸单···</li> </ul> <h2 id="权限">权限</h2> <blockquote> <p>和认证一样，都是写一个类去继承，写权限继承BasePermission，重写has_permission方法，判断如果有权限，返回True，如果没有权限，返回False</p> <p>然后局部使用或者全局使用，或局部禁用</p> </blockquote> <h3 id="作用">作用</h3> <ul> <li>权限控制可以限制用户对于视图的访问和对于具体数据对象的访问</li> <li>认证通过, 可以进行下一步验证 (频率认证)</li> <li>认证失败, 抛出权限异常结果</li> </ul> <h3 id="使用">使用</h3> <ul> <li> <p>局部使用：<code>permission_classes = [UserPermission, ]</code></p> </li> <li> <p>全局使用：</p> <pre><code class="language-python">REST_FRAMEWORK={ 			"DEFAULT_PERMISSION_CLASSES":["app01.auth.UserPermission",] 		}</code></pre> </li> <li> <p>局部禁用：<code>permission_classes = []</code></p> </li> </ul> <p><strong>需求</strong></p> <ul> <li>认证登录成功后，普通用户只能查询一条或所有</li> <li>管理员登录后才能通过权限认证进行修改，增加，删除操作</li> </ul> <p><strong>权限类</strong></p> <pre><code class="language-python">class UserPermission(BasePermission):     def has_permission(self, request, view):         # 没有权限的提示信息         self.message = '您是:%s，没有权限' % request.user.get_user_type_display()         # 如果有权限，返回True,没有权限返回False         # 权限类，在认证类之后，request.user有了当前登录用户         user_type = request.user.user_type         print(user_type)         if user_type &lt; 3:  # 只要不是1，2，就没有权限             return True         else:             return False</code></pre> <p><strong>视图</strong></p> <pre><code class="language-python">from .auth import LoginAuth, UserPermission from rest_framework.mixins import RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin,ListModelMixin,CreateModelMixin from rest_framework.viewsets import GenericViewSet  class BookView(RetrieveModelMixin,ListModelMixin,GenericViewSet):     # 局部使用，普通用户登录后只能获取一条或所有     authentication_classes = [LoginAuth, ]     queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer  class BookDetailView(CreateModelMixin, DestroyModelMixin, UpdateModelMixin, GenericViewSet):     # 局部使用，普通用户没有权限     authentication_classes = [LoginAuth, ]     permission_classes = [UserPermission, ]     queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer</code></pre> <p><strong>路由</strong></p> <pre><code class="language-python">from rest_framework.routers import SimpleRouter router = SimpleRouter() router.register('user',views.UserView,'user') router.register('books',views.BookView,'books') router.register('bookdetail',views.BookDetailView,'bookdetail') urlpatterns = [     path('admin/', admin.site.urls),     path('',include(router.urls)) ]</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0beca595b442faad9f7acf0de34739f1.jpg" alt="DRF-认证权限频率"></p> <p><strong>总结</strong></p> <ul> <li>5个接口分成了俩视图类写</li> <li>BookView：获取所有，获取单条API</li> <li>BookDetailView：删除，修改，新增API</li> <li>这俩视图都需要登录：authentication_classes = [LoginAuth, ]</li> <li>BookView只要登陆就可以操作</li> <li>BookDetailView必须有权限才能，加了一个权限，permission_classes = [UserPermission, ]</li> </ul> <p><strong>步骤</strong></p> <ul> <li>第一步：写一个类，继承BasePermission，重写has_permission，判断如果有权限，返回True，如果没有权限，返回False</li> <li>第二步：局部使用和全局使用</li> </ul> <p><strong>注意</strong></p> <ul> <li>如果使用ModelViewSet快速写五个接口，那么在验证认证和权限的时候就会错乱，获取和修改等操作都在一个视图里了，分开写会好一点</li> </ul> <h2 id="频率">频率</h2> <h3 id="作用-1">作用</h3> <ul> <li>限制视图接口被访问的频率次数</li> <li>限制条件 : IP、ID、唯一键</li> <li>频率周期 : 时(h)、分(m)、秒(s)</li> <li>频率次数 : [num] / s</li> <li>没有达到限制频率可正常访问接口</li> <li>达到了频率限制次数, 在限制时间内不能进行访问, 超过时间后可以正常访问</li> </ul> <h3 id="使用-1">使用</h3> <p><strong>频率类</strong></p> <pre><code class="language-python"># 频率类 class IPThrottle(SimpleRateThrottle):     scope = 'ip'      # get_cache_key返回什么就以什么方法做限制，限制条件必须唯一，比如用户id     def get_cache_key(self, request, view):         # 限制ip地址，从request.META字典中获取ip         '''         request.META:请求头中的数据         '''         return request.META.get('REMOTE_ADDR')  # 客户端ip</code></pre> <p><strong>配置文件</strong></p> <pre><code class="language-python">REST_FRAMEWORK={     'DEFAULT_THROTTLE_RATES': {         'ip': '3/m'  # minute_3是scope的字符串，一分钟访问3次 }</code></pre> <p><strong>局部使用</strong></p> <pre><code class="language-python">class BookView(RetrieveModelMixin, ListModelMixin, GenericViewSet):     authentication_classes = [LoginAuth, ] # 登录认证     permission_classes = [UserPermission, ] # 权限限制     throttle_classes = [IPThrottle, ]  # 频率限制          queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer</code></pre> <p><strong>全局使用</strong></p> <pre><code class="language-python">REST_FRAMEWORK={      'DEFAULT_THROTTLE_CLASSES': (  # 全局配置频率类         'app01.auth.IPThrottle'     ),   		}</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/034a92797fe778f49e6e1cd77f0afd3a.jpg" alt="DRF-认证权限频率"></p> <p><strong>总结</strong></p> <ol> <li>写一个类，继承SimpleRateThrottle，重写类属性scope，scope值自定义，配置文件中一致就行，重写get_cache_key方法，返回什么限制什么</li> <li>在配置文件中配置，限制频率</li> <li>局部/全局使用</li> </ol> <h2 id="认证权限频率五个接口">认证权限频率+五个接口</h2> <h3 id="模型"><strong>模型</strong></h3> <pre><code class="language-python">from django.db import models   # Create your models here.   class User(models.Model):     username = models.CharField(max_length=32)     password = models.CharField(max_length=16)     user_type = models.IntegerField(choices=((1, '超级管理员'), (2, '普通管理员'), (3, '普通用户')))   class UserToken(models.Model):     user = models.OneToOneField(to=User,on_delete=models.CASCADE)     token = models.CharField(max_length=32)  class Book(models.Model):     name = models.CharField(max_length=32)     price = models.DecimalField(decimal_places=2,max_digits=5)     author = models.CharField(max_length=32)</code></pre> <h3 id="视图"><strong>视图</strong></h3> <pre><code class="language-python">from rest_framework.decorators import action from rest_framework.response import Response from rest_framework.viewsets import ViewSet  from app01 import models from app01 import serializer   class UserView(ViewSet):     @action(methods=['POST'], detail=False)     def login(self, request, *args, **kwargs):         # 获取数据         username = request.data.get('username')         password = request.data.get('password')         user = models.User.objects.filter(username=username, password=password).first()         if user:             # 如果user有值说明登录成功，生产随机字符串，存入数据库，如果重复登录那么就更新随机字符串             import uuid             uuid_str = uuid.uuid4()             # print(type(uuid_str)) # &lt;class 'uuid.UUID'&gt;             token = str(uuid_str)             # 如果存在就更新，如果不存在就新增,指定搜索对象，然后defaults指定更新内容             models.UserToken.objects.update_or_create(user=user, defaults={'token': token})             # 返回随机字符串             return Response({'code': 100, 'msg': '登录成功', 'token': token})         return Response({'code': 101, 'msg': '登录失败，用户名或密码错误'})   from .auth import LoginAuth, UserPermission, IPThrottle  from rest_framework.mixins import RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin, ListModelMixin, \     CreateModelMixin from rest_framework.viewsets import GenericViewSet   class BookView(RetrieveModelMixin, ListModelMixin, GenericViewSet):     # 局部使用，普通用户登录后只能获取一条或所有     authentication_classes = [LoginAuth, ]     throttle_classes = [IPThrottle, ]     queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer   class BookDetailView(CreateModelMixin, DestroyModelMixin, UpdateModelMixin, GenericViewSet):     # 局部使用，普通用户没有权限     authentication_classes = [LoginAuth, ]     permission_classes = [UserPermission, ]     queryset = models.Book.objects.all()     serializer_class = serializer.BookSerializer</code></pre> <h3 id="序列化器">序列化器</h3> <pre><code class="language-python">from rest_framework import serializers from app01 import models class BookSerializer(serializers.ModelSerializer):     class Meta:         model = models.Book         fields = '__all__'</code></pre> <h3 id="认证权限频率类">认证权限频率类</h3> <pre><code class="language-python">from rest_framework.authentication import BaseAuthentication from rest_framework.exceptions import AuthenticationFailed from rest_framework.permissions import BasePermission from rest_framework.throttling import SimpleRateThrottle  from app01 import models   # 认证类 class LoginAuth(BaseAuthentication):     # 重写authenticate方法     def authenticate(self, request):         # 获取前端携带的token,token放在哪是自己规定的，比如从查询参数中获取         token = request.query_params.get('token')         # 比对随机字符串         user_token = models.UserToken.objects.filter(token=token).first()         if user_token:             # 登录了，返回当前登录用户和token             return user_token.user, token         else:             # 没有登录，抛异常             raise AuthenticationFailed('您没有登录，请登录')   # 权限类 class UserPermission(BasePermission):     def has_permission(self, request, view):         # 没有权限的提示信息         self.message = '您是:%s，没有权限' % request.user.get_user_type_display()         # 如果有权限，返回True,没有权限返回False         # 权限类，在认证类之后，request.user有了当前登录用户         user_type = request.user.user_type         print(user_type)         if user_type &lt; 3:  # 只要不是1，2，就没有权限             return True         else:             return False  # 频率类 class IPThrottle(SimpleRateThrottle):     scope = 'ip'      # get_cache_key返回什么就以什么方法做限制，限制条件必须唯一，比如用户id     def get_cache_key(self, request, view):         # 限制ip地址，从request.META字典中获取ip         '''         request.META:请求头中的数据         '''         return request.META.get('REMOTE_ADDR')  # 客户端ip</code></pre> <h3 id="配置文件">配置文件</h3> <pre><code class="language-python">REST_FRAMEWORK={     'DEFAULT_THROTTLE_RATES': {         'ip': '3/m'  # minute_3是scope的字符串，一分钟访问3次 },</code></pre> <h3 id="路由">路由</h3> <pre><code class="language-python"> from django.contrib import admin from django.urls import path,include from app01 import views from rest_framework.routers import SimpleRouter router = SimpleRouter() router.register('user',views.UserView,'user') router.register('books',views.BookView,'books') router.register('bookdetail',views.BookDetailView,'bookdetail') urlpatterns = [     path('admin/', admin.site.urls),     path('',include(router.urls)) ]</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96969.htm">vue动态加载静态资源</a></p>
+                                        <p>下一个：<a href="/news/article-97744.htm">你们知道比较出名的光纤熔接机牌子有哪些(光纤熔接机品牌排名)</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-72805.htm" title="宠物领养网免费平台有哪些公司可以注册（宠物领养机构在哪里）">宠物领养网免费平台有哪些公司可以注册（宠物领养机构在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-96968.htm" title="Android开发基础——Fragment">Android开发基础——Fragment</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-clash-node-daily-updates.htm" title="3月11日|SSR/V2ray/Clash/Shadowrocket每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅">3月11日|SSR/V2ray/Clash/Shadowrocket每天更新20.2M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-node-share-links.htm" title="4月6日|SSR/Shadowrocket/Clash/V2ray每天更新18.3M/S免费节点订阅链接，Clash便宜机场订阅">4月6日|SSR/Shadowrocket/Clash/V2ray每天更新18.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-87366.htm" title="可以自己给宠物打疫苗吗（可以自己给宠物***吗）">可以自己给宠物打疫苗吗（可以自己给宠物***吗）</a></li>
+                        <li class="py-2"><a href="/news/article-68217.htm" title="Springboot过滤器和拦截器实现">Springboot过滤器和拦截器实现</a></li>
+                        <li class="py-2"><a href="/news/article-79580.htm" title="删除PicGo的右键菜单的方法">删除PicGo的右键菜单的方法</a></li>
+                        <li class="py-2"><a href="/news/article-69526.htm" title="天津宠物救助站流浪猫（天津流浪猫救助站联系）">天津宠物救助站流浪猫（天津流浪猫救助站联系）</a></li>
+                        <li class="py-2"><a href="/news/article-77519.htm" title="狗粮批发代理加盟（狗粮批发代理加盟费多少）">狗粮批发代理加盟（狗粮批发代理加盟费多少）</a></li>
+                        <li class="py-2"><a href="/news/article-96969.htm" title="vue动态加载静态资源">vue动态加载静态资源</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

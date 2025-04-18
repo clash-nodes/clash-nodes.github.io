@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-98440.htm" />
+    <title>Flutter实现心动的动画特效_Android</title>
+        <meta name="description" content="目录  实现动画  混入 SingleTickerProviderStateMixin 创建动画  抽离成小组件  完整代码    为了追求更好的用户体验，有时候我们需要一个类似心跳一样跳动着的控件来" />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-98440.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="Flutter实现心动的动画特效_Android" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/a6829564010808b8e6f7ef96819d91d7.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:37:48" />
+    <meta property="og:updated_time" content="2025-04-18T09:37:48" />
+        <meta property="og:description" content="目录  实现动画  混入 SingleTickerProviderStateMixin 创建动画  抽离成小组件  完整代码    为了追求更好的用户体验，有时候我们需要一个类似心跳一样跳动着的控件来" />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Flutter实现心动的动画特效_Android">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Flutter实现心动的动画特效_Android</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">实现动画</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">混入 SingleTickerProviderStateMixin</a></li> <li><a href="#_lab2_0_1" rel="nofollow">创建动画</a></li> </ul> <li><a href="#_label1" rel="nofollow">抽离成小组件</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label2" rel="nofollow">完整代码</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p>为了追求更好的用户体验，有时候我们需要一个类似心跳一样跳动着的控件来吸引用户的注意力，这是一个小小的优化需求，但是在 Flutter 里动画两件套就像裹脚布一样臭长，所以需要像封装一个 AnimatedWidget，解放生产力。</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>实现动画</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>混入 SingleTickerProviderStateMixin</h3> <p>当创建一个 AnimationController 时，需要传递一个<code>vsync</code>参数，存在<code>vsync</code>时会防止动画的UI不在当前屏幕时消耗不必要的资源。 通过混入 SingleTickerProviderStateMixin 。</p> <div class="ay1code"> <pre class="brush:java;">class _MyHomePageState extends State&lt;MyHomePage&gt;  with SingleTickerProviderStateMixin{}</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>创建动画</h3> <p>创建一个间隔将近一秒钟的动画控制器：</p> <div class="ay1code"> <pre class="brush:java;">  late final AnimationController animController;      @override    void initState() {      super.initState();      animController = AnimationController(        duration: const Duration(milliseconds: 800),        vsync: this,      );      }</pre> </div> <p>心跳动画是从小变大，再变小，所以需要一个值大小变化的动画：</p> <div class="ay1code"> <pre class="brush:java;">  late final Animation&lt;double&gt; animation;      @override    void initState() {      super.initState();      animController = AnimationController(        duration: const Duration(milliseconds: 800),        vsync: this,      );       animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      );      }</pre> </div> <p>心跳是不间断的，所以需要监听动画完成时恢复动画，再继续开始动画：</p> <div class="ay1code"> <pre class="brush:java;">    animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      ).animate(animController)        ..addListener(() {          setState(() {});        })        ..addStatusListener((status) {          if (status == AnimationStatus.completed) {            animController.reverse();          } else if (status == AnimationStatus.dismissed) {            animController.forward();          }        });</pre> </div> <p>使用缩放控件：</p> <div class="ay1code"> <pre class="brush:java;">Transform.scale(                  scale: animation.value,                  child: const FlutterLogo(                    size: 80,                  ),                ),</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/9716bcbd9721fdd223eec8edba916681.jpg"></p> <p>为了跳动效果，突出跳动动画，把缩回去的时间改短：</p> <div class="ay1code"> <pre class="brush:java;">   animController = AnimationController(        reverseDuration: const Duration(milliseconds: 700),        duration: const Duration(milliseconds: 800),        vsync: this,      );</pre> </div> <p>最后别忘了释放资源：</p> <div class="ay1code"> <pre class="brush:java;">  @override    void dispose() {      animController.dispose();      super.dispose();    }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>抽离成小组件</h2> <p>为了每次用到类似的动画只需引入即可，需要分离动画和显示的组件。新建一个<code>BounceWidget</code>，包含动画，然后可以传入UI组件：</p> <div class="ay1code"> <pre class="brush:java;">class BounceWidget extends StatefulWidget {    final Widget child;      const BounceWidget({      Key? key,      required this.child,    }) : super(key: key);      @override    State&lt;BounceWidget&gt; createState() =&gt; _BounceWidgetState();  }</pre> </div> <p>继续实现动画：</p> <div class="ay1code"> <pre class="brush:java;">class _BounceWidgetState extends State&lt;BounceWidget&gt;      with SingleTickerProviderStateMixin {    late Animation&lt;double&gt; animation;    late AnimationController animController;      @override    void initState() {      super.initState();      animController = AnimationController(        reverseDuration: const Duration(milliseconds: 700),        duration: const Duration(milliseconds: 800),        vsync: this,      );      animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      ).animate(animController)        ..addListener(() {          setState(() {});        })        ..addStatusListener((status) {          if (status == AnimationStatus.completed) {            animController.reverse();          } else if (status == AnimationStatus.dismissed) {            animController.forward();          }        });      animController.forward();    }      @override    Widget build(BuildContext context) {      return Transform.scale(        scale: animation.value,        child: widget.child,      );    }      @override    void dispose() {      animController.dispose();      super.dispose();    }  }</pre> </div> <p>去引入动画：</p> <div class="ay1code"> <pre class="brush:java;">  Center(                child: BounceWidget(                  child: FlutterLogo(                    size: 80,                  ),                ),</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>完整代码</h2> <div class="ay1code"> <pre class="brush:java;">void main() {    runApp(const MyApp());  }    class MyApp extends StatelessWidget {    const MyApp({Key? key}) : super(key: key);      @override    Widget build(BuildContext context) {      return MaterialApp(        title: 'Flutter Demo',        theme: ThemeData(          primarySwatch: Colors.blue,        ),        home: const MyHomePage(title: 'Flutter Demo Home Page'),      );    }  }    class MyHomePage extends StatefulWidget {    const MyHomePage({Key? key, required this.title}) : super(key: key);      final String title;      @override    State&lt;MyHomePage&gt; createState() =&gt; _MyHomePageState();  }    class _MyHomePageState extends State&lt;MyHomePage&gt; {    @override    Widget build(BuildContext context) {      return Scaffold(        appBar: AppBar(          title: Text(widget.title),        ),        body: Padding(          padding: const EdgeInsets.only(top: 80, left: 16),          child: Column(            crossAxisAlignment: CrossAxisAlignment.start,            children: const &lt;Widget&gt;[              Text(                "心动的",                style: TextStyle(                  fontSize: 28,                  color: Colors.black,                ),              ),              Text(                "感觉",                style: TextStyle(                  fontSize: 48,                  color: Colors.black,                ),              ),              Center(                child: BounceWidget(                  child: FlutterLogo(                    size: 80,                  ),                ),              ),            ],          ),        ),      );    }  }  </pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98439.htm">深入浅出Vue3 Composition API</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-93894.htm" title="vue-cli3.0 吃过的坑">vue-cli3.0 吃过的坑</a></li>
+                        <li class="py-2"><a href="/news/article-87366.htm" title="可以自己给宠物打疫苗吗（可以自己给宠物***吗）">可以自己给宠物打疫苗吗（可以自己给宠物***吗）</a></li>
+                        <li class="py-2"><a href="/news/article-88795.htm" title="开个宠物店要投资多少钱（开个宠物店得多少钱）">开个宠物店要投资多少钱（开个宠物店得多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-71483.htm" title="动物防疫工作方针以及实施原因（动物防疫工作的方针）">动物防疫工作方针以及实施原因（动物防疫工作的方针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-v2ray-subscribe.htm" title="4月10日|Clash/SSR/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">4月10日|Clash/SSR/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-shadowrocket-node.htm" title="3月17日|SSR/Shadowrocket/V2ray/Clash每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">3月17日|SSR/Shadowrocket/V2ray/Clash每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-free-v2ray-subscribe.htm" title="4月7日|Shadowrocket/Clash/SSR/V2ray每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅">4月7日|Shadowrocket/Clash/SSR/V2ray每天更新18.9M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-85933.htm" title="Java中equals和==的区别，equals和hashcode的区别">Java中equals和==的区别，equals和hashcode的区别</a></li>
+                        <li class="py-2"><a href="/news/article-66950.htm" title="动物疫站给猫打疫苗收钱吗多少钱一针（动物防疫站给猫打疫苗贵吗）">动物疫站给猫打疫苗收钱吗多少钱一针（动物防疫站给猫打疫苗贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-65673.htm" title="和田宠物市场电话多少（和田卖宠物的地方）">和田宠物市场电话多少（和田卖宠物的地方）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
