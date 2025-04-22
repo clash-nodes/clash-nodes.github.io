@@ -1,4 +1,4 @@
-# 4月18日|Clash/V2ray/SSR/Shadowrocket每天更新18.8M/S免费节点订阅链接，Clash便宜机场订阅  更新时间 2025-04-18 09:57:09
+# 4月22日|V2ray/Clash/Shadowrocket/SSR每天更新21M/S免费节点订阅链接，Clash便宜机场订阅  更新时间 2025-04-22 08:44:45
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clash-nodes.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/04/0-20250418.yaml
-- https://clash-nodes.github.io/uploads/2025/04/1-20250418.yaml
-- https://clash-nodes.github.io/uploads/2025/04/2-20250418.yaml
-- https://clash-nodes.github.io/uploads/2025/04/3-20250418.yaml
-- https://clash-nodes.github.io/uploads/2025/04/4-20250418.yaml
+- https://clash-nodes.github.io/uploads/2025/04/0-20250422.yaml
+- https://clash-nodes.github.io/uploads/2025/04/1-20250422.yaml
+- https://clash-nodes.github.io/uploads/2025/04/2-20250422.yaml
+- https://clash-nodes.github.io/uploads/2025/04/3-20250422.yaml
+- https://clash-nodes.github.io/uploads/2025/04/4-20250422.yaml
 
 ### V2ray订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/04/0-20250418.txt
-- https://clash-nodes.github.io/uploads/2025/04/1-20250418.txt
-- https://clash-nodes.github.io/uploads/2025/04/2-20250418.txt
-- https://clash-nodes.github.io/uploads/2025/04/3-20250418.txt
-- https://clash-nodes.github.io/uploads/2025/04/4-20250418.txt
+- https://clash-nodes.github.io/uploads/2025/04/0-20250422.txt
+- https://clash-nodes.github.io/uploads/2025/04/1-20250422.txt
+- https://clash-nodes.github.io/uploads/2025/04/2-20250422.txt
+- https://clash-nodes.github.io/uploads/2025/04/3-20250422.txt
+- https://clash-nodes.github.io/uploads/2025/04/4-20250422.txt
 
 ### Sing-box订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/04/20250418.json
+- https://clash-nodes.github.io/uploads/2025/04/20250422.json
 
 ## 更多clash节点订阅 ：
 
