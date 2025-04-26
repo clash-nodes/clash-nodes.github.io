@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clash-nodes.github.io/news/article-102931.htm" />
+    <title>检查pytorch是否安装成功、查看torch和cuda的版本</title>
+        <meta name="description" content="在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证： conda list  可以看到pytorch版本和cuda的版本分别是1." />
+        <meta charset="utf-8">
+    <link rel="icon" href="/assets/website/img/clash_nodes/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashNodes分享订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clash-nodes.github.io/news/article-102931.htm" />
+    <meta property="og:site_name" content="ClashNodes分享订阅站" />
+    <meta property="og:title" content="检查pytorch是否安装成功、查看torch和cuda的版本" />
+    <meta property="og:image" content="https://clash-nodes.github.io/uploads/20240414/a6829564010808b8e6f7ef96819d91d7.webp" />
+        <meta property="og:release_date" content="2025-04-24T09:16:33" />
+    <meta property="og:updated_time" content="2025-04-24T09:16:33" />
+        <meta property="og:description" content="在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证： conda list  可以看到pytorch版本和cuda的版本分别是1." />
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="检查pytorch是否安装成功、查看torch和cuda的版本">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW6LB7RVY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW6LB7RVY3');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/assets/website/js/frontend/clash_nodes/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/js/frontend/clash_nodes/plugins/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about.css">
+    <link rel="stylesheet" type="text/css" href="/assets/website/css/clash_nodes/about_responsive.css">
+</head>
+
+<body data-page="detail">
+    <div class="super_container">
+                <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo">Clash<span>Nodes</span></div>
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                                        <li><a href="/">首页</a></li>
+                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                    </ul>
+                            </nav>
+                            <div class="social header_social">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Menu -->
+        <div class="menu">
+            <div class="menu_content d-flex flex-column align-items-center justify-content-center">
+                <ul class="menu_nav_list text-center">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">关于</a></li>
+                    <li><a href="#">联系</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Home -->
+        <div class="home">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/about.jpg" data-speed="0.8"></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">检查pytorch是否安装成功、查看torch和cuda的版本</div>
+                                <div class="breadcrumbs">
+                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                        <li><a href="/">首页</a></li>
+                                        <li><a href="/news/">新闻资讯</a></li>
+                                        <li>正文</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div class="classes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row row-eq-height">
+                            <div class="col-md-12">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>在安装完成pytorch和cudatoolkit之后，需要检查一下是否安装成功，可以直接查看当前环境下安装的所有包来验证：</p> <pre><code class="prism language-shell">conda list </code></pre> <p>可以看到pytorch版本和cuda的版本分别是1.10.1和11.3.1<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/7173793e89b0a5834fa4c694e448e79f.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/161cfa3baf3fb1467faa9ec2e658f1b8.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"></p> </h1> <p>也可以在python代码中进行验证和查看</p> <pre><code class="prism language-python"><span class="token keyword">import</span> torch <span class="token comment"># 如果pytorch安装成功即可导入</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 查看CUDA是否可用</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>device_count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 查看可用的CUDA数量</span> <span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>version<span class="token punctuation">.</span>cuda<span class="token punctuation">)</span> <span class="token comment"># 查看CUDA的版本号</span> </code></pre> <p>在命令行中的python编译器中结果如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/234c95d49d76a76f09675b954a3e80d2.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"></p> </h1> <p>还有另外一种方式查看CUDA的版本，就是在命令行中输入如下命令：</p> <pre><code class="prism language-shell">nvcc -V nvcc --version </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221223/a26d6afcd23ea9c932f672c47b404fcf.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 或者使用nvidia-smi，也可以查看CUDA的版本<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/a5bec2a8f8ce8ae475dfa70943db38a5.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 但是也可以发现，这两个命令查看的版本是不同的，原因可以去这篇文章查看：https://blog.csdn.net/sophicchen/article/details/120782209</p> <p>nvcc查看的就是在电脑中配置的环境变量所指向的CUDA驱动<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221223/816a8b7e04aa273bad2514afe7a607a1.jpg" alt="检查pytorch是否安装成功、查看torch和cuda的版本"><br /> 这里不深究原理，有兴趣的可以去上边的文章学习一下。<br /> 但为了保证获取正确的虚拟环境中的CUDA版本，直接使用上面的方式1和方式2即可。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-102125.htm">被猫轻微咬伤一个小孔没有流血（被猫轻微咬伤一个小孔没有流血怎么办）</a></p>
+                                        <p>下一个：<a href="/news/article-102932.htm">宠物粮食品牌前十排名有哪些呢（宠物粮食品牌前十排名有哪些呢图片大全）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-subscribe-node.htm" title="4月1日|V2ray/SSR/Shadowrocket/Clash每天更新18.7M/S免费节点订阅链接，Clash便宜机场订阅">4月1日|V2ray/SSR/Shadowrocket/Clash每天更新18.7M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-clash.htm" title="3月4日|V2ray/SSR/Shadowrocket/Clash每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅">3月4日|V2ray/SSR/Shadowrocket/Clash每天更新22.6M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-v2ray-subscribe.htm" title="4月10日|Clash/SSR/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">4月10日|Clash/SSR/Shadowrocket/V2ray每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-71483.htm" title="动物防疫工作方针以及实施原因（动物防疫工作的方针）">动物防疫工作方针以及实施原因（动物防疫工作的方针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-15-free-v2ray.htm" title="4月15日|Shadowrocket/V2ray/SSR/Clash每天更新21.3M/S免费节点订阅链接，Clash便宜机场订阅">4月15日|Shadowrocket/V2ray/SSR/Clash每天更新21.3M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-101351.htm" title="小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）">小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe-links.htm" title="3月2日|V2ray/Clash/Shadowrocket/SSR每天更新20M/S免费节点订阅链接，Clash便宜机场订阅">3月2日|V2ray/Clash/Shadowrocket/SSR每天更新20M/S免费节点订阅链接，Clash便宜机场订阅</a></li>
+                        <li class="py-2"><a href="/news/article-83066.htm" title="pyecharts绘制桑基图实现节点颜色自定义">pyecharts绘制桑基图实现节点颜色自定义</a></li>
+                        <li class="py-2"><a href="/news/article-72806.htm" title="成年猫打几针疫苗就够了（成年猫打疫苗一共打几针）">成年猫打几针疫苗就够了（成年猫打疫苗一共打几针）</a></li>
+                        <li class="py-2"><a href="/news/article-74149.htm" title="Python 路径处理(os.path模块)">Python 路径处理(os.path模块)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Footer -->
+        <footer class="footer">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-href="/assets/website/img/clash_nodes/footer.jpg" data-speed="0.8"></div>
+            <div class="footer_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer_content text-center d-flex flex-column align-items-center justify-content-center">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <p>
+                                ClashNodes分享订阅站 版权所有
+                                <br />
+                                Powered by WordPress
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/assets/website/js/frontend/clash_nodes/jquery-3.2.1.min.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/popper.js"></script>
+    <script src="/assets/website/css/clash_nodes/bootstrap-4.1.2/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/easing/easing.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/assets/website/js/frontend/clash_nodes/about.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
