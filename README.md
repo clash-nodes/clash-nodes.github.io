@@ -1,4 +1,4 @@
-# 12月5日|Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点每天更新21.9M/S免费节点订阅链接，Clash便宜机场订阅  更新时间 2025-12-05 11:22:47
+# 12月13日|Clash节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点每天更新21.6M/S免费节点订阅链接，Clash便宜机场订阅  更新时间 2025-12-13 09:42:34
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clash-nodes.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/12/0-20251205.yaml
-- https://clash-nodes.github.io/uploads/2025/12/1-20251205.yaml
-- https://clash-nodes.github.io/uploads/2025/12/2-20251205.yaml
-- https://clash-nodes.github.io/uploads/2025/12/3-20251205.yaml
-- https://clash-nodes.github.io/uploads/2025/12/4-20251205.yaml
+- https://clash-nodes.github.io/uploads/2025/12/0-20251213.yaml
+- https://clash-nodes.github.io/uploads/2025/12/1-20251213.yaml
+- https://clash-nodes.github.io/uploads/2025/12/2-20251213.yaml
+- https://clash-nodes.github.io/uploads/2025/12/3-20251213.yaml
+- https://clash-nodes.github.io/uploads/2025/12/4-20251213.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/12/0-20251205.txt
-- https://clash-nodes.github.io/uploads/2025/12/1-20251205.txt
-- https://clash-nodes.github.io/uploads/2025/12/2-20251205.txt
-- https://clash-nodes.github.io/uploads/2025/12/3-20251205.txt
-- https://clash-nodes.github.io/uploads/2025/12/4-20251205.txt
+- https://clash-nodes.github.io/uploads/2025/12/0-20251213.txt
+- https://clash-nodes.github.io/uploads/2025/12/1-20251213.txt
+- https://clash-nodes.github.io/uploads/2025/12/2-20251213.txt
+- https://clash-nodes.github.io/uploads/2025/12/3-20251213.txt
+- https://clash-nodes.github.io/uploads/2025/12/4-20251213.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clash-nodes.github.io/uploads/2025/12/20251205.json
+- https://clash-nodes.github.io/uploads/2025/12/20251213.json
 
 ## 更多Clash节点订阅 ：
 
