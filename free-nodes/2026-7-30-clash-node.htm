@@ -338,6 +338,31 @@ UDP提供更低的延迟和更快的数据传输，减少游戏中的卡顿和�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 节点订阅更新不成功怎么办？</h5></div>
+    <div class="panel-body">
+        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的规则订阅更新频率如何设置？</h5></div>
+    <div class="panel-body">
+        Clash 支持设置订阅规则的更新频率，例如每小时或每天。定期更新可保证节点和规则最新，减少手动维护，提高访问速度和分流效率，同时保持网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 节点延迟排序如何提升访问体验？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 支持按端口和协议分流吗？</h5></div>
+    <div class="panel-body">
+        支持。QuantumultX 可以按 TCP、UDP、端口和应用协议分流流量，结合策略组使用，确保游戏、视频和广告屏蔽走最优节点，提高访问速度和网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在路由器上使用 PassWall2 为不同设备设置不同策略？</h5></div>
+    <div class="panel-body">
+        在 PassWall2 的规则或策略组中为固定 IP 或 MAC 地址创建特定路由条目，将其映射到不同的策略组（如工作机走直连、游戏机走低延迟节点），并保存规则后重载以生效。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 ws+tls 传输模式有什么优点？</h5></div>
     <div class="panel-body">
         ws+tls 模式利用 WebSocket 伪装成普通 HTTPS 流量，使得防火墙难以区分代理与正常访问。该模式兼容性强，适合部署在支持 Nginx 或 Caddy 的 Web 服务器上。<hr />    </div>
@@ -353,39 +378,14 @@ UDP提供更低的延迟和更快的数据传输，减少游戏中的卡顿和�
         WinXray 会定期检测节点延迟和丢包率，并结合策略组自动选择最佳节点。保证网页浏览、视频播放和游戏流量走低延迟节点，提高访问速度和网络稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 节点延迟排序如何提升访问体验？</h5></div>
-    <div class="panel-body">
-        Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 节点订阅更新不成功怎么办？</h5></div>
-    <div class="panel-body">
-        检查订阅 URL 是否有效并确保网络通畅。可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组使用，确保稳定科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式适合高并发环境吗？</h5></div>
     <div class="panel-body">
         适合。XTLS 去除冗余加密，提高 CPU 使用效率，降低延迟。结合策略组和多出口节点，可在高并发或多连接场景下保持稳定、高速的网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的规则订阅更新频率如何设置？</h5></div>
-    <div class="panel-body">
-        Clash 支持设置订阅规则的更新频率，例如每小时或每天。定期更新可保证节点和规则最新，减少手动维护，提高访问速度和分流效率，同时保持网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在路由器上使用 PassWall2 为不同设备设置不同策略？</h5></div>
-    <div class="panel-body">
-        在 PassWall2 的规则或策略组中为固定 IP 或 MAC 地址创建特定路由条目，将其映射到不同的策略组（如工作机走直连、游戏机走低延迟节点），并保存规则后重载以生效。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>当 V2Ray 报错 inbound 没有监听，可能是哪些配置问题？</h5></div>
     <div class="panel-body">
-        检查 inbound 配置是否包含正确的 port、protocol 与 listen 字段；确认没有端口冲突或权限问题（非 root 绑定 1024 以下端口会失败）；查看日志中具体错误信息并根据提示修复配置。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 支持按端口和协议分流吗？</h5></div>
-    <div class="panel-body">
-        支持。QuantumultX 可以按 TCP、UDP、端口和应用协议分流流量，结合策略组使用，确保游戏、视频和广告屏蔽走最优节点，提高访问速度和网络稳定性。    </div>
+        检查 inbound 配置是否包含正确的 port、protocol 与 listen 字段；确认没有端口冲突或权限问题（非 root 绑定 1024 以下端口会失败）；查看日志中具体错误信息并根据提示修复配置。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -435,16 +435,16 @@ UDP提供更低的延迟和更快的数据传输，减少游戏中的卡顿和�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-4-clash-node-daily-updates.htm" title="7月4日|Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点每天更新23M/S免费节点订阅链接，Clash便宜机场订阅">7月4日|Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点每天更新23M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-8-clash-node.htm" title="6月8日|Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点每天更新18.3M/S免费节点订阅链接，Clash便宜机场订阅">6月8日|Singbox节点/Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点每天更新18.3M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-2-free-v2ray.htm" title="7月2日|Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新22M/S免费节点订阅链接，Clash便宜机场订阅">7月2日|Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新22M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-26-free-ssr-subscribe.htm" title="6月26日|Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点/Singbox节点每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅">6月26日|Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Trojan节点/Singbox节点每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-27-free-node-subscribe-links.htm" title="7月27日|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅">7月27日|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点每天更新22.1M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-7-6-clash-v2ray-ss-ssr.htm" title="7月6日|V2ray节点/SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点每天更新20.1M/S免费节点订阅链接，Clash便宜机场订阅">7月6日|V2ray节点/SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点每天更新20.1M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-free-v2ray.htm" title="7月24日|Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新19.2M/S免费节点订阅链接，Clash便宜机场订阅">7月24日|Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点每天更新19.2M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-11-free-high-speed-nodes.htm" title="6月11日|Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅">6月11日|Singbox节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Trojan节点每天更新18.6M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-21-free-ssr-node.htm" title="6月21日|Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅">6月21日|Singbox节点/Trojan节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点每天更新21.8M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-node-share.htm" title="7月20日|V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅">7月20日|V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点每天更新21.4M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-9-free-subscribe-node.htm" title="6月9日|SSR节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅">6月9日|SSR节点/V2ray节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点每天更新20.4M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-clash-node.htm" title="7月30日|SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点每天更新19.5M/S免费节点订阅链接，Clash便宜机场订阅">7月30日|SSR节点/Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/Clash节点每天更新19.5M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-23-free-node-subscribe-links.htm" title="7月23日|Trojan节点/SSR节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅">7月23日|Trojan节点/SSR节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点每天更新18.2M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-14-free-ssr-subscribe.htm" title="7月14日|Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点每天更新18.8M/S免费节点订阅链接，Clash便宜机场订阅">7月14日|Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点每天更新18.8M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-3-free-v2ray-subscribe.htm" title="7月3日|Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点每天更新18.8M/S免费节点订阅链接，Clash便宜机场订阅">7月3日|Singbox节点/Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Clash节点每天更新18.8M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-30-free-v2ray.htm" title="6月30日|Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点每天更新18M/S免费节点订阅链接，Clash便宜机场订阅">6月30日|Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/SSR节点/V2ray节点每天更新18M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-12-free-shadowrocket-node.htm" title="7月12日|Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点每天更新23M/S免费节点订阅链接，Clash便宜机场订阅">7月12日|Singbox节点/V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Clash节点每天更新23M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-1-node-share-links.htm" title="7月1日|Singbox节点/Clash节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅">7月1日|Singbox节点/Clash节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点每天更新19.3M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-25-free-ssr-node.htm" title="6月25日|Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅">6月25日|Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点每天更新18.5M/S免费节点订阅链接，Clash便宜机场订阅</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -455,6 +455,9 @@ UDP提供更低的延迟和更快的数据传输，减少游戏中的卡顿和�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+            </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">31</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
